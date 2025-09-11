@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-PT" data-theme="flash-orange">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>High Level Marketing — Drone + Anúncios</title>
+  <meta name="description" content="Vídeo com drone + anúncios (Google e Instagram/Facebook) para gerar contactos. Pacotes Start, Prime e Signature.">
+  <style>
+    :root{
+      --bg:#0b0b10; --text:#e6e7ec; --muted:#9aa1b2; --card:#141625; --accent:#ff6a00; --accent-2:#ffd1b3; --btn:#ff6a00; --btn-text:#0b0b10;
+      --border:rgba(255,255,255,.10);
+    }
+    [data-theme="flash-orange"]{ --accent:#ff6a00; --accent-2:#ffd1b3; --bg:#0b0b10; --card:#141625; --btn:#ff6a00; --btn-text:#0b0b10; }
+    [data-theme="neon-teal"]  { --accent:#00e5ff; --accent-2:#b7f7ff; --bg:#071214; --card:#0e1c21; --btn:#00e5ff; --btn-text:#001317; }
+    [data-theme="crimson-gradient"]{ --accent:#ff1f5a; --accent-2:#ff9db6; --bg:linear-gradient(135deg,#190019 0%, #0a0618 60%); --card:#1a1023; --btn:#ff1f5a; --btn-text:#17000f; }
+    [data-theme="royal-violet"]{ --accent:#6a00ff; --accent-2:#d5c4ff; --bg:#0c0616; --card:#140b24; --btn:#6a00ff; --btn-text:#11051e; }
+    html,body{margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .brand img{width:36px;height:36px;border-radius:8px;object-fit:cover}
+    .theme-switch{display:flex;gap:8px;flex-wrap:wrap}
+    .theme-switch button{border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 10px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
+    .theme-switch button.active{background:var(--accent);color:var(--btn-text);border-color:transparent}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:24px;border-radius:20px;background:linear-gradient(135deg,var(--accent),transparent 60%);border:1px solid var(--border)}
+    .hero h1{margin:0 0 8px;font-size:34px;line-height:1.1}
+    .hero p{margin:0 0 14px}
+    .pill{display:inline-block;background:rgba(255,255,255,.14);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
+    .cta{display:inline-block;background:var(--btn);color:var(--btn-text);text-decoration:none;padding:12px 18px;border-radius:12px;font-weight:800}
+    .nav{display:flex;gap:10px;margin:18px 0 6px}
+    .nav a{color:var(--text);text-decoration:none;padding:8px 12px;border-radius:10px;border:1px solid var(--border)}
+    .nav a.active{background:var(--accent);color:var(--btn-text);border-color:transparent}
+    section{margin:26px 0;background:var(--card);padding:20px;border-radius:16px;border:1px solid var(--border)}
+    h2{margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .plan{border:1px solid var(--border);border-radius:14px;padding:14px}
+    .plan h3{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 6px}
+    .price{font-size:14px;font-weight:900;color:var(--accent-2)}
+    ul{margin:10px 0 0;padding-left:18px}
+    li{margin:6px 0}
+
+    /* Slider + Instagram preview */
+    .slider-wrap{position:relative}
+    .nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:var(--accent);color:var(--btn-text);border:none;font-size:18px;font-weight:900;line-height:1;border-radius:10px;padding:10px 12px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+    .nav-btn.prev{left:-6px}
+    .nav-btn.next{right:-6px}
+    .portfolio-slider{--gap:12px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2*var(--gap))/3);gap:var(--gap);overflow-x:auto;padding:6px;scroll-snap-type:x mandatory;scrollbar-color:var(--accent) transparent}
+    .portfolio-slider::-webkit-scrollbar{height:8px}
+    .portfolio-slider::-webkit-scrollbar-thumb{background:var(--accent);border-radius:999px}
+    .slide{scroll-snap-align:start;display:flex;align-items:stretch}
+    .ig-embed{display:flex}
+    .ig-embed blockquote{margin:0 !important}
+    @media (max-width:900px){.portfolio-slider{grid-auto-columns:calc((100% - var(--gap))/2)}}
+    @media (max-width:600px){.portfolio-slider{grid-auto-columns:100%}}
+
+    /* Contact links with higher contrast */
+    .contact a{color:var(--accent) !important;text-decoration:underline;font-weight:700}
+    .contact a:hover{opacity:.9}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <img src="https://raw.githubusercontent.com/ypeyoung/hlm-assets/main/hlm-logo.png.jpeg" alt="High Level Marketing"/>
+        <div>High Level Marketing</div>
+      </div>
+      <div class="theme-switch" aria-label="Mudar tema">
+        <button data-set-theme="flash-orange" class="active">Flash Orange</button>
+        <button data-set-theme="neon-teal">Neon Teal</button>
+        <button data-set-theme="crimson-gradient">Crimson</button>
+        <button data-set-theme="royal-violet">Royal Violet</button>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div>
+        <span class="pill">Drone + Anúncios</span>
+        <h1>Vídeos que chamam atenção e anúncios que geram contactos</h1>
+        <p class="muted">Filmamos com drone e gerimos anúncios no Google e Instagram/Facebook — simples e focado em resultados.</p>
+        <a class="cta" href="https://wa.me/351934071660" target="_blank" rel="noopener">Falar com a nossa equipa</a>
+      </div>
+      <div></div>
+    </div>
+
+    <nav class="nav">
+      <a href="#pacotes" class="active">Pacotes</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#contactos">Contactos</a>
+    </nav>
+
+    <section id="pacotes">
+      <h2>Pacotes</h2>
+      <div class="grid">
+        <div class="plan">
+          <h3>Start <span class="price">€250</span></h3>
+          <ul>
+            <li>Drone 4K + 12–16 fotos</li>
+            <li>1 vídeo 45–60s + 1 vertical</li>
+            <li>Configuramos <strong>1 canal de anúncios</strong> (Google <em>ou</em> Meta)</li>
+            <li><strong>Sem página do site</strong> neste plano</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <h3>Prime <span class="price">€550</span></h3>
+          <ul>
+            <li><strong>Página simples do site</strong> para receber contactos (formulário + WhatsApp)</li>
+            <li>Medição básica: visitas e pedidos de contacto</li>
+            <li>+ Tour 360° e 3 vídeos/mês</li>
+            <li>Gestão de anúncios Google <strong>e</strong> Meta</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <h3>Signature <span class="price">€850</span></h3>
+          <ul>
+            <li><strong>Página do site</strong> + medição avançada para otimizar</li>
+            <li>Pré‑produção e captação interior/exterior (inclui drone)</li>
+            <li>Pack social (cortes verticais) + painel em tempo real</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <h2>Portfólio</h2>
+      <p class="muted">Uma única linha com slide + prévia do Instagram. Use as setas ou deslize no telemóvel.</p>
+      <div class="slider-wrap">
+        <button class="nav-btn prev" aria-label="Anterior">&#8249;</button>
+        <div class="portfolio-slider" id="slider">
+          <div class="slide ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DN76RNPjpz9/?igsh=MTQxdG5yaXBzMmpodQ==" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
+          </div>
+          <div class="slide ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C7xwUu1s81S/?igsh=cDJoN2dveWVtejBk" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
+          </div>
+          <div class="slide ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C_1C3V_v0t9/?igsh=MXhkbTY0OHB1Y20wbA==" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
+          </div>
+          <div class="slide ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DJM8KryPIRE/?igsh=MWt0ZWFxaTlycmZp" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
+          </div>
+          <div class="slide ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKANrZOPSbC/?igsh=MWFneWg0cWR6dnh1eA%3D%3D" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
+          </div>
+        </div>
+        <button class="nav-btn next" aria-label="Próximo">&#8250;</button>
+      </div>
+      <script async src="https://www.instagram.com/embed.js"></script>
+    </section>
+
+    <section id="como-funciona">
+      <h2>Como funciona</h2>
+      <div class="grid">
+        <div class="plan"><h3>1) Captação</h3><ul><li>Visitamos e filmamos (drone + interiores)</li><li>Melhores ângulos e cenas</li></ul></div>
+        <div class="plan"><h3>2) Edição</h3><ul><li>Vídeos prontos para redes</li><li>Página simples do site (quando incluído)</li></ul></div>
+        <div class="plan"><h3>3) Anúncios</h3><ul><li>Anúncios para quem já procura</li><li>Relatórios claros do que funcionou</li></ul></div>
+      </div>
+    </section>
+
+    <section id="contactos">
+      <h2>Contactos</h2>
+      <div class="contact">
+        <p><strong>Vinicius Oliveira</strong> · High Level Marketing<br>
+        <a href="tel:+351934071660">+351 934 071 660</a> · 
+        <a href="mailto:vinicius.highlevelmkt@gmail.com">vinicius.highlevelmkt@gmail.com</a> · 
+        <a href="https://www.instagram.com/mkthighlevel" target="_blank">Instagram</a> · 
+        <a href="https://www.linkedin.com/in/vinicius--oliveira" target="_blank">LinkedIn</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <span class="muted">© High Level Marketing</span>
+      <a class="cta" href="https://wa.me/351934071660" target="_blank" rel="noopener">Falar com a nossa equipa</a>
+    </footer>
+  </div>
+
+  <script>
+    const setTheme=(t)=>{document.documentElement.setAttribute('data-theme',t);
+      document.querySelectorAll('.theme-switch button').forEach(b=>b.classList.toggle('active',b.dataset.setTheme===t))};
+    document.querySelectorAll('.theme-switch button').forEach(btn=>btn.addEventListener('click',()=>setTheme(btn.dataset.setTheme)));
+
+    // Slider controls
+    const slider=document.getElementById('slider');
+    const step=()=>{const card=slider.querySelector('.slide'); if(!card) return 320; const s=getComputedStyle(slider); const gap=parseInt(s.getPropertyValue('--gap'))||12; return card.getBoundingClientRect().width + gap; };
+    document.querySelector('.nav-btn.prev')?.addEventListener('click',()=> slider.scrollBy({left:-step(),behavior:'smooth'}));
+    document.querySelector('.nav-btn.next')?.addEventListener('click',()=> slider.scrollBy({left: step(),behavior:'smooth'}));
+  </script>
+</body>
+</html>
