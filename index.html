@@ -535,14 +535,12 @@
   }
 }
 </style>
-
 <style>
 /* Garantir que qualquer ribbon/header estético antigo não apareça no mobile */
 @media (max-width: 768px){
   .hl-top-ribbon{ display:none !important; }
 }
 </style>
-
 <style>
 @media (max-width: 768px){
   .hero, .hero-compact-wrap{
@@ -571,7 +569,6 @@
   }
 }
 </style>
-
 <style>
 @media (max-width: 768px){
   nav:has(a[href*="pacot" i]),
@@ -583,7 +580,6 @@
   }
 }
 </style>
-
 <style>
 /* ===== Pacotes Slider ===== */
 .pkg-slider{ position: relative; overflow: hidden; margin-top: 8px; }
@@ -612,7 +608,6 @@
   .pkg-nav{ display:none; }
 }
 </style>
-
 <style>
 /* Shine sutil no CTA */
 @media (prefers-reduced-motion: no-preference){
@@ -634,6 +629,27 @@
     0% { left:-120%; }
     60% { left:120%; }
     100% { left:120%; }
+  }
+}
+</style>
+
+<style>
+@media (max-width: 768px){
+  /* remove qualquer elemento estético que crie "borrão" no topo */
+  .hl-top-ribbon, .hero.hero-stage::before { display: none !important; }
+  body, html, main, .page, .content, header { padding-top: 0 !important; margin-top: 0 !important; }
+  /* hero encostado e centralizado */
+  .hero, .hero-compact-wrap{ margin-top: 0 !important; }
+  .hero-compact-panel{ margin-top: 0 !important; }
+  /* título/chip sem margem extra */
+  .hero-compact-panel > :first-child{ margin-top: 0 !important; }
+  /* centralizar o chip "Drone + Anúncios" ou similares */
+  .hero-compact-panel [class*="badge" i],
+  .hero-compact-panel [class*="pill" i],
+  .hero-compact-panel [class*="tag" i]{
+    display: inline-block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 </style>
@@ -671,11 +687,7 @@
 </nav>
 <section id="pacotes">
 <h2 id="packages_title">Pacotes</h2>
-
 <div aria-label="Pacotes" class="pkg-slider" role="region"><div class="pkg-track"><div class="pkg-slide"><div class="grid">
-
-
-
 </div></div><div class="pkg-slide"><div class="plan">
 <h3>Start <span class="price"><s>€300</s> €250</span></h3>
 <ul id="start_ul">
@@ -702,7 +714,7 @@
 <li>Pack social (cortes verticais)</li>
 <li>Painel com resultados em tempo real</li>
 </ul>
-</div></div></div><div class="pkg-nav"><button aria-label="Anterior" class="pkg-prev" type="button"><svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div aria-label="Páginas Pacotes" class="pkg-dots" role="tablist"></div><button aria-label="Próximo" class="pkg-next" type="button"><svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div></section>
+</div></div></div><div class="pkg-nav"><button aria-label="Anterior" class="pkg-prev" type="button"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div aria-label="Páginas Pacotes" class="pkg-dots" role="tablist"></div><button aria-label="Próximo" class="pkg-next" type="button"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div></section>
 <section id="portfolio">
 <h2 id="portfolio_title">Portfólio</h2>
 <p class="muted" id="portfolio_blurb"><strong>Conteúdo que vende:</strong> vídeos curtos abrem com gancho, destacam localização e diferenciais e fecham com um CTA para WhatsApp.</p>
@@ -1487,6 +1499,77 @@
     var i = Math.round(track.scrollLeft / w);
     if(!isNaN(i) && i !== index){ index = i; updateDots(i); }
   });
+  window.addEventListener('resize', function(){ go(index); });
+})();
+</script>
+
+<script>
+(function(){
+  var slider = document.querySelector('.pkg-slider');
+  if(!slider) return;
+  var track = slider.querySelector('.pkg-track');
+  var slides = Array.from(slider.querySelectorAll('.pkg-slide'));
+  var dotsWrap = slider.querySelector('.pkg-dots');
+  var prev = slider.querySelector('.pkg-prev');
+  var next = slider.querySelector('.pkg-next');
+  var index = 0;
+
+  // Remove slides vazios (às vezes o primeiro vinha sem conteúdo)
+  slides.forEach(function(s){ if(!s.querySelector('*:not(script):not(style)')) s.remove(); });
+  slides = Array.from(slider.querySelectorAll('.pkg-slide'));
+
+  function updateDots(i){
+    var dots = dotsWrap.querySelectorAll('.pkg-dot');
+    dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
+  }
+  function go(i){
+    var total = slides.length;
+    if(total === 0) return;
+    // looping
+    if(i < 0) i = total - 1;
+    if(i >= total) i = 0;
+    index = i;
+    var x = slider.clientWidth * index;
+    track.scrollTo({left: x, behavior: 'smooth'});
+    updateDots(index);
+  }
+
+  // rebuild dots
+  if(dotsWrap){
+    dotsWrap.innerHTML = '';
+    slides.forEach(function(_, i){
+      var dot = document.createElement('button');
+      dot.className = 'pkg-dot';
+      dot.type = 'button';
+      dot.setAttribute('role','tab');
+      dot.setAttribute('aria-label','Ir para pacote ' + (i+1));
+      dot.addEventListener('click', function(){ go(i); });
+      dotsWrap.appendChild(dot);
+    });
+  }
+  updateDots(0);
+
+  if(prev) prev.addEventListener('click', function(){ go(index-1); });
+  if(next) next.addEventListener('click', function(){ go(index+1); });
+
+  // sincronizar pelo scroll (snap)
+  var ticking=false;
+  track.addEventListener('scroll', function(){
+    if(ticking) return;
+    window.requestAnimationFrame(function(){
+      var w = slider.clientWidth || 1;
+      var i = Math.round(track.scrollLeft / w);
+      var total = slides.length;
+      if(total){
+        if(i < 0) i = total - 1;
+        if(i >= total) i = total - 1; // evita index inválido
+        if(i !== index){ index = i; updateDots(index); }
+      }
+      ticking=false;
+    });
+    ticking=true;
+  });
+
   window.addEventListener('resize', function(){ go(index); });
 })();
 </script>
