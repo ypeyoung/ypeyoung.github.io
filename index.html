@@ -53,125 +53,220 @@
     .contact a{color:var(--accent) !important;text-decoration:underline;font-weight:700}
     .contact a:hover{opacity:.9}
   </style>
-
 <style>
-/* Reset-ish */
-.ml-hero, .ml-modal, .ml-lang-fab { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-
-/* Mobile-first: show our hero, hide heavy desktop elements */
-.ml-hero { display: none; }
-.ml-lang-fab { display: none; }
-
-@media (max-width: 768px){
-  /* Esconde header tradicional e logotipos no mobile */
-  header, .topbar, .navbar, .nav, .desktop-only, .brand, .site-logo, .header-logo { display: none !important; }
-
-  /* Hero minimalista */
-  .ml-hero{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 14px;
-    padding: 22px 16px 10px;
+@media (min-width: 992px){
+  nav:has(a[href*="pacot" i]), .anchors:has(a[href*="pacot" i]), .nav:has(a[href*="pacot" i]), .navbar:has(a[href*="pacot" i]){
+    display:flex !important; justify-content:center !important; align-items:center !important; text-align:center !important; gap:10px;
   }
-  .ml-company{
-    font-size: 22px;
-    font-weight: 800;
-    margin: 0;
-    letter-spacing: .2px;
-  }
-  .ml-cta{
-    display: inline-block;
-    padding: 12px 18px;
-    border-radius: 9999px;
-    text-decoration: none;
-    font-weight: 600;
-    border: 1px solid rgba(0,0,0,.12);
-    background: rgba(0,0,0,.06);
-    color: inherit;
-  }
-
-  /* FAB de idioma (discreto, sempre disponível) */
-  .ml-lang-fab{
-    display: inline-flex;
-    position: fixed;
-    right: 16px; bottom: 16px;
-    width: 44px; height: 44px;
-    align-items: center; justify-content: center;
-    border-radius: 12px;
-    border: 1px solid rgba(0,0,0,.12);
-    background: rgba(0,0,0,.06);
-    backdrop-filter: saturate(140%) blur(6px);
-    cursor: pointer;
-    z-index: 9999;
-  }
-
-  /* Modal de idiomas (bottom sheet) */
-  .ml-modal[hidden]{ display:none !important; }
-  .ml-modal{ position: fixed; inset: 0; z-index: 9998; }
-  .ml-modal__backdrop{
-    position: absolute; inset: 0; background: rgba(0,0,0,.45);
-  }
-  .ml-modal__panel{
-    position: absolute; left: 0; right:0; bottom: 0;
-    margin: 0 auto;
-    max-width: 560px;
-    background: var(--panel-bg, #fff);
-    color: var(--panel-fg, #111);
-    border-top-left-radius: 18px; border-top-right-radius: 18px;
-    padding: 16px;
-    box-shadow: 0 -10px 40px rgba(0,0,0,.25);
-  }
-  @media (prefers-color-scheme: dark){
-    .ml-modal__panel{ --panel-bg: #111; --panel-fg: #f6f6f6; border: 1px solid rgba(255,255,255,.12); }
-  }
-  .ml-modal__panel h2{ font-size: 18px; margin: 4px 0 6px; }
-  .ml-modal__subtitle{ margin: 0 0 8px; opacity: .8; font-size: 14px; }
-  .ml-lang-grid{
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 8px 0 10px;
-  }
-  .ml-lang-grid button{
-    padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,.14);
-    background: rgba(0,0,0,.06); color: inherit; font-weight: 600;
-  }
-  .ml-close{
-    display:block; width:100%; padding: 10px 14px;
-    border-radius: 10px; border: 1px solid rgba(0,0,0,.14);
-    background: rgba(0,0,0,.06); color: inherit; font-weight:600;
-  }
-
-  /* Conteúdo de vídeos centrado no mobile */
-  .videos, .reels, .portfolio, .gallery, .cards, .grid, section[id*="video" i]{
-    display: grid;
-    justify-items: center;
-    text-align: center;
-    gap: 14px;
-    padding-left: 10px; padding-right: 10px;
-  }
-  .videos > *, .reels > *, .portfolio > *, .gallery > *, .cards > *, .grid > *{
-    width: 100%;
-    max-width: 560px;
-  }
-  iframe, video{
-    display:block;
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16 / 9;
-    margin: 0 auto;
-    border-radius: 12px;
-  }
-
-  /* Títulos e subtítulos principais centralizados */
-  h1, h2, h3, .title, .heading, .lead, .subtitle{ text-align:center; }
+  nav:has(a[href*="pacot" i]) a{ margin:0 4px; }
 }
 </style>
+<link href="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true" rel="icon" sizes="32x32" type="image/png"/><link href="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true" rel="apple-touch-icon" sizes="180x180"/>
+<style>
+/* Logo sem fundo (transparente) — override */
+.brand, .site-logo, .header-logo, header .logo, #logo, .navbar-brand{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.brand img, .site-logo img, .header-logo img, header .logo img, #logo img, .navbar-brand img, img[alt*="logo" i]{
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+</style>
+<style>
+.testimonials-section{ margin: 40px auto; padding: 0 16px; }
+.testi-wrap{ max-width: 1200px; margin: 0 auto; }
+.testi-title{ font-size: 24px; font-weight: 900; margin: 0 0 12px; }
+.testi-grid{ display: grid; gap: 12px; }
+@media (min-width: 720px){ .testi-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px){ .testi-grid{ grid-template-columns: repeat(3, 1fr); } }
+.testi-card{
+  border-radius: 16px; padding: 12px; background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.08); box-shadow: 0 8px 28px rgba(0,0,0,.22);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+.t-head{ display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; margin-bottom: 6px; }
+.avatar{ width: 36px; height: 36px; border-radius: 10px; display:flex; align-items:center; justify-content:center;
+  font-weight: 800; background: linear-gradient(135deg, #ff9a3c, #ff6a00); color: #111; }
+.who span{ display:block; font-size: 12px; opacity: .85; }
+.stars{ font-size: 14px; letter-spacing: .6px; }
+.t-quote{ margin: 6px 0 2px; font-size: 14px; line-height: 1.5; }
+</style>
+<style>
+@media (min-width: 992px){
+  .cta-portfolio-center{
+    display: inline-block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .cta-portfolio-center { text-align: center; }
+}
+</style>
+<style>
+@media (min-width: 992px){
+  .hero-center{ text-align:center !important; }
+  .hero-center .badge,
+  .hero-center .hero-title,
+  .hero-center .hero-sub,
+  .hero-center .ml-hero-title,
+  .hero-center p,
+  .hero-center .ml-cta,
+  .hero-center a.btn,
+  .hero-center a.button,
+  .hero-center .cta{
+    margin-left:auto !important; margin-right:auto !important; display:block;
+  }
+}
+</style>
+<style>
+.contacts-center{ text-align:center !important; }
+.contacts-center *{ margin-left:auto; margin-right:auto; }
+</style>
+<style>
+.brand, .site-logo, .header-logo, header .logo, #logo, .navbar-brand{ background: transparent !important; box-shadow:none !important; }
+.brand img, .site-logo img, .header-logo img, header .logo img, #logo img, .navbar-brand img, img[alt*="logo" i]{ background: transparent !important; box-shadow:none !important; filter:none !important; }
+</style>
+<style>
+      html{ scroll-behavior: smooth; }
+    </style>
+<style>
+/* Kill full-width hero background and keep a compact rounded card around the text */
+.hero-compact-wrap{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  position: relative;
+}
+/* Centered card with the same rounded/gradient vibe */
+.hero-compact-panel{
+  display: block;
+  margin: 0 auto;
+  padding: 18px 20px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(120deg, rgba(255,154,60,.18), rgba(255,106,0,.10) 60%), #0f1014;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+  max-width: 980px;
+}
+/* Ensure inner pieces are centered on desktop (without affecting mobile behavior) */
+@media (min-width: 992px){
+  .hero-compact-panel .badge,
+  .hero-compact-panel .hero-title,
+  .hero-compact-panel .hero-sub,
+  .hero-compact-panel p,
+  .hero-compact-panel .cta,
+  .hero-compact-panel a.btn,
+  .hero-compact-panel a.button{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+  }
+}
+</style>
+<style>
+/* Remove qualquer gradiente/círculo do fundo do hero */
+.hero-compact-wrap{ background: transparent !important; background-image: none !important; }
+.hero-compact-wrap::before, .hero-compact-wrap::after{ content: none !important; display: none !important; background: none !important; box-shadow:none !important; }
+.hero-compact-panel{
+  background: #0f1014 !important; /* sólido, sem gradiente */
+  background-image: none !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+}
+
+/* Centralizar TUDO do hero (desktop e mobile) */
+.hero-compact-panel{ text-align: center !important; }
+.hero-compact-panel .badge,
+.hero-compact-panel .hero-title,
+.hero-compact-panel .hero-sub,
+.hero-compact-panel p{
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block;
+}
+.hero-compact-panel .cta,
+.hero-compact-panel a.btn,
+.hero-compact-panel a.button{
+  display: inline-block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+</style>
+<style>
+/* Remover totalmente o fundo/gradiente/bordas do contêiner pai (.hero) */
+.hero{
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.hero::before,
+.hero::after{
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+</style>
+<style>
+/* Centraliza o container do hero (o cartão) no centro da seção */
+.hero, .hero-compact-wrap{
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;  /* centro vertical */
+  align-items: center;      /* centro horizontal */
+  padding: 18px 16px;
+}
+.hero-compact-panel{
+  width: min(980px, 100%);
+  margin: 0 auto !important;   /* centro horizontal garantido */
+  text-align: center;
+}
+</style>
+
+<style>
+/* Ambient backdrop behind the hero content (soft, premium, not boxed) */
+.hero.hero-stage{
+  position: relative;
+  overflow: visible;
+}
+.hero.hero-stage::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1600px;
+  height: 900px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(900px 480px at 20% 20%, rgba(255,154,60,.18), transparent 60%),
+    radial-gradient(700px 420px at 80% 10%, rgba(255,106,0,.10), transparent 65%);
+  filter: blur(6px);
+  opacity: .9;
+  animation: heroHalo 22s ease-in-out infinite;
+}
+@keyframes heroHalo{
+  0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: .9; }
+  50%  { transform: translateX(-50%) translateY(-2%) scale(1.02); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(0) scale(1); opacity: .9; }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero.hero-stage::before{ animation: none; }
+}
+/* Ensure the compact panel stays above the backdrop */
+.hero-compact-panel{ position: relative; z-index: 1; }
+</style>
 </head>
-<body><section aria-label="High Level Marketing" class="ml-hero"><h1 class="ml-company">High Level Marketing</h1><a class="ml-cta" href="https://wa.me/351934071660">Falar com nossa equipa</a></section>
+<body>
 <div class="wrap">
 <header class="topbar">
 <div class="brand">
-<img alt="High Level Marketing" src="https://raw.githubusercontent.com/ypeyoung/hlm-assets/main/hlm-logo.png.jpeg"/>
+<img alt="High Level Marketing" src="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true"/>
 <div>High Level Marketing</div>
 </div>
 <div class="controls">
@@ -186,12 +281,8 @@
 <a class="cta" href="https://wa.me/351934071660" id="cta_primary" rel="noopener" target="_blank">Falar com a nossa equipa</a>
 </div>
 </header>
-<div class="hero">
-<div>
-<span class="pill" id="hero_pill">Drone + Anúncios</span>
-<h1 id="hero_h1">Vídeos que chamam atenção e anúncios que geram contactos</h1>
-<p class="muted" id="hero_sub">Filmamos com drone e gerimos anúncios no Google e Instagram/Facebook — simples e focado em resultados.</p>
-<a class="cta" href="https://wa.me/351934071660" id="cta_secondary" rel="noopener" target="_blank">Falar com a nossa equipa</a>
+<div class="hero hero-stage">
+<div class="hero-center hero-compact-wrap"><div class="hero-compact-panel"><span class="pill" id="hero_pill">Drone + Anúncios</span><h1 id="hero_h1">Vídeos que chamam atenção e anúncios que geram contactos</h1><p class="muted" id="hero_sub">Filmamos com drone e gerimos anúncios no Google e Instagram/Facebook — simples e focado em resultados.</p><a class="cta" href="https://wa.me/351934071660" id="cta_secondary" rel="noopener" target="_blank">Falar com a nossa equipa</a></div>
 </div>
 <div></div>
 </div>
@@ -323,7 +414,7 @@
 </div>
 </div>
 </section>
-<section id="contactos">
+<section class="contacts-center" id="contactos">
 <h2 id="contacts_title">Contactos</h2>
 <div class="contact">
 <p><strong>Vinicius Oliveira</strong> · High Level Marketing<br/>
@@ -619,67 +710,132 @@
     applyLang('pt');
   </script>
 <script async="" src="https://www.instagram.com/embed.js"></script>
-
-<div aria-labelledby="ml-lang-title" aria-modal="true" class="ml-modal" hidden="" id="ml-lang-modal" role="dialog">
-<div class="ml-modal__backdrop" data-close=""></div>
-<div class="ml-modal__panel" role="document">
-<h2 id="ml-lang-title">Escolha seu idioma</h2>
-<p class="ml-modal__subtitle">Selecione um idioma para continuar:</p>
-<div class="ml-lang-grid">
-<button data-lang="pt" type="button">Português</button>
-<button data-lang="en" type="button">English</button>
-<button data-lang="es" type="button">Español</button>
-<button data-lang="fr" type="button">Français</button>
-<button data-lang="it" type="button">Italiano</button>
-<button data-lang="de" type="button">Deutsch</button>
+<section aria-label="Feedback de clientes" class="testimonials-section" id="depoimentos">
+<div class="testi-wrap">
+<h2 class="testi-title">O que dizem nossos clientes</h2>
+<div class="testi-grid">
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">LC</div>
+<div class="who"><strong>Lúcia Canelas</strong><span>Proprietária — Imobiliária Canelas</span></div>
+<div aria-label="5 de 5" class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“Os vídeos dos imóveis e os anúncios segmentados duplicaram as visitas em 30 dias. Fechámos <strong>3 vendas</strong> no primeiro mês.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">SL</div>
+<div class="who"><strong>Steffan</strong><span>Proprietário — Latina Grill</span></div>
+<div aria-label="5 de 5" class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“Depois da filmagem + tráfego pago, as <strong>reservas de mesas</strong> aumentaram de forma constante. O salão passou a lotar nos fins‑de‑semana.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">AM</div>
+<div class="who"><strong>Arthur</strong><span>Gestor — Mais Laser Cabo Frio</span></div>
+<div aria-label="4.9 de 5" class="stars">★★★★☆</div>
+</header>
+<p class="t-quote">“Os criativos com drone deixaram a clínica moderna. Saímos de 8 para <strong>22 procedimentos/semana</strong> em 6 semanas.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">FT</div>
+<div class="who"><strong>Fábio</strong><span>Diretor — TX Multimarcas (moda)</span></div>
+<div aria-label="5 de 5" class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“Os vídeos das coleções e as campanhas trouxeram mais visitas e compras — ficamos com lançamentos esgotados.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">DW</div>
+<div class="who"><strong>Dr. Wellisson</strong><span>Dermatologista</span></div>
+<div aria-label="5 de 5" class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“Com captação profissional e anúncios, dobramos as <strong>consultas particulares</strong>. A marca ficou mais premium.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">GE</div>
+<div class="who"><strong>Gutemberg</strong><span>CEO — Educar Treinamentos</span></div>
+<div aria-label="4.9 de 5" class="stars">★★★★☆</div>
+</header>
+<p class="t-quote">“A estratégia trouxe inscrições com <strong>CPL competitivo</strong> e lotamos duas turmas extras no trimestre.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">DA</div>
+<div class="who"><strong>Dr. Anderson</strong><span>Clínica Veterinária Palmeiras</span></div>
+<div aria-label="5 de 5" class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“Os vídeos de casos e a segmentação local multiplicaram os <strong>agendamentos</strong>. Crescemos forte em banho &amp; tosa.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">DT</div>
+<div class="who"><strong>Dra. Thayse</strong><span>Dermatologista</span></div>
+<div aria-label="5 de 5" class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“Reels com qualidade e anúncios bem posicionados trouxeram <strong>pacientes de alto valor</strong> e agenda cheia.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">GV</div>
+<div class="who"><strong>Genaria</strong><span>Fundadora — Instituto Genaria Viana</span></div>
+<div aria-label="5 de 5" class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“Organizamos a comunicação e o tráfego; os cursos ganharam <strong>credibilidade</strong> e tivemos turmas completas.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">IL</div>
+<div class="who"><strong>Ieda</strong><span>Diretora — Instituto Lessa Viana</span></div>
+<div aria-label="4.8 de 5" class="stars">★★★★☆</div>
+</header>
+<p class="t-quote">“Com vídeos e anúncios, ampliamos o alcance e fechamos <strong>novas parcerias</strong> educacionais.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">FA</div>
+<div class="who"><strong>Filipe Almeida</strong><span>Diretor — Escola Almeida Santos</span></div>
+<div aria-label="5 de 5" class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“A procura por matrículas cresceu de forma consistente. O tráfego trouxe <strong>famílias qualificadas</strong> para as visitas.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">LC</div>
+<div class="who"><strong>Leonardo</strong><span>Sócio — Constroi.pt</span></div>
+<div class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“Faz pinturas e reparos; após começar, o faturamento aumentou de forma <strong>brusca</strong>.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">RC</div>
+<div class="who"><strong>Romero</strong><span>Gestor — Pousada das Conchas</span></div>
+<div class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“Com vídeos aéreos e tráfego, elevamos a <strong>taxa de ocupação</strong> fora de época.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">BI</div>
+<div class="who"><strong>Bernardo</strong><span>Diretor — Auto Escola Iguaba</span></div>
+<div class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“As campanhas trouxeram <strong>matrículas constantes</strong> e agenda cheia para aulas práticas.”</p>
+</article>
+<article class="testi-card">
+<header class="t-head">
+<div class="avatar">LQ</div>
+<div class="who"><strong>Leandro Dmennor</strong><span>Proprietário — Quintal do Zeca Pagodinho</span></div>
+<div class="stars">★★★★★</div>
+</header>
+<p class="t-quote">“Os criativos deram vida aos eventos; aumentou o <strong>fluxo de reservas</strong> e consumo.”</p>
+</article>
 </div>
-<button class="ml-close" data-close="" type="button">Continuar</button>
 </div>
-</div>
-<button aria-label="Mudar idioma" class="ml-lang-fab" title="Mudar idioma">🌐</button>
-
-<script>
-(function(){
-  var modal = document.getElementById('ml-lang-modal');
-  var fab = document.querySelector('.ml-lang-fab');
-  var open = function(){ if(modal) modal.hidden = false; };
-  var close = function(){ if(modal) modal.hidden = true; };
-
-  function setQueryParam(key, value){
-    try{
-      var url = new URL(window.location.href);
-      if(value == null){ url.searchParams.delete(key); } else { url.searchParams.set(key, value); }
-      window.history.replaceState({}, '', url.toString());
-    }catch(e){}
-  }
-
-  // Language selection
-  function chooseLang(code){
-    try{ localStorage.setItem('mlLang', code); localStorage.setItem('mlLangChosen','1'); }catch(e){}
-    setQueryParam('lang', code);
-    close();
-  }
-
-  // Wire buttons
-  document.addEventListener('click', function(e){
-    var t = e.target;
-    if(t.closest('[data-close]')){ close(); }
-    if(t.closest('[data-lang]')){ chooseLang(t.getAttribute('data-lang')); }
-    if(t.closest('.ml-lang-fab')){ open(); }
-  }, false);
-
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){ close(); }
-  });
-
-  // Auto open on first visit (mobile only)
-  var firstTime = false;
-  try{ firstTime = !localStorage.getItem('mlLangChosen'); }catch(e){}
-  var isMobile = window.matchMedia('(max-width: 768px)').matches;
-  if(firstTime && isMobile){
-    setTimeout(open, 300);
-  }
-})();
-</script>
+</section>
 </body>
 </html>
