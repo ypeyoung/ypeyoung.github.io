@@ -357,7 +357,6 @@
 }
 .testi-dot[aria-selected="true"]{ background: #ff8a3c; border-color: #ff8a3c; }
 </style>
-
 <style>
 .testi-prev, .testi-next{
   width: 36px; height: 36px; border-radius: 12px; padding: 0;
@@ -375,6 +374,53 @@
 .testi-prev .icon, .testi-next .icon{ width: 16px; height: 16px; display: block; }
 .testi-prev:focus-visible, .testi-next:focus-visible{
   outline: 2px solid #ff8a3c; outline-offset: 2px;
+}
+</style>
+<style>
+@media (max-width: 768px){
+  /* 1) Centraliza QUALQUER CTA "Falar com a nossa equipa" que esteja fora do hero */
+  .mobile-cta-center,
+  a[href*="#contact" i],
+  a[href*="#contat" i],
+  a[href*="#contactos" i],
+  a[href*="#contatos" i],
+  a.cta, .cta {
+    display: inline-block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+  /* 2) Garante que o hero-card fique centralizado e com largura amigável */
+  .hero, .hero-compact-wrap {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+  }
+  .hero-compact-panel { text-align: center !important; width: 100%; max-width: 700px; }
+
+  /* 3) Centraliza a barra de chips do menu */
+  nav:has(a[href*="pacot" i]), .anchors:has(a[href*="pacot" i]), .nav:has(a[href*="pacot" i]), .navbar:has(a[href*="pacot" i]){
+    display:flex !important; justify-content:center !important; align-items:center !important; flex-wrap:wrap; gap:10px;
+    text-align:center !important;
+  }
+
+  /* 4) Margens consistentes para o CTA do topo */
+  .mobile-cta-center{ margin-top: 10px; margin-bottom: 6px; }
+
+  /* 5) Ajusta o botão FAB de idioma para não sobrepor conteúdo */
+  .ml-lang-fab{ bottom: 18px; right: 14px; }
+}
+</style>
+
+<style>
+@media (max-width: 768px){
+  .ml-mobile-logo{
+    width: 104px !important;
+    height: 104px !important;
+    margin-top: 4px;
+  }
 }
 </style>
 </head>
@@ -934,7 +980,7 @@
 <div class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Os criativos deram vida aos eventos; aumentou o <strong>fluxo de reservas</strong> e consumo.”</p>
-</article></div></div></div><div class="testi-nav"><button aria-label="Anterior" class="testi-prev" type="button"><svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div aria-label="Páginas de depoimentos" class="testi-dots" role="tablist"></div><button aria-label="Próximo" class="testi-next" type="button"><svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div>
+</article></div></div></div><div class="testi-nav"><button aria-label="Anterior" class="testi-prev" type="button"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div aria-label="Páginas de depoimentos" class="testi-dots" role="tablist"></div><button aria-label="Próximo" class="testi-next" type="button"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div>
 </div>
 </section>
 <div aria-label="Selecionar idioma" aria-modal="true" class="ml-lang-modal" hidden="" id="ml-lang-modal" role="dialog">
@@ -1046,6 +1092,25 @@
 
   // handle resize
   window.addEventListener('resize', function(){ go(index); });
+})();
+</script>
+<script>
+(function(){
+  function tagCTAs(){
+    var nodes = document.querySelectorAll('a, button');
+    nodes.forEach(function(n){
+      var t = (n.textContent || '').trim().toLowerCase();
+      if(!t) return;
+      if(t.startsWith('falar com a nossa equipa')){
+        n.classList.add('mobile-cta-center');
+      }
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', tagCTAs);
+  }else{
+    tagCTAs();
+  }
 })();
 </script>
 </body>
