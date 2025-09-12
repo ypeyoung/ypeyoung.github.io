@@ -1,43 +1,37 @@
-<!doctype html>
-<html lang="pt-PT" data-theme="flash-orange">
+<!DOCTYPE html>
+
+<html lang="pt">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>High Level Marketing — Drone + Anúncios</title>
-  <meta name="description" content="Vídeo com drone + anúncios (Google e Instagram/Facebook) para gerar contactos. Pacotes Start, Prime e Signature.">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>High Level Marketing — Drone + Anúncios</title>
+<meta content="Vídeo com drone + anúncios (Google e Instagram/Facebook) para gerar contactos. Pacotes Start, Prime e Signature." name="description"/>
+<style>
     :root{
       --bg:#0b0b10; --text:#e6e7ec; --muted:#9aa1b2; --card:#141625; --accent:#ff6a00; --accent-2:#ffd1b3; --btn:#ff6a00; --btn-text:#0b0b10;
       --border:rgba(255,255,255,.10);
     }
-    [data-theme="flash-orange"]{ --accent:#ff6a00; --accent-2:#ffd1b3; --bg:#0b0b10; --card:#141625; --btn:#ff6a00; --btn-text:#0b0b10; }
-    [data-theme="neon-teal"]  { --accent:#00e5ff; --accent-2:#b7f7ff; --bg:#071214; --card:#0e1c21; --btn:#00e5ff; --btn-text:#001317; }
-    [data-theme="crimson-gradient"]{ --accent:#ff1f5a; --accent-2:#ff9db6; --bg:linear-gradient(135deg,#190019 0%, #0a0618 60%); --card:#1a1023; --btn:#ff1f5a; --btn-text:#17000f; }
-    [data-theme="royal-violet"]{ --accent:#6a00ff; --accent-2:#d5c4ff; --bg:#0c0616; --card:#140b24; --btn:#6a00ff; --btn-text:#11051e; }
     html,body{margin:0;padding:0}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
     .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
-    .brand img{width:36px;height:36px;border-radius:8px;object-fit:cover}
-    .theme-switch{display:flex;gap:8px;flex-wrap:wrap}
-    .theme-switch button{border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 10px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
-    .theme-switch button.active{background:var(--accent);color:var(--btn-text);border-color:transparent}
+    .brand img{width:92px;height:92px;border-radius:12px;object-fit:contain;background:#fff}
+    .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .lang-select{border:1px solid var(--border);background:var(--card);color:var(--text);padding:10px 12px;border-radius:12px;font-weight:800}
     .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:24px;border-radius:20px;background:linear-gradient(135deg,var(--accent),transparent 60%);border:1px solid var(--border)}
     .hero h1{margin:0 0 8px;font-size:34px;line-height:1.1}
-    .hero p{margin:0 0 14px}
     .pill{display:inline-block;background:rgba(255,255,255,.14);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
     .cta{display:inline-block;background:var(--btn);color:var(--btn-text);text-decoration:none;padding:12px 18px;border-radius:12px;font-weight:800}
-    .nav{display:flex;gap:10px;margin:18px 0 6px}
+    .nav{display:flex;gap:10px;margin:18px 0 6px;flex-wrap:wrap}
     .nav a{color:var(--text);text-decoration:none;padding:8px 12px;border-radius:10px;border:1px solid var(--border)}
-    .nav a.active{background:var(--accent);color:var(--btn-text);border-color:transparent}
     section{margin:26px 0;background:var(--card);padding:20px;border-radius:16px;border:1px solid var(--border)}
     h2{margin:0 0 10px}
     .muted{color:var(--muted)}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
     .plan{border:1px solid var(--border);border-radius:14px;padding:14px}
     .plan h3{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 6px}
-    .price{font-size:14px;font-weight:900;color:var(--accent-2)}
+    .price s{opacity:.7;margin-right:6px}
     ul{margin:10px 0 0;padding-left:18px}
     li{margin:6px 0}
 
@@ -55,138 +49,648 @@
     @media (max-width:900px){.portfolio-slider{grid-auto-columns:calc((100% - var(--gap))/2)}}
     @media (max-width:600px){.portfolio-slider{grid-auto-columns:100%}}
 
-    /* Contact links with higher contrast */
+    /* High-contrast contact links */
     .contact a{color:var(--accent) !important;text-decoration:underline;font-weight:700}
     .contact a:hover{opacity:.9}
   </style>
+<style>
+/* === Ajuste suave da logo (sem alterar tamanho visual) === */
+.brand, .header-logo, .site-logo{
+  overflow: hidden; /* garante que o recorte não "vaze" */
+}
+.brand img, .header-logo img, .site-logo img{
+  width: 92px !important;   /* tamanho original citado */
+  height: 92px !important;
+  object-fit: contain !important; /* preserva o jeito anterior */
+  background: transparent !important; /* evita fundo branco artificial */
+  /* Recorta só uma bordinha (2.5%) para matar as margens brancas embutidas na arte */
+  clip-path: inset(2.5% 2.5%);
+  border-radius: 12px;
+  transform: none !important; /* remove qualquer zoom agressivo */
+}
+</style>
+<link href="https://raw.githubusercontent.com/ypeyoung/hlm-assets/main/hlm-logo.png.jpeg" rel="icon" type="image/png"/><link href="https://raw.githubusercontent.com/ypeyoung/hlm-assets/main/hlm-logo.png.jpeg" rel="apple-touch-icon" sizes="180x180"/>
+<style>
+/* === Logo arredondada e um pouco menor === */
+.brand img, .header-logo img, .site-logo img{
+  width: 84px !important;   /* antes ~92px */
+  height: 84px !important;
+  border-radius: 50% !important;        /* torna circular */
+  object-fit: contain !important;       /* mantém proporção sem cortes */
+  background: transparent !important;
+  /* recorte sutil para evitar margens brancas da própria arte, mantendo o formato arredondado */
+  clip-path: inset(1.5% 1.5% round 9999px);
+}
+@media (max-width: 640px){
+  .brand img, .header-logo img, .site-logo img{
+    width: 76px !important;
+    height: 76px !important;
+  }
+}
+</style>
+
+<style>
+/* === Logo quadrada com cantos arredondados (suave) === */
+.brand, .header-logo, .site-logo{
+  overflow: hidden !important;
+}
+.brand img, .header-logo img, .site-logo img{
+  width: 84px !important;   /* levemente menor que ~92px */
+  height: 84px !important;
+  border-radius: 14px !important;      /* cantos arredondados, NÃO círculo */
+  object-fit: contain !important;      /* mantém proporção sem cortes */
+  background: transparent !important;
+  /* recorte sutil para evitar margens brancas da arte original */
+  clip-path: inset(1.5% 1.5% round 14px);
+  transform: none !important;
+}
+@media (max-width: 640px){
+  .brand img, .header-logo img, .site-logo img{
+    width: 76px !important;
+    height: 76px !important;
+    border-radius: 12px !important;
+    clip-path: inset(1.5% 1.5% round 12px);
+  }
+}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="topbar">
-      <div class="brand">
-        <img src="https://raw.githubusercontent.com/ypeyoung/hlm-assets/main/hlm-logo.png.jpeg" alt="High Level Marketing"/>
-        <div>High Level Marketing</div>
-      </div>
-      <div class="theme-switch" aria-label="Mudar tema">
-        <button data-set-theme="flash-orange" class="active">Flash Orange</button>
-        <button data-set-theme="neon-teal">Neon Teal</button>
-        <button data-set-theme="crimson-gradient">Crimson</button>
-        <button data-set-theme="royal-violet">Royal Violet</button>
-      </div>
-    </header>
-
-    <div class="hero">
-      <div>
-        <span class="pill">Drone + Anúncios</span>
-        <h1>Vídeos que chamam atenção e anúncios que geram contactos</h1>
-        <p class="muted">Filmamos com drone e gerimos anúncios no Google e Instagram/Facebook — simples e focado em resultados.</p>
-        <a class="cta" href="https://wa.me/351934071660" target="_blank" rel="noopener">Falar com a nossa equipa</a>
-      </div>
-      <div></div>
-    </div>
-
-    <nav class="nav">
-      <a href="#pacotes" class="active">Pacotes</a>
-      <a href="#portfolio">Portfólio</a>
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#contactos">Contactos</a>
-    </nav>
-
-    <section id="pacotes">
-      <h2>Pacotes</h2>
-      <div class="grid">
-        <div class="plan">
-          <h3>Start <span class="price">€250</span></h3>
-          <ul>
-            <li>Drone 4K + 12–16 fotos</li>
-            <li>1 vídeo 45–60s + 1 vertical</li>
-            <li>Configuramos <strong>1 canal de anúncios</strong> (Google <em>ou</em> Meta)</li>
-            <li><strong>Sem página do site</strong> neste plano</li>
-          </ul>
-        </div>
-        <div class="plan">
-          <h3>Prime <span class="price">€550</span></h3>
-          <ul>
-            <li><strong>Página simples do site</strong> para receber contactos (formulário + WhatsApp)</li>
-            <li>Medição básica: visitas e pedidos de contacto</li>
-            <li>+ Tour 360° e 3 vídeos/mês</li>
-            <li>Gestão de anúncios Google <strong>e</strong> Meta</li>
-          </ul>
-        </div>
-        <div class="plan">
-          <h3>Signature <span class="price">€850</span></h3>
-          <ul>
-            <li><strong>Página do site</strong> + medição avançada para otimizar</li>
-            <li>Pré‑produção e captação interior/exterior (inclui drone)</li>
-            <li>Pack social (cortes verticais) + painel em tempo real</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio">
-      <h2>Portfólio</h2>
-      <p class="muted">Uma única linha com slide + prévia do Instagram. Use as setas ou deslize no telemóvel.</p>
-      <div class="slider-wrap">
-        <button class="nav-btn prev" aria-label="Anterior">&#8249;</button>
-        <div class="portfolio-slider" id="slider">
-          <div class="slide ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DN76RNPjpz9/?igsh=MTQxdG5yaXBzMmpodQ==" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
-          </div>
-          <div class="slide ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C7xwUu1s81S/?igsh=cDJoN2dveWVtejBk" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
-          </div>
-          <div class="slide ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C_1C3V_v0t9/?igsh=MXhkbTY0OHB1Y20wbA==" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
-          </div>
-          <div class="slide ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DJM8KryPIRE/?igsh=MWt0ZWFxaTlycmZp" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
-          </div>
-          <div class="slide ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKANrZOPSbC/?igsh=MWFneWg0cWR6dnh1eA%3D%3D" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
-          </div>
-        </div>
-        <button class="nav-btn next" aria-label="Próximo">&#8250;</button>
-      </div>
-      <script async src="https://www.instagram.com/embed.js"></script>
-    </section>
-
-    <section id="como-funciona">
-      <h2>Como funciona</h2>
-      <div class="grid">
-        <div class="plan"><h3>1) Captação</h3><ul><li>Visitamos e filmamos (drone + interiores)</li><li>Melhores ângulos e cenas</li></ul></div>
-        <div class="plan"><h3>2) Edição</h3><ul><li>Vídeos prontos para redes</li><li>Página simples do site (quando incluído)</li></ul></div>
-        <div class="plan"><h3>3) Anúncios</h3><ul><li>Anúncios para quem já procura</li><li>Relatórios claros do que funcionou</li></ul></div>
-      </div>
-    </section>
-
-    <section id="contactos">
-      <h2>Contactos</h2>
-      <div class="contact">
-        <p><strong>Vinicius Oliveira</strong> · High Level Marketing<br>
-        <a href="tel:+351934071660">+351 934 071 660</a> · 
+<div class="wrap">
+<header class="topbar">
+<div class="brand">
+<img alt="High Level Marketing" src="https://raw.githubusercontent.com/ypeyoung/hlm-assets/main/hlm-logo.png.jpeg"/>
+<div>High Level Marketing</div>
+</div>
+<div class="controls">
+<select aria-label="Language" class="lang-select" id="lang">
+<option value="pt">Português</option>
+<option value="en">English</option>
+<option value="fr">Français</option>
+<option value="it">Italiano</option>
+<option value="es">Español</option>
+<option value="de">Deutsch</option>
+</select>
+<a class="cta" href="https://wa.me/351934071660" id="cta_primary" rel="noopener" target="_blank">Falar com a nossa equipa</a>
+</div>
+</header>
+<div class="hero">
+<div>
+<span class="pill" id="hero_pill">Drone + Anúncios</span>
+<h1 id="hero_h1">Vídeos que chamam atenção e anúncios que geram contactos</h1>
+<p class="muted" id="hero_sub">Filmamos com drone e gerimos anúncios no Google e Instagram/Facebook — simples e focado em resultados.</p>
+<a class="cta" href="https://wa.me/351934071660" id="cta_secondary" rel="noopener" target="_blank">Falar com a nossa equipa</a>
+</div>
+<div></div>
+</div>
+<nav class="nav">
+<a href="#pacotes" id="nav_packages">Pacotes</a>
+<a href="#portfolio" id="nav_portfolio">Portfólio</a>
+<a href="#como-funciona" id="nav_how">Como funciona</a>
+<a href="#diferenciais" id="nav_benefits">Diferenciais</a>
+<a href="#faq" id="nav_faq">FAQ</a>
+<a href="#contactos" id="nav_contacts">Contactos</a>
+</nav>
+<section id="pacotes">
+<h2 id="packages_title">Pacotes</h2>
+<div class="grid">
+<div class="plan">
+<h3>Start <span class="price"><s>€300</s> €250</span></h3>
+<ul id="start_ul">
+<li>Drone 4K + 12–16 fotos</li>
+<li>1 vídeo 45–60s + 1 vertical</li>
+<li>Configuramos <strong>1 canal de anúncios</strong> (Google <em>ou</em> Meta)</li>
+<li><strong>Sem página do site</strong> neste plano</li>
+</ul>
+</div>
+<div class="plan">
+<h3>Prime <span class="price"><s>€700</s> €550</span></h3>
+<ul id="prime_ul">
+<li><strong>Página simples do site</strong> (formulário + WhatsApp)</li>
+<li>Medição básica: visitas e pedidos de contacto</li>
+<li>+ Tour 360° e 3 vídeos/mês</li>
+<li>Gestão de anúncios Google <strong>e</strong> Meta</li>
+</ul>
+</div>
+<div class="plan">
+<h3>Signature <span class="price"><s>€1000</s> €850</span></h3>
+<ul id="signature_ul">
+<li><strong>Página do site</strong> + medição avançada</li>
+<li>+ <strong>Tour 360°</strong> e <strong>5 vídeos/mês</strong></li>
+<li><strong>Gestão de anúncios</strong> Google e Meta</li>
+<li>Pré‑produção + captação interior/exterior (inclui drone)</li>
+<li>Pack social (cortes verticais)</li>
+<li>Painel com resultados em tempo real</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="portfolio">
+<h2 id="portfolio_title">Portfólio</h2>
+<p class="muted" id="portfolio_blurb"><strong>Conteúdo que vende:</strong> vídeos curtos abrem com gancho, destacam localização e diferenciais e fecham com um CTA para WhatsApp.</p>
+<div class="slider-wrap">
+<button aria-label="Anterior" class="nav-btn prev">‹</button>
+<div class="portfolio-slider" id="slider">
+<div class="slide ig-embed">
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DJM8KryPIRE/?igsh=MWt0ZWFxaTlycmZp" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
+</div>
+<div class="slide ig-embed">
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKANrZOPSbC/?igsh=MWFneWg0cWR6dnh1eA%3D%3D" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
+</div>
+<div class="slide ig-embed">
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DN76RNPjpz9/?igsh=MTQxdG5yaXBzMmpodQ==" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
+</div>
+<div class="slide ig-embed">
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C7xwUu1s81S/?igsh=cDJoN2dveWVtejBk" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
+</div>
+<div class="slide ig-embed">
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C_1C3V_v0t9/?igsh=MXhkbTY0OHB1Y20wbA==" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
+</div>
+</div>
+<button aria-label="Próximo" class="nav-btn next">›</button>
+</div>
+<div style="margin-top:14px">
+<a class="cta" href="https://wa.me/351934071660" id="portfolio_cta" rel="noopener" target="_blank">Quero um vídeo assim para o meu imóvel</a>
+</div>
+<script async="" src="https://www.instagram.com/embed.js"></script>
+</section>
+<section id="como-funciona">
+<h2 id="how_title">Como funciona (passo a passo)</h2>
+<div class="grid">
+<div class="plan">
+<h3 id="how_1_title">1) Captação</h3>
+<ul id="how_1_ul">
+<li>Briefing rápido (10–15 min) para alinhar objetivo e público.</li>
+<li>Visita ao imóvel/hotel e filmagens: drone + interiores/exteriores.</li>
+<li>Check‑list de preparação (limpeza, luz, enquadramento) para valorizar.</li>
+</ul>
+</div>
+<div class="plan">
+<h3 id="how_2_title">2) Edição</h3>
+<ul id="how_2_ul">
+<li>Tratamento de cor, música licenciada e cortes para redes sociais.</li>
+<li>Página simples do site (quando incluída) com formulário e WhatsApp.</li>
+<li>Envio de pré‑via para ajustes rápidos (1 ronda incluída).</li>
+</ul>
+</div>
+<div class="plan">
+<h3 id="how_3_title">3) Anúncios &amp; Resultados</h3>
+<ul id="how_3_ul">
+<li>Configuramos e ligamos os anúncios (Google/Meta conforme plano).</li>
+<li>Monitorizamos contactos e visitas. Relatório simples do que funcionou.</li>
+<li>Otimizações quinzenais (Prime/Signature) para reduzir custo por lead.</li>
+</ul>
+</div>
+</div>
+<p class="muted" id="how_note" style="font-size:12px;margin-top:8px">*Autorização para voo de drone e condições meteorológicas podem alterar datas; avisamos com antecedência.</p>
+</section>
+<section id="diferenciais">
+<h2 id="benefits_title">Diferenciais &amp; Garantias</h2>
+<ul id="benefits_ul">
+<li><strong>Entrega rápida:</strong> 3–5 dias úteis após captação.</li>
+<li><strong>Otimização contínua:</strong> ajustes quinzenais nos anúncios (Prime/Signature).</li>
+<li><strong>Relatórios claros</strong> e acompanhamento por WhatsApp.</li>
+<li><strong>Você é dono do material:</strong> entregamos arquivos finais (e brutos se solicitado).</li>
+<li><strong>Bónus novos clientes:</strong> 1 criativo extra para teste A/B no 1.º mês.</li>
+</ul>
+</section>
+<section id="faq">
+<h2 id="faq_title">Perguntas frequentes</h2>
+<div class="grid">
+<div class="plan">
+<h3 id="faq1_q">Precisa de autorização para drone?</h3>
+<p class="muted" id="faq1_a">Avaliamos a zona antes do voo e, quando necessário, tratamos das autorizações. Clima desfavorável pode adiar captações com aviso prévio.</p>
+</div>
+<div class="plan">
+<h3 id="faq2_q">Como funciona o orçamento de mídia?</h3>
+<p class="muted" id="faq2_a">Sugerimos um valor mensal mínimo e otimizamos o investimento. A cobrança dos anúncios é feita diretamente por Google/Meta.</p>
+</div>
+<div class="plan">
+<h3 id="faq3_q">Qual plano inclui página do site?</h3>
+<p class="muted" id="faq3_a">A página simples está no <strong>Prime</strong>; no <strong>Signature</strong> incluímos também medição avançada e otimização do funil.</p>
+</div>
+</div>
+</section>
+<section id="contactos">
+<h2 id="contacts_title">Contactos</h2>
+<div class="contact">
+<p><strong>Vinicius Oliveira</strong> · High Level Marketing<br/>
+<a href="tel:+351934071660">+351 934 071 660</a> · 
         <a href="mailto:vinicius.highlevelmkt@gmail.com">vinicius.highlevelmkt@gmail.com</a> · 
         <a href="https://www.instagram.com/mkthighlevel" target="_blank">Instagram</a> · 
         <a href="https://www.linkedin.com/in/vinicius--oliveira" target="_blank">LinkedIn</a></p>
-      </div>
-    </section>
-
-    <footer>
-      <span class="muted">© High Level Marketing</span>
-      <a class="cta" href="https://wa.me/351934071660" target="_blank" rel="noopener">Falar com a nossa equipa</a>
-    </footer>
-  </div>
-
-  <script>
-    const setTheme=(t)=>{document.documentElement.setAttribute('data-theme',t);
-      document.querySelectorAll('.theme-switch button').forEach(b=>b.classList.toggle('active',b.dataset.setTheme===t))};
-    document.querySelectorAll('.theme-switch button').forEach(btn=>btn.addEventListener('click',()=>setTheme(btn.dataset.setTheme)));
-
+</div>
+<a class="cta" href="https://wa.me/351934071660" id="cta_footer" rel="noopener" target="_blank">Falar com a nossa equipa</a>
+</section>
+<footer>
+<span class="muted">© High Level Marketing</span>
+</footer>
+</div>
+<script>
     // Slider controls
     const slider=document.getElementById('slider');
-    const step=()=>{const card=slider.querySelector('.slide'); if(!card) return 320; const s=getComputedStyle(slider); const gap=parseInt(s.getPropertyValue('--gap'))||12; return card.getBoundingClientRect().width + gap; };
+    const step=()=>{const card=slider.querySelector('.slide'); if(!card) return 320; const styles=getComputedStyle(slider); const gap=parseInt(styles.getPropertyValue('--gap'))||12; return card.getBoundingClientRect().width + gap; };
     document.querySelector('.nav-btn.prev')?.addEventListener('click',()=> slider.scrollBy({left:-step(),behavior:'smooth'}));
     document.querySelector('.nav-btn.next')?.addEventListener('click',()=> slider.scrollBy({left: step(),behavior:'smooth'}));
+
+    // i18n dictionary
+    const i18n = {
+      pt: {
+        hero_pill: "Drone + Anúncios",
+        hero_h1: "Vídeos que chamam atenção e anúncios que geram contactos",
+        hero_sub: "Filmamos com drone e gerimos anúncios no Google e Instagram/Facebook — simples e focado em resultados.",
+        cta: "Falar com a nossa equipa",
+        nav_packages: "Pacotes",
+        nav_portfolio: "Portfólio",
+        nav_how: "Como funciona",
+        nav_benefits: "Diferenciais",
+        nav_faq: "FAQ",
+        nav_contacts: "Contactos",
+        packages_title: "Pacotes",
+        start_ul: ["Drone 4K + 12–16 fotos","1 vídeo 45–60s + 1 vertical","Configuramos 1 canal de anúncios (Google ou Meta)","Sem página do site neste plano"],
+        prime_ul: ["Página simples do site (formulário + WhatsApp)","Medição básica: visitas e pedidos de contacto","+ Tour 360° e 3 vídeos/mês","Gestão de anúncios Google e Meta"],
+        signature_ul: ["Página do site + medição avançada","+ Tour 360° e 5 vídeos/mês","Gestão de anúncios Google e Meta","Pré‑produção + captação interior/exterior (inclui drone)","Pack social (cortes verticais)","Painel com resultados em tempo real"],
+        portfolio_title: "Portfólio",
+        portfolio_blurb: "<strong>Conteúdo que vende:</strong> vídeos curtos abrem com gancho, destacam localização e diferenciais e fecham com um CTA para WhatsApp.",
+        portfolio_cta: "Quero um vídeo assim para o meu imóvel",
+        how_title: "Como funciona (passo a passo)",
+        how_1_title: "1) Captação",
+        how_1_ul: ["Briefing rápido (10–15 min) para alinhar objetivo e público.","Visita ao imóvel/hotel e filmagens: drone + interiores/exteriores.","Check‑list de preparação (limpeza, luz, enquadramento) para valorizar."],
+        how_2_title: "2) Edição",
+        how_2_ul: ["Tratamento de cor, música licenciada e cortes para redes sociais.","Página simples do site (quando incluída) com formulário e WhatsApp.","Envio de pré‑via para ajustes rápidos (1 ronda incluída)."],
+        how_3_title: "3) Anúncios & Resultados",
+        how_3_ul: ["Configuramos e ligamos os anúncios (Google/Meta conforme plano).","Monitorizamos contactos e visitas. Relatório simples do que funcionou.","Otimizações quinzenais (Prime/Signature) para reduzir custo por lead."],
+        how_note: "*Autorização para voo de drone e condições meteorológicas podem alterar datas; avisamos com antecedência.",
+        benefits_title: "Diferenciais & Garantias",
+        benefits_ul: ["<strong>Entrega rápida:</strong> 3–5 dias úteis após captação.","<strong>Otimização contínua:</strong> ajustes quinzenais nos anúncios (Prime/Signature).","<strong>Relatórios claros</strong> e acompanhamento por WhatsApp.","<strong>Você é dono do material:</strong> entregamos arquivos finais (e brutos se solicitado).","<strong>Bónus novos clientes:</strong> 1 criativo extra para teste A/B no 1.º mês."],
+        faq_title: "Perguntas frequentes",
+        faq1_q: "Precisa de autorização para drone?",
+        faq1_a: "Avaliamos a zona antes do voo e, quando necessário, tratamos das autorizações. Clima desfavorável pode adiar captações com aviso prévio.",
+        faq2_q: "Como funciona o orçamento de mídia?",
+        faq2_a: "Sugerimos um valor mensal mínimo e otimizamos o investimento. A cobrança dos anúncios é feita diretamente por Google/Meta.",
+        faq3_q: "Qual plano inclui página do site?",
+        faq3_a: "A página simples está no Prime; no Signature incluímos também medição avançada e otimização do funil.",
+        contacts_title: "Contactos"
+      },
+      en: {
+        hero_pill: "Drone + Ads",
+        hero_h1: "Videos that grab attention and ads that generate leads",
+        hero_sub: "We film with drones and run Google & Instagram/Facebook ads — simple and results‑driven.",
+        cta: "Talk to our team",
+        nav_packages: "Packages",
+        nav_portfolio: "Portfolio",
+        nav_how: "How it works",
+        nav_benefits: "Benefits",
+        nav_faq: "FAQ",
+        nav_contacts: "Contacts",
+        packages_title: "Packages",
+        start_ul: ["4K drone + 12–16 photos","1 video 45–60s + 1 vertical","We set up 1 ads channel (Google or Meta)","No website page in this plan"],
+        prime_ul: ["Simple website page (form + WhatsApp)","Basic tracking: visits and contact requests","+ 360° tour and 3 videos/month","Google and Meta ads management"],
+        signature_ul: ["Website page + advanced tracking","+ 360° tour and 5 videos/month","Google and Meta ads management","Pre‑production + indoor/outdoor shooting (incl. drone)","Social pack (vertical cuts)","Realtime results dashboard"],
+        portfolio_title: "Portfolio",
+        portfolio_blurb: "<strong>Content that sells:</strong> short videos open with a hook, highlight location & USPs, and close with a WhatsApp CTA.",
+        portfolio_cta: "I want a video like this for my property",
+        how_title: "How it works (step by step)",
+        how_1_title: "1) Shooting",
+        how_1_ul: ["Quick briefing (10–15 min) to align goal and audience.","On‑site filming: drone + interiors/exteriors.","Preparation checklist (tidy up, lighting, framing) to add value."],
+        how_2_title: "2) Editing",
+        how_2_ul: ["Color, licensed music, and social‑ready cuts.","Simple website page (when included) with form and WhatsApp.","Preview delivered for quick tweaks (1 round included)."],
+        how_3_title: "3) Ads & Results",
+        how_3_ul: ["We configure and launch ads (Google/Meta per plan).","We track visits and leads. Clear report of what worked.","Bi‑weekly optimizations (Prime/Signature) to lower CPL."],
+        how_note: "*Drone permissions and weather may affect dates; we'll inform in advance.",
+        benefits_title: "Benefits & Guarantees",
+        benefits_ul: ["<strong>Fast delivery:</strong> 3–5 business days after shooting.","<strong>Continuous optimization:</strong> bi‑weekly ad tuning (Prime/Signature).","<strong>Clear reports</strong> and WhatsApp follow‑up.","<strong>You own the footage:</strong> we deliver finals (and raw upon request).","<strong>New client bonus:</strong> 1 extra creative for A/B test in month 1."],
+        faq_title: "Frequently asked questions",
+        faq1_q: "Do you need drone permission?",
+        faq1_a: "We check the area beforehand and handle permits when required. Bad weather may postpone with notice.",
+        faq2_q: "How does the ad budget work?",
+        faq2_a: "We suggest a monthly minimum and optimize spend. Ad charges are billed directly by Google/Meta.",
+        faq3_q: "Which plan includes a website page?",
+        faq3_a: "The simple page is in Prime; Signature adds advanced tracking and funnel optimization.",
+        contacts_title: "Contacts"
+      },
+      fr: {
+        hero_pill: "Drone + Publicité",
+        hero_h1: "Vidéos qui attirent l’œil et publicités qui génèrent des leads",
+        hero_sub: "Nous filmons au drone et gérons les campagnes Google & Instagram/Facebook — simple et orienté résultats.",
+        cta: "Parler à notre équipe",
+        nav_packages: "Offres",
+        nav_portfolio: "Portfolio",
+        nav_how: "Comment ça marche",
+        nav_benefits: "Avantages",
+        nav_faq: "FAQ",
+        nav_contacts: "Contacts",
+        packages_title: "Offres",
+        start_ul: ["Drone 4K + 12–16 photos","1 vidéo 45–60s + 1 verticale","Configuration d’un canal pub (Google ou Meta)","Pas de page web dans cette offre"],
+        prime_ul: ["Page web simple (formulaire + WhatsApp)","Suivi de base : visites et demandes de contact","+ visite 360° et 3 vidéos/mois","Gestion Google et Meta Ads"],
+        signature_ul: ["Page web + suivi avancé","+ visite 360° et 5 vidéos/mois","Gestion Google et Meta Ads","Pré‑production + tournage intérieur/extérieur (drone inclus)","Pack social (formats verticaux)","Tableau de bord en temps réel"],
+        portfolio_title: "Portfolio",
+        portfolio_blurb: "<strong>Contenu qui vend :</strong> vidéos courtes avec accroche, mise en avant de la localisation & des atouts, et un CTA WhatsApp.",
+        portfolio_cta: "Je veux une vidéo comme celle‑ci pour mon bien",
+        how_title: "Comment ça marche (étapes)",
+        how_1_title: "1) Tournage",
+        how_1_ul: ["Brief rapide (10–15 min) pour aligner objectif et audience.","Tournage sur site : drone + intérieurs/extérieurs.","Checklist de préparation (rangement, lumière, cadrage) pour valoriser."],
+        how_2_title: "2) Montage",
+        how_2_ul: ["Colorimétrie, musique sous licence et découpes pour les réseaux.","Page web simple (si incluse) avec formulaire et WhatsApp.","Envoi d’un pré‑montage pour retouches rapides (1 aller‑retour inclus)."],
+        how_3_title: "3) Publicités & Résultats",
+        how_3_ul: ["Mise en place et lancement des pubs (Google/Meta selon l’offre).","Suivi des visites et leads. Rapport clair de ce qui fonctionne.","Optimisations bi‑hebdomadaires (Prime/Signature) pour réduire le CPL."],
+        how_note: "*Les autorisations drone et la météo peuvent impacter les dates ; on prévient en amont.",
+        benefits_title: "Avantages & Garanties",
+        benefits_ul: ["<strong>Livraison rapide :</strong> 3–5 jours ouvrés après le tournage.","<strong>Optimisation continue :</strong> ajustements bi‑hebdomadaires (Prime/Signature).","<strong>Rapports clairs</strong> et suivi WhatsApp.","<strong>Vous êtes propriétaire des médias :</strong> livrables finaux (et bruts sur demande).","<strong>Bonus nouveaux clients :</strong> 1 créa supplémentaire pour A/B au 1er mois."],
+        faq_title: "Questions fréquentes",
+        faq1_q: "Faut‑il une autorisation drone ?",
+        faq1_a: "Nous vérifions la zone et gérons les autorisations si besoin. Mauvais temps = report avec préavis.",
+        faq2_q: "Comment fonctionne le budget pub ?",
+        faq2_a: "Nous suggérons un minimum mensuel et optimisons la dépense. Facturation pub directe par Google/Meta.",
+        faq3_q: "Quelle offre inclut une page web ?",
+        faq3_a: "La page simple est dans Prime ; Signature ajoute le suivi avancé et l’optimisation du tunnel.",
+        contacts_title: "Contacts"
+      },
+      it: {
+        hero_pill: "Drone + Ads",
+        hero_h1: "Video che attirano l’attenzione e annunci che generano contatti",
+        hero_sub: "Giriamo con droni e gestiamo campagne Google e Instagram/Facebook — semplice e orientato ai risultati.",
+        cta: "Parla con il nostro team",
+        nav_packages: "Pacchetti",
+        nav_portfolio: "Portfolio",
+        nav_how: "Come funziona",
+        nav_benefits: "Vantaggi",
+        nav_faq: "FAQ",
+        nav_contacts: "Contatti",
+        packages_title: "Pacchetti",
+        start_ul: ["Drone 4K + 12–16 foto","1 video 45–60s + 1 verticale","Configuriamo 1 canale ads (Google o Meta)","Nessuna pagina web in questo piano"],
+        prime_ul: ["Pagina web semplice (form + WhatsApp)","Tracciamento base: visite e richieste","+ Tour 360° e 3 video/mese","Gestione annunci Google e Meta"],
+        signature_ul: ["Pagina web + tracciamento avanzato","+ Tour 360° e 5 video/mese","Gestione annunci Google e Meta","Pre‑produzione + riprese interne/esterne (drone incluso)","Pacchetto social (tagli verticali)","Dashboard in tempo reale"],
+        portfolio_title: "Portfolio",
+        portfolio_blurb: "<strong>Contenuti che vendono:</strong> video brevi con gancio iniziale, focus su location e plus, chiusura con CTA WhatsApp.",
+        portfolio_cta: "Voglio un video così per il mio immobile",
+        how_title: "Come funziona (step by step)",
+        how_1_title: "1) Riprese",
+        how_1_ul: ["Brief rapido (10–15 min) su obiettivo e target.","Riprese in loco: drone + interni/esterni.","Checklist preparazione (ordine, luce, inquadratura) per valorizzare."],
+        how_2_title: "2) Montaggio",
+        how_2_ul: ["Color, musica con licenza e tagli per social.","Pagina web semplice (se inclusa) con form e WhatsApp.","Anteprima per modifiche rapide (1 round incluso)."],
+        how_3_title: "3) Ads & Risultati",
+        how_3_ul: ["Configuriamo e lanciamo le campagne (Google/Meta secondo piano).","Monitoriamo visite e lead. Report chiaro di ciò che funziona.","Ottimizzazioni quindicinali (Prime/Signature) per abbassare il CPL."],
+        how_note: "*Permessi drone e meteo possono influire sulle date; avvisiamo in anticipo.",
+        benefits_title: "Vantaggi & Garanzie",
+        benefits_ul: ["<strong>Consegna rapida:</strong> 3–5 giorni lavorativi dopo le riprese.","<strong>Ottimizzazione continua:</strong> tuning quindicinale (Prime/Signature).","<strong>Report chiari</strong> e follow‑up su WhatsApp.","<strong>I file sono tuoi:</strong> consegniamo i finali (e i raw su richiesta).","<strong>Bonus nuovi clienti:</strong> 1 creativo extra per A/B nel 1º mese."],
+        faq_title: "Domande frequenti",
+        faq1_q: "Serve un’autorizzazione per il drone?",
+        faq1_a: "Verifichiamo l’area e gestiamo i permessi se necessari. Meteo avverso può rinviare con preavviso.",
+        faq2_q: "Come funziona il budget adv?",
+        faq2_a: "Suggeriamo un minimo mensile e ottimizziamo la spesa. Fatturazione diretta Google/Meta.",
+        faq3_q: "Quale piano include la pagina web?",
+        faq3_a: "La pagina semplice è nel Prime; nel Signature c’è anche tracciamento avanzato e ottimizzazione funnel.",
+        contacts_title: "Contatti"
+      },
+      es: {
+        hero_pill: "Dron + Anuncios",
+        hero_h1: "Videos que llaman la atención y anuncios que generan contactos",
+        hero_sub: "Grabamos con dron y gestionamos anuncios en Google e Instagram/Facebook — simple y orientado a resultados.",
+        cta: "Hablar con nuestro equipo",
+        nav_packages: "Paquetes",
+        nav_portfolio: "Portafolio",
+        nav_how: "Cómo funciona",
+        nav_benefits: "Beneficios",
+        nav_faq: "FAQ",
+        nav_contacts: "Contactos",
+        packages_title: "Paquetes",
+        start_ul: ["Dron 4K + 12–16 fotos","1 vídeo 45–60s + 1 vertical","Configuramos 1 canal de anuncios (Google o Meta)","Sin página web en este plan"],
+        prime_ul: ["Página web sencilla (formulario + WhatsApp)","Medición básica: visitas y solicitudes de contacto","+ Tour 360° y 3 vídeos/mes","Gestión de anuncios Google y Meta"],
+        signature_ul: ["Página web + medición avanzada","+ Tour 360° y 5 vídeos/mes","Gestión de anuncios Google y Meta","Preproducción + rodaje interior/exterior (incluye dron)","Paquete social (cortes verticales)","Panel en tiempo real"],
+        portfolio_title: "Portafolio",
+        portfolio_blurb: "<strong>Contenido que vende:</strong> vídeos cortos con gancho, destacan ubicación y diferenciales, y cierran con CTA a WhatsApp.",
+        portfolio_cta: "Quiero un vídeo así para mi inmueble",
+        how_title: "Cómo funciona (paso a paso)",
+        how_1_title: "1) Rodaje",
+        how_1_ul: ["Brief rápido (10–15 min) para alinear objetivo y público.","Grabación en el lugar: dron + interiores/exteriores.","Checklist de preparación (orden, luz, encuadre) para aportar valor."],
+        how_2_title: "2) Edición",
+        how_2_ul: ["Color, música con licencia y cortes para redes.","Página web sencilla (si se incluye) con formulario y WhatsApp.","Envío de previa para ajustes rápidos (1 ronda incluida)."],
+        how_3_title: "3) Anuncios y Resultados",
+        how_3_ul: ["Configuramos y activamos anuncios (Google/Meta según plan).","Seguimos visitas y contactos. Informe claro de resultados.","Optimizaciones quincenales (Prime/Signature) para bajar el CPL."],
+        how_note: "*Permisos de dron y clima pueden afectar fechas; avisamos con antelación.",
+        benefits_title: "Beneficios & Garantías",
+        benefits_ul: ["<strong>Entrega rápida:</strong> 3–5 días laborables tras el rodaje.","<strong>Optimización continua:</strong> ajustes quincenales (Prime/Signature).","<strong>Informes claros</strong> y seguimiento por WhatsApp.","<strong>Eres dueño del material:</strong> entregamos finales (y brutos si se solicita).","<strong>Bono nuevos clientes:</strong> 1 creativo extra para A/B el 1er mes."],
+        faq_title: "Preguntas frecuentes",
+        faq1_q: "¿Se necesita permiso para dron?",
+        faq1_a: "Revisamos la zona y gestionamos permisos si hace falta. Mal clima puede aplazar con aviso.",
+        faq2_q: "¿Cómo funciona el presupuesto de anuncios?",
+        faq2_a: "Sugerimos un mínimo mensual y optimizamos el gasto. Google/Meta facturan directamente.",
+        faq3_q: "¿Qué plan incluye página web?",
+        faq3_a: "La página sencilla está en Prime; Signature añade medición avanzada y optimización del embudo.",
+        contacts_title: "Contactos"
+      },
+      de: {
+        hero_pill: "Drohne + Ads",
+        hero_h1: "Videos, die auffallen, und Anzeigen, die Anfragen bringen",
+        hero_sub: "Wir filmen mit Drohnen und schalten Google‑ & Instagram/Facebook‑Anzeigen — einfach und ergebnisorientiert.",
+        cta: "Mit unserem Team sprechen",
+        nav_packages: "Pakete",
+        nav_portfolio: "Portfolio",
+        nav_how: "So funktioniert’s",
+        nav_benefits: "Vorteile",
+        nav_faq: "FAQ",
+        nav_contacts: "Kontakt",
+        packages_title: "Pakete",
+        start_ul: ["4K‑Drohne + 12–16 Fotos","1 Video 45–60s + 1 vertikal","Einrichtung 1 Anzeigenkanal (Google oder Meta)","Keine Website‑Seite in diesem Paket"],
+        prime_ul: ["Einfache Website‑Seite (Formular + WhatsApp)","Basis‑Tracking: Besuche und Anfragen","+ 360°‑Tour und 3 Videos/Monat","Verwaltung von Google‑ und Meta‑Ads"],
+        signature_ul: ["Website‑Seite + erweitertes Tracking","+ 360°‑Tour und 5 Videos/Monat","Verwaltung von Google‑ und Meta‑Ads","Pre‑Production + Innen/Außen‑Dreh (inkl. Drohne)","Social‑Pack (vertikale Schnitte)","Echtzeit‑Dashboard"],
+        portfolio_title: "Portfolio",
+        portfolio_blurb: "<strong>Verkaufsstark:</strong> Kurzvideos starten mit Hook, zeigen Lage & USPs und enden mit WhatsApp‑CTA.",
+        portfolio_cta: "Ich möchte so ein Video für meine Immobilie",
+        how_title: "So funktioniert’s (Schritt für Schritt)",
+        how_1_title: "1) Dreh",
+        how_1_ul: ["Kurzes Briefing (10–15 Min.) zu Ziel & Zielgruppe.","Dreh vor Ort: Drohne + Innen/Außen.","Vorbereitungs‑Checkliste (Ordnung, Licht, Bildausschnitt) für mehr Wert."],
+        how_2_title: "2) Schnitt",
+        how_2_ul: ["Farblook, lizenzierte Musik, Social‑Cuts.","Einfache Website‑Seite (falls enthalten) mit Formular & WhatsApp.","Vorab‑Version für schnelle Korrekturen (1 Runde inkl.)."],
+        how_3_title: "3) Ads & Ergebnisse",
+        how_3_ul: ["Einrichtung & Start der Kampagnen (Google/Meta je Paket).","Tracking von Besuchen & Leads. Klarer Ergebnisbericht.","Zweiwöchentliche Optimierung (Prime/Signature) für niedrigere CPL."],
+        how_note: "*Drohnen‑Genehmigungen und Wetter können Termine beeinflussen; wir informieren rechtzeitig.",
+        benefits_title: "Vorteile & Garantien",
+        benefits_ul: ["<strong>Schnelle Lieferung:</strong> 3–5 Werktage nach Dreh.","<strong>Kontinuierliche Optimierung:</strong> zweiwöchentliches Tuning (Prime/Signature).","<strong>Klare Reports</strong> und WhatsApp‑Betreuung.","<strong>Du besitzt das Material:</strong> Finals (Rohmaterial auf Wunsch).","<strong>Neukunden‑Bonus:</strong> 1 zusätzliches Creative für A/B im 1. Monat."],
+        faq_title: "Häufige Fragen",
+        faq1_q: "Braucht man eine Drohnen‑Genehmigung?",
+        faq1_a: "Wir prüfen die Zone und kümmern uns ggf. um Genehmigungen. Schlechtes Wetter kann mit Vorankündigung verschieben.",
+        faq2_q: "Wie funktioniert das Anzeigen‑Budget?",
+        faq2_a: "Wir empfehlen ein Monats‑Minimum und optimieren den Einsatz. Abrechnung direkt durch Google/Meta.",
+        faq3_q: "Welches Paket enthält eine Website‑Seite?",
+        faq3_a: "Die einfache Seite ist im Prime; im Signature auch erweitertes Tracking & Funnel‑Optimierung.",
+        contacts_title: "Kontakt"
+      }
+    };
+
+    function setUL(el, items) {
+      el.innerHTML = items.map(x => `<li>${x}</li>`).join('');
+    }
+
+    function applyLang(lang) {
+      const t = i18n[lang] || i18n.pt;
+      document.documentElement.lang = lang;
+      document.getElementById('hero_pill').innerHTML = t.hero_pill;
+      document.getElementById('hero_h1').innerHTML = t.hero_h1;
+      document.getElementById('hero_sub').innerHTML = t.hero_sub;
+      ['cta_primary','cta_secondary','cta_footer','portfolio_cta'].forEach(id => document.getElementById(id).innerHTML = t.cta);
+      document.getElementById('nav_packages').innerHTML = t.nav_packages;
+      document.getElementById('nav_portfolio').innerHTML = t.nav_portfolio;
+      document.getElementById('nav_how').innerHTML = t.nav_how;
+      document.getElementById('nav_benefits').innerHTML = t.nav_benefits;
+      document.getElementById('nav_faq').innerHTML = t.nav_faq;
+      document.getElementById('nav_contacts').innerHTML = t.nav_contacts;
+      document.getElementById('packages_title').innerHTML = t.packages_title;
+      setUL(document.getElementById('start_ul'), t.start_ul);
+      setUL(document.getElementById('prime_ul'), t.prime_ul);
+      setUL(document.getElementById('signature_ul'), t.signature_ul);
+      document.getElementById('portfolio_title').innerHTML = t.portfolio_title;
+      document.getElementById('portfolio_blurb').innerHTML = t.portfolio_blurb;
+      document.getElementById('how_title').innerHTML = t.how_title;
+      document.getElementById('how_1_title').innerHTML = t.how_1_title;
+      setUL(document.getElementById('how_1_ul'), t.how_1_ul);
+      document.getElementById('how_2_title').innerHTML = t.how_2_title;
+      setUL(document.getElementById('how_2_ul'), t.how_2_ul);
+      document.getElementById('how_3_title').innerHTML = t.how_3_title;
+      setUL(document.getElementById('how_3_ul'), t.how_3_ul);
+      document.getElementById('how_note').innerHTML = t.how_note;
+      document.getElementById('benefits_title').innerHTML = t.benefits_title;
+      setUL(document.getElementById('benefits_ul'), t.benefits_ul);
+      document.getElementById('faq_title').innerHTML = t.faq_title;
+      document.getElementById('faq1_q').innerHTML = t.faq1_q;
+      document.getElementById('faq1_a').innerHTML = t.faq1_a;
+      document.getElementById('faq2_q').innerHTML = t.faq2_q;
+      document.getElementById('faq2_a').innerHTML = t.faq2_a;
+      document.getElementById('faq3_q').innerHTML = t.faq3_q;
+      document.getElementById('faq3_a').innerHTML = t.faq3_a;
+      document.getElementById('contacts_title').innerHTML = t.contacts_title;
+    }
+
+    const select = document.getElementById('lang');
+    select.addEventListener('change', e => applyLang(select.value));
+    applyLang('pt');
   </script>
+<script async="" src="https://www.instagram.com/embed.js"></script>
+
+
+<script>
+(function(){
+  // Create a rounded-rect path
+  function roundRect(ctx, x, y, w, h, r){
+    var min = Math.min(w, h) / 2;
+    if (typeof r === "number") r = {tl:r, tr:r, br:r, bl:r};
+    r = {
+      tl: Math.min(r.tl||0, min),
+      tr: Math.min(r.tr||0, min),
+      br: Math.min(r.br||0, min),
+      bl: Math.min(r.bl||0, min)
+    };
+    ctx.beginPath();
+    ctx.moveTo(x + r.tl, y);
+    ctx.lineTo(x + w - r.tr, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r.tr);
+    ctx.lineTo(x + w, y + h - r.br);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r.br, y + h);
+    ctx.lineTo(x + r.bl, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r.bl);
+    ctx.lineTo(x, y + r.tl);
+    ctx.quadraticCurveTo(x, y, x + r.tl, y);
+    ctx.closePath();
+  }
+
+  // Finds white borders and crops them out, then renders to a square with rounded corners
+  function generateRoundedTrimmedFavicon(src, radiusPx){
+    return new Promise(function(resolve, reject){
+      try{
+        var img = new Image();
+        img.crossOrigin = "anonymous";
+        img.onload = function(){
+          try{
+            var w = img.naturalWidth, h = img.naturalHeight;
+            if(!w || !h){ return reject(new Error("Invalid image size")); }
+            var canvas = document.createElement("canvas");
+            canvas.width = w; canvas.height = h;
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+            var data;
+            try{ data = ctx.getImageData(0,0,w,h).data; }
+            catch(e){ return reject(new Error("Canvas tainted (CORS)")); }
+
+            var TH = 250; // threshold for white
+            var top=0, bottom=h-1, left=0, right=w-1;
+
+            // find top
+            outerTop: for(var y=0;y<h;y++){
+              for(var x=0;x<w;x++){
+                var i=(y*w+x)*4, r=data[i], g=data[i+1], b=data[i+2], a=data[i+3];
+                if(a>10 && (r<TH || g<TH || b<TH)){ top=y; break outerTop; }
+              }
+            }
+            // find bottom
+            outerBottom: for(var y=h-1;y>=0;y--){
+              for(var x=0;x<w;x++){
+                var i=(y*w+x)*4, r=data[i], g=data[i+1], b=data[i+2], a=data[i+3];
+                if(a>10 && (r<TH || g<TH || b<TH)){ bottom=y; break outerBottom; }
+              }
+            }
+            // find left
+            outerLeft: for(var x=0;x<w;x++){
+              for(var y2=0;y2<h;y2++){
+                var i=(y2*w+x)*4, r=data[i], g=data[i+1], b=data[i+2], a=data[i+3];
+                if(a>10 && (r<TH || g<TH || b<TH)){ left=x; break outerLeft; }
+              }
+            }
+            // find right
+            outerRight: for(var x=w-1;x>=0;x--){
+              for(var y2=0;y2<h;y2++){
+                var i=(y2*w+x)*4, r=data[i], g=data[i+1], b=data[i+2], a=data[i+3];
+                if(a>10 && (r<TH || g<TH || b<TH)){ right=x; break outerRight; }
+              }
+            }
+
+            var cropW = Math.max(1, right-left+1);
+            var cropH = Math.max(1, bottom-top+1);
+
+            var size = 64; // output favicon canvas size
+            var out = document.createElement("canvas");
+            out.width = size; out.height = size;
+            var octx = out.getContext("2d");
+            octx.clearRect(0,0,size,size);
+
+            // Rounded clipping mask
+            var rpx = radiusPx||10;
+            roundRect(octx, 0, 0, size, size, rpx);
+            octx.clip();
+
+            // Fit the cropped content into the rounded square
+            var scale = Math.min(size/cropW, size/cropH);
+            var dx = (size - cropW*scale)/2;
+            var dy = (size - cropH*scale)/2;
+            octx.imageSmoothingEnabled = true;
+            octx.drawImage(canvas, left, top, cropW, cropH, dx, dy, cropW*scale, cropH*scale);
+
+            resolve(out.toDataURL("image/png"));
+          }catch(err){ reject(err); }
+        };
+        img.onerror = function(){ reject(new Error("Failed to load image")); };
+        img.src = src;
+      }catch(e){ reject(e); }
+    });
+  }
+
+  function setFavicon(dataURL){
+    document.querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"]').forEach(function(n){ n.parentNode.removeChild(n); });
+    var link = document.createElement("link");
+    link.rel = "icon"; link.type = "image/png"; link.href = dataURL; link.sizes = "32x32";
+    document.head.appendChild(link);
+    var apple = document.createElement("link");
+    apple.rel = "apple-touch-icon"; apple.href = dataURL; apple.sizes = "180x180";
+    document.head.appendChild(apple);
+  }
+
+  var brandImg = document.querySelector(".brand img, .header-logo img, .site-logo img");
+  if(brandImg && brandImg.src){
+    // Use 12px corner radius for favicon rounding (looks similar to header logo)
+    generateRoundedTrimmedFavicon(brandImg.src, 12).then(setFavicon).catch(function(){
+      // fallback to existing link if generation fails
+    });
+  }
+})();
+</script>
 </body>
 </html>
