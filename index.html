@@ -226,7 +226,6 @@
   text-align: center;
 }
 </style>
-
 <style>
 /* Ambient backdrop behind the hero content (soft, premium, not boxed) */
 .hero.hero-stage{
@@ -260,6 +259,123 @@
 }
 /* Ensure the compact panel stays above the backdrop */
 .hero-compact-panel{ position: relative; z-index: 1; }
+</style>
+<style>
+@media (max-width: 768px){
+  /* esconder só o nome da empresa no topo (mobile) */
+  .topbar .brand > :not(img){ display: none !important; }
+  .topbar .brand{ width: 100%; justify-content: center; }
+  .topbar{ justify-content: center; gap: 10px; }
+  /* manter a logo pequena como já está; apenas garantir centralização */
+  .brand img{ display: block; margin: 0 auto; }
+
+  /* esconder o seletor de idioma do header no mobile (vamos usar FAB) */
+  .controls .lang-select{ display: none !important; }
+}
+</style>
+<style>
+/* FAB e modal de idioma (aparece em todas as telas, mas o select some no mobile) */
+.ml-lang-fab{
+  position: fixed; right: 16px; bottom: 16px; width: 44px; height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 12px; border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08); color: #fff; cursor: pointer;
+  backdrop-filter: saturate(140%) blur(6px); z-index: 9999;
+}
+.ml-lang-modal[hidden]{ display:none !important; }
+.ml-lang-modal{ position: fixed; inset: 0; z-index: 9998; }
+.ml-lang-backdrop{ position:absolute; inset:0; background: rgba(0,0,0,.5); }
+.ml-lang-sheet{
+  position:absolute; left:0; right:0; bottom:0; margin:0 auto; max-width:560px;
+  background:#111; color:#f4f4f4; border-top-left-radius: 16px; border-top-right-radius:16px;
+  padding: 14px; border:1px solid rgba(255,255,255,.14);
+}
+.ml-sheet-handle{ width:44px; height:4px; border-radius:999px; background:rgba(255,255,255,.25); margin:6px auto 10px; }
+.ml-lang-title{ margin:0 0 8px; font-size: 16px; text-align:center; }
+.ml-lang-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; }
+.ml-lang-grid button, .ml-lang-close{
+  padding:10px 12px; border-radius: 12px; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.08);
+  color:#fff; font-weight:700;
+}
+.ml-lang-close{ width:100%; margin-top: 8px; }
+@media (min-width: 769px){
+  /* no desktop, tanto faz manter o select e o FAB; se quiser, poderíamos esconder o FAB aqui */
+}
+</style>
+<style>
+/* ===== Testimonials Slider ===== */
+.testimonials-section{ margin: 40px auto; padding: 0 16px; }
+.testi-wrap{ max-width: 1200px; margin: 0 auto; }
+.testi-title{ font-size: 24px; font-weight: 900; margin: 0 0 12px; }
+
+.testi-slider{ position: relative; overflow: hidden; }
+.testi-track{
+  display: flex; gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.testi-slide{ min-width: 100%; scroll-snap-align: start; padding: 6px 2px; }
+.testi-2col{ display: grid; gap: 12px; }
+@media (min-width: 768px){
+  .testi-2col{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px){
+  .testi-2col{ grid-template-columns: 1fr; }
+}
+
+/* Cards (reaproveita o estilo existente, mas fica mais discreto) */
+.testi-card{
+  border-radius: 16px; padding: 12px; background: rgba(0,0,0,.32);
+  border: 1px solid rgba(255,255,255,.08); box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+.t-head{ display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; margin-bottom: 6px; }
+.avatar{ width: 36px; height: 36px; border-radius: 10px; display:flex; align-items:center; justify-content:center;
+  font-weight: 800; background: linear-gradient(135deg, #ff9a3c, #ff6a00); color: #111; }
+.who span{ display:block; font-size: 12px; opacity: .85; }
+.stars{ font-size: 14px; letter-spacing: .6px; }
+.t-quote{ margin: 6px 0 2px; font-size: 14px; line-height: 1.5; }
+
+/* Navigation */
+.testi-nav{
+  display:flex; align-items:center; justify-content:center; gap: 8px;
+  margin-top: 10px;
+}
+.testi-prev, .testi-next{
+  width: 38px; height: 34px; border-radius: 10px; font-size: 20px; line-height: 1;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08); color: #fff;
+  display:inline-flex; align-items:center; justify-content:center;
+}
+.testi-dots{ display:flex; gap:6px; align-items:center; justify-content:center; }
+.testi-dot{
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  border: 1px solid rgba(255,255,255,.15);
+}
+.testi-dot[aria-selected="true"]{ background: #ff8a3c; border-color: #ff8a3c; }
+</style>
+
+<style>
+.testi-prev, .testi-next{
+  width: 36px; height: 36px; border-radius: 12px; padding: 0;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #fff;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.testi-prev:hover, .testi-next:hover{
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.2);
+  transform: translateY(-1px);
+}
+.testi-prev:active, .testi-next:active{ transform: translateY(0); }
+.testi-prev .icon, .testi-next .icon{ width: 16px; height: 16px; display: block; }
+.testi-prev:focus-visible, .testi-next:focus-visible{
+  outline: 2px solid #ff8a3c; outline-offset: 2px;
+}
 </style>
 </head>
 <body>
@@ -713,129 +829,224 @@
 <section aria-label="Feedback de clientes" class="testimonials-section" id="depoimentos">
 <div class="testi-wrap">
 <h2 class="testi-title">O que dizem nossos clientes</h2>
-<div class="testi-grid">
-<article class="testi-card">
+<div aria-label="O que dizem nossos clientes" class="testi-slider" role="region"><div class="testi-track"><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">LC</div>
 <div class="who"><strong>Lúcia Canelas</strong><span>Proprietária — Imobiliária Canelas</span></div>
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Os vídeos dos imóveis e os anúncios segmentados duplicaram as visitas em 30 dias. Fechámos <strong>3 vendas</strong> no primeiro mês.”</p>
-</article>
-<article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">SL</div>
 <div class="who"><strong>Steffan</strong><span>Proprietário — Latina Grill</span></div>
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Depois da filmagem + tráfego pago, as <strong>reservas de mesas</strong> aumentaram de forma constante. O salão passou a lotar nos fins‑de‑semana.”</p>
-</article>
-<article class="testi-card">
+</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">AM</div>
 <div class="who"><strong>Arthur</strong><span>Gestor — Mais Laser Cabo Frio</span></div>
 <div aria-label="4.9 de 5" class="stars">★★★★☆</div>
 </header>
 <p class="t-quote">“Os criativos com drone deixaram a clínica moderna. Saímos de 8 para <strong>22 procedimentos/semana</strong> em 6 semanas.”</p>
-</article>
-<article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">FT</div>
 <div class="who"><strong>Fábio</strong><span>Diretor — TX Multimarcas (moda)</span></div>
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Os vídeos das coleções e as campanhas trouxeram mais visitas e compras — ficamos com lançamentos esgotados.”</p>
-</article>
-<article class="testi-card">
+</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">DW</div>
 <div class="who"><strong>Dr. Wellisson</strong><span>Dermatologista</span></div>
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Com captação profissional e anúncios, dobramos as <strong>consultas particulares</strong>. A marca ficou mais premium.”</p>
-</article>
-<article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">GE</div>
 <div class="who"><strong>Gutemberg</strong><span>CEO — Educar Treinamentos</span></div>
 <div aria-label="4.9 de 5" class="stars">★★★★☆</div>
 </header>
 <p class="t-quote">“A estratégia trouxe inscrições com <strong>CPL competitivo</strong> e lotamos duas turmas extras no trimestre.”</p>
-</article>
-<article class="testi-card">
+</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">DA</div>
 <div class="who"><strong>Dr. Anderson</strong><span>Clínica Veterinária Palmeiras</span></div>
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Os vídeos de casos e a segmentação local multiplicaram os <strong>agendamentos</strong>. Crescemos forte em banho &amp; tosa.”</p>
-</article>
-<article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">DT</div>
 <div class="who"><strong>Dra. Thayse</strong><span>Dermatologista</span></div>
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Reels com qualidade e anúncios bem posicionados trouxeram <strong>pacientes de alto valor</strong> e agenda cheia.”</p>
-</article>
-<article class="testi-card">
+</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">GV</div>
 <div class="who"><strong>Genaria</strong><span>Fundadora — Instituto Genaria Viana</span></div>
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Organizamos a comunicação e o tráfego; os cursos ganharam <strong>credibilidade</strong> e tivemos turmas completas.”</p>
-</article>
-<article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">IL</div>
 <div class="who"><strong>Ieda</strong><span>Diretora — Instituto Lessa Viana</span></div>
 <div aria-label="4.8 de 5" class="stars">★★★★☆</div>
 </header>
 <p class="t-quote">“Com vídeos e anúncios, ampliamos o alcance e fechamos <strong>novas parcerias</strong> educacionais.”</p>
-</article>
-<article class="testi-card">
+</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">FA</div>
 <div class="who"><strong>Filipe Almeida</strong><span>Diretor — Escola Almeida Santos</span></div>
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“A procura por matrículas cresceu de forma consistente. O tráfego trouxe <strong>famílias qualificadas</strong> para as visitas.”</p>
-</article>
-<article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">LC</div>
 <div class="who"><strong>Leonardo</strong><span>Sócio — Constroi.pt</span></div>
 <div class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Faz pinturas e reparos; após começar, o faturamento aumentou de forma <strong>brusca</strong>.”</p>
-</article>
-<article class="testi-card">
+</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">RC</div>
 <div class="who"><strong>Romero</strong><span>Gestor — Pousada das Conchas</span></div>
 <div class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Com vídeos aéreos e tráfego, elevamos a <strong>taxa de ocupação</strong> fora de época.”</p>
-</article>
-<article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">BI</div>
 <div class="who"><strong>Bernardo</strong><span>Diretor — Auto Escola Iguaba</span></div>
 <div class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“As campanhas trouxeram <strong>matrículas constantes</strong> e agenda cheia para aulas práticas.”</p>
-</article>
-<article class="testi-card">
+</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">LQ</div>
 <div class="who"><strong>Leandro Dmennor</strong><span>Proprietário — Quintal do Zeca Pagodinho</span></div>
 <div class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Os criativos deram vida aos eventos; aumentou o <strong>fluxo de reservas</strong> e consumo.”</p>
-</article>
-</div>
+</article></div></div></div><div class="testi-nav"><button aria-label="Anterior" class="testi-prev" type="button"><svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div aria-label="Páginas de depoimentos" class="testi-dots" role="tablist"></div><button aria-label="Próximo" class="testi-next" type="button"><svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div>
 </div>
 </section>
+<div aria-label="Selecionar idioma" aria-modal="true" class="ml-lang-modal" hidden="" id="ml-lang-modal" role="dialog">
+<div class="ml-lang-backdrop" data-close=""></div>
+<div class="ml-lang-sheet">
+<div class="ml-sheet-handle"></div>
+<h3 class="ml-lang-title">Idioma</h3>
+<div class="ml-lang-grid">
+<button data-lang="pt" type="button">Português</button>
+<button data-lang="en" type="button">English</button>
+<button data-lang="es" type="button">Español</button>
+<button data-lang="fr" type="button">Français</button>
+<button data-lang="it" type="button">Italiano</button>
+<button data-lang="de" type="button">Deutsch</button>
+</div>
+<button class="ml-lang-close" data-close="" type="button">Continuar</button>
+</div>
+</div>
+<button aria-label="Mudar idioma" class="ml-lang-fab" title="Idioma">🌐</button>
+<script>
+(function(){
+  var modal = document.getElementById('ml-lang-modal');
+  var btn = document.querySelector('.ml-lang-fab');
+  var select = document.getElementById('lang'); // já existe no header e é usado pelo i18n
+
+  function open(){ if(modal) modal.hidden = false; }
+  function close(){ if(modal) modal.hidden = true; }
+
+  function choose(code){
+    if(!select) return;
+    select.value = code;
+    // dispara o mesmo fluxo já usado pelo site
+    var ev = new Event('change', {bubbles:true});
+    select.dispatchEvent(ev);
+    try{ localStorage.setItem('mlLang', code); }catch(e){}
+    close();
+  }
+
+  document.addEventListener('click', function(e){
+    if(e.target.closest('.ml-lang-fab')) open();
+    if(e.target.closest('[data-close]')) close();
+    var langBtn = e.target.closest('[data-lang]');
+    if(langBtn){ choose(langBtn.getAttribute('data-lang')); }
+  });
+
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+
+  // aplica linguagem guardada, se houver
+  try{
+    var saved = localStorage.getItem('mlLang');
+    if(saved && select){
+      select.value = saved;
+      var ev2 = new Event('change', {bubbles:true});
+      select.dispatchEvent(ev2);
+    }
+  }catch(e){}
+})();
+</script>
+<script>
+(function(){
+  var slider = document.querySelector('.testi-slider');
+  if(!slider) return;
+  var track = slider.querySelector('.testi-track');
+  var slides = Array.from(slider.querySelectorAll('.testi-slide'));
+  var dotsWrap = slider.querySelector('.testi-dots');
+  var prev = slider.querySelector('.testi-prev');
+  var next = slider.querySelector('.testi-next');
+  var index = 0;
+
+  function updateDots(i){
+    var dots = dotsWrap.querySelectorAll('.testi-dot');
+    dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
+  }
+  function go(i){
+    index = Math.max(0, Math.min(i, slides.length-1));
+    var x = slider.clientWidth * index;
+    track.scrollTo({left: x, behavior: 'smooth'});
+    updateDots(index);
+  }
+
+  // build dots
+  slides.forEach(function(_, i){
+    var dot = document.createElement('button');
+    dot.className = 'testi-dot';
+    dot.type = 'button';
+    dot.setAttribute('role','tab');
+    dot.setAttribute('aria-label','Ir para página ' + (i+1));
+    dot.addEventListener('click', function(){ go(i); });
+    dotsWrap.appendChild(dot);
+  });
+  updateDots(0);
+
+  // arrows
+  if(prev) prev.addEventListener('click', function(){ go(index-1); });
+  if(next) next.addEventListener('click', function(){ go(index+1); });
+
+  // sync by scroll (snap)
+  var ticking = false;
+  track.addEventListener('scroll', function(){
+    if(ticking) return;
+    window.requestAnimationFrame(function(){
+      var w = slider.clientWidth || 1;
+      var i = Math.round(track.scrollLeft / w);
+      if(i !== index){ index = i; updateDots(i); }
+      ticking = false;
+    });
+    ticking = true;
+  });
+
+  // handle resize
+  window.addEventListener('resize', function(){ go(index); });
+})();
+</script>
 </body>
 </html>
