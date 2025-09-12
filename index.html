@@ -226,7 +226,6 @@
   text-align: center;
 }
 </style>
-
 <style>
 /* Ambient backdrop behind the hero content (soft, premium, not boxed) */
 .hero.hero-stage{
@@ -261,8 +260,67 @@
 /* Ensure the compact panel stays above the backdrop */
 .hero-compact-panel{ position: relative; z-index: 1; }
 </style>
+
+<style>
+/* --- Mobile-first tweaks --- */
+@media (max-width: 768px){
+  /* Mobile header with logo over brand name */
+  .ml-mobile-header{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    gap:8px; padding:10px 12px 2px;
+  }
+  .ml-mobile-logo{ width: 54px; height:54px; object-fit:contain; border-radius:12px; background:transparent; }
+  .ml-mobile-name{ font-weight:800; font-size:16px; }
+
+  /* Ensure hero content is centered on mobile */
+  .hero, .hero-compact-wrap{
+    display:flex !important; flex-direction:column; align-items:center; justify-content:center;
+    padding: 12px;
+  }
+  .hero-compact-panel{ text-align:center !important; width: 100%; max-width: 700px; }
+
+  /* Language FAB */
+  .ml-lang-fab{
+    position: fixed; right: 14px; bottom: 14px; width: 42px; height: 42px;
+    display:inline-flex; align-items:center; justify-content:center; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06);
+    backdrop-filter: saturate(140%) blur(6px); z-index: 9999;
+  }
+  .ml-lang-modal[hidden]{ display:none !important; }
+  .ml-lang-modal{ position:fixed; inset:0; z-index: 9998; }
+  .ml-lang-backdrop{ position:absolute; inset:0; background: rgba(0,0,0,.5); }
+  .ml-lang-sheet{
+    position:absolute; left:0; right:0; bottom:0; margin:0 auto; max-width:560px;
+    background:#111; color:#f4f4f4; border-top-left-radius: 16px; border-top-right-radius:16px;
+    padding: 14px; border:1px solid rgba(255,255,255,.14);
+  }
+  .ml-sheet-handle{ width:44px; height:4px; border-radius:999px; background:rgba(255,255,255,.25); margin:6px auto 10px; }
+  .ml-lang-title{ margin:0 0 8px; font-size: 16px; }
+  .ml-lang-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; }
+  .ml-lang-grid button, .ml-lang-close{
+    padding:10px 12px; border-radius: 12px; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.08);
+    color:#fff; font-weight:700;
+  }
+  .ml-lang-close{ width:100%; margin-top: 8px; }
+
+  /* Center the nav above 'Pacotes' on mobile too */
+  nav:has(a[href*="pacot" i]), .anchors:has(a[href*="pacot" i]), .nav:has(a[href*="pacot" i]), .navbar:has(a[href*="pacot" i]){
+    display:flex !important; justify-content:center !important; align-items:center !important; text-align:center !important; flex-wrap:wrap; gap:10px;
+  }
+}
+
+/* Ambient backdrop subtle on mobile: reduce intensity */
+@media (max-width: 768px){
+  .hero.hero-stage::before{ opacity:.6; filter: blur(8px); }
+}
+</style>
 </head>
 <body>
+<div aria-label="High Level Marketing" class="ml-mobile-header" role="banner">
+<img alt="Logo High Level Marketing" class="ml-mobile-logo" src="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true"/>
+<div class="ml-mobile-name">High Level Marketing</div>
+</div>
+
 <div class="wrap">
 <header class="topbar">
 <div class="brand">
@@ -837,5 +895,49 @@
 </div>
 </div>
 </section>
+
+<div aria-label="Selecionar idioma" aria-modal="true" class="ml-lang-modal" hidden="" id="ml-lang-modal" role="dialog">
+<div class="ml-lang-backdrop" data-close=""></div>
+<div class="ml-lang-sheet">
+<div class="ml-sheet-handle"></div>
+<h3 class="ml-lang-title">Idioma</h3>
+<div class="ml-lang-grid">
+<button data-lang="pt" type="button">Português</button>
+<button data-lang="en" type="button">English</button>
+<button data-lang="es" type="button">Español</button>
+<button data-lang="fr" type="button">Français</button>
+<button data-lang="it" type="button">Italiano</button>
+</div>
+<button class="ml-lang-close" data-close="" type="button">Continuar</button>
+</div>
+</div>
+<button aria-label="Mudar idioma" class="ml-lang-fab" title="Idioma">🌐</button>
+
+<script>
+(function(){
+  var modal = document.getElementById('ml-lang-modal');
+  function open(){ if(modal) modal.hidden = false; }
+  function close(){ if(modal) modal.hidden = true; }
+  function setQueryParam(key, value){
+    try{
+      var url = new URL(window.location.href);
+      if(value == null){ url.searchParams.delete(key); } else { url.searchParams.set(key, value); }
+      window.history.replaceState({}, '', url.toString());
+    }catch(e){}
+  }
+  function choose(code){
+    try{ localStorage.setItem('mlLang', code); }catch(e){}
+    setQueryParam('lang', code);
+    close();
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if(t.closest('.ml-lang-fab')){ open(); }
+    if(t.closest('[data-close]')){ close(); }
+    if(t.closest('[data-lang]')){ choose(t.getAttribute('data-lang')); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ close(); } });
+})();
+</script>
 </body>
 </html>
