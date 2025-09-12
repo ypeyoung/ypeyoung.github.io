@@ -313,7 +313,6 @@
   .hero.hero-stage::before{ opacity:.6; filter: blur(8px); }
 }
 </style>
-
 <style>
 @media (max-width: 768px){
   /* Mostrar só a LOGO grande no topo; esconder o nome */
@@ -333,6 +332,25 @@
 
   /* Centralizar o hero no mobile (garantia) */
   .hero, .hero-compact-wrap{ display:flex !important; flex-direction:column; align-items:center; justify-content:center; padding: 12px; }
+  .hero-compact-panel{ text-align:center !important; width: 100%; max-width: 700px; }
+}
+</style>
+
+<style>
+@media (max-width: 768px){
+  /* Aumentar a logo do topo e manter só ela */
+  .ml-mobile-logo{ width: 96px; height: 96px; border-radius: 16px; }
+  .ml-mobile-name{ display: none !important; }
+
+  /* Reverter QUALQUER regra anterior que tenha escondido coisas demais */
+  [class*="lang" i]:not(.ml-lang-fab):not(.ml-lang-modal),
+  [class*="idioma" i]:not(.ml-lang-fab):not(.ml-lang-modal){
+    display: initial !important;
+  }
+
+  /* Garantir que hero aparece */
+  .hero, .hero-compact-wrap, .hero-compact-panel{ display: block; }
+  .hero-compact-wrap{ display:flex !important; flex-direction:column; align-items:center; justify-content:center; padding:12px; }
   .hero-compact-panel{ text-align:center !important; width: 100%; max-width: 700px; }
 }
 </style>
@@ -958,7 +976,6 @@
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ close(); } });
 })();
 </script>
-
 <script>
 (function(){
   function hideOldLangBadges(){
@@ -977,6 +994,28 @@
     hideOldLangBadges();
   }else{
     document.addEventListener('DOMContentLoaded', hideOldLangBadges);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  function hideOnlyPortugueseChip(){
+    var candidates = document.querySelectorAll('button, a, span, div, select');
+    candidates.forEach(function(el){
+      var txt = (el.textContent || '').trim();
+      if(!txt) return;
+      if(/^portugu[eê]s$/i.test(txt)){
+        if(el.closest('#ml-lang-modal') || el.classList.contains('ml-lang-fab')) return;
+        var target = el.closest('.chip, .badge, .pill, .lang, .idioma, .select, .dropdown, .btn') || el;
+        target.style.display = 'none';
+      }
+    });
+  }
+  if(document.readyState === 'complete' || document.readyState === 'interactive'){
+    hideOnlyPortugueseChip();
+  }else{
+    document.addEventListener('DOMContentLoaded', hideOnlyPortugueseChip);
   }
 })();
 </script>
