@@ -55,63 +55,103 @@
   </style>
 
 <style>
-/* ======= Mobile-first header layout (<=768px) ======= */
-.mobile-header{
-  display:none;
-}
+/* Reset-ish */
+.ml-hero, .ml-modal, .ml-lang-fab { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+/* Mobile-first: show our hero, hide heavy desktop elements */
+.ml-hero { display: none; }
+.ml-lang-fab { display: none; }
+
 @media (max-width: 768px){
-  /* Hide busy desktop bars if present */
-  .topbar, .navbar, header .row, .desktop-only{ display:none !important; }
-  .mobile-header{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    gap:10px;
-    padding:12px 14px;
+  /* Esconde header tradicional e logotipos no mobile */
+  header, .topbar, .navbar, .nav, .desktop-only, .brand, .site-logo, .header-logo { display: none !important; }
+
+  /* Hero minimalista */
+  .ml-hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: 22px 16px 10px;
   }
-  .mobile-header .lang-select{
-    width: 100%;
-    max-width: 320px;
-    padding: 10px 12px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,.15);
-    background: rgba(255,255,255,.04);
-    color: inherit;
+  .ml-company{
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: .2px;
   }
-  .mobile-header .mobile-logo{
-    width: 56px;
-    height: 56px;
-    border-radius: 12px; /* quadrado com bordas arredondadas */
-    object-fit: contain;
-  }
-  .mobile-header .mobile-company-name{
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.2;
-    opacity: .95;
-  }
-  .mobile-header .mobile-cta{
-    display:inline-block;
-    padding: 10px 16px;
+  .ml-cta{
+    display: inline-block;
+    padding: 12px 18px;
     border-radius: 9999px;
-    text-decoration:none;
-    font-weight:600;
-    border: 1px solid rgba(255,255,255,.18);
-    background: rgba(255,255,255,.06);
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(0,0,0,.06);
     color: inherit;
   }
 
-  /* ======= Videos / galeria centrados no mobile ======= */
+  /* FAB de idioma (discreto, sempre disponível) */
+  .ml-lang-fab{
+    display: inline-flex;
+    position: fixed;
+    right: 16px; bottom: 16px;
+    width: 44px; height: 44px;
+    align-items: center; justify-content: center;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(0,0,0,.06);
+    backdrop-filter: saturate(140%) blur(6px);
+    cursor: pointer;
+    z-index: 9999;
+  }
+
+  /* Modal de idiomas (bottom sheet) */
+  .ml-modal[hidden]{ display:none !important; }
+  .ml-modal{ position: fixed; inset: 0; z-index: 9998; }
+  .ml-modal__backdrop{
+    position: absolute; inset: 0; background: rgba(0,0,0,.45);
+  }
+  .ml-modal__panel{
+    position: absolute; left: 0; right:0; bottom: 0;
+    margin: 0 auto;
+    max-width: 560px;
+    background: var(--panel-bg, #fff);
+    color: var(--panel-fg, #111);
+    border-top-left-radius: 18px; border-top-right-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,.25);
+  }
+  @media (prefers-color-scheme: dark){
+    .ml-modal__panel{ --panel-bg: #111; --panel-fg: #f6f6f6; border: 1px solid rgba(255,255,255,.12); }
+  }
+  .ml-modal__panel h2{ font-size: 18px; margin: 4px 0 6px; }
+  .ml-modal__subtitle{ margin: 0 0 8px; opacity: .8; font-size: 14px; }
+  .ml-lang-grid{
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 8px 0 10px;
+  }
+  .ml-lang-grid button{
+    padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,.14);
+    background: rgba(0,0,0,.06); color: inherit; font-weight: 600;
+  }
+  .ml-close{
+    display:block; width:100%; padding: 10px 14px;
+    border-radius: 10px; border: 1px solid rgba(0,0,0,.14);
+    background: rgba(0,0,0,.06); color: inherit; font-weight:600;
+  }
+
+  /* Conteúdo de vídeos centrado no mobile */
   .videos, .reels, .portfolio, .gallery, .cards, .grid, section[id*="video" i]{
     display: grid;
     justify-items: center;
     text-align: center;
     gap: 14px;
+    padding-left: 10px; padding-right: 10px;
   }
   .videos > *, .reels > *, .portfolio > *, .gallery > *, .cards > *, .grid > *{
     width: 100%;
-    max-width: 480px;
+    max-width: 560px;
   }
   iframe, video{
     display:block;
@@ -119,23 +159,15 @@
     height: auto !important;
     aspect-ratio: 16 / 9;
     margin: 0 auto;
+    border-radius: 12px;
   }
 
-  /* Headings e parágrafos principais centralizados */
-  h1, h2, h3, .title, .heading, .lead, .subtitle{
-    text-align:center;
-  }
+  /* Títulos e subtítulos principais centralizados */
+  h1, h2, h3, .title, .heading, .lead, .subtitle{ text-align:center; }
 }
 </style>
 </head>
-<body><div class="mobile-header"><select aria-label="Language" class="lang-select">
-<option value="pt">Português</option>
-<option value="en">English</option>
-<option value="fr">Français</option>
-<option value="it">Italiano</option>
-<option value="es">Español</option>
-<option value="de">Deutsch</option>
-</select><img alt="Logo" class="mobile-logo" src="https://raw.githubusercontent.com/ypeyoung/hlm-assets/main/hlm-logo.png.jpeg"/><div class="mobile-company-name">Vídeos que chamam atenção e anúncios que geram contactos</div><a class="mobile-cta" href="https://wa.me/351934071660">Falar com nossa equipa</a></div>
+<body><section aria-label="High Level Marketing" class="ml-hero"><h1 class="ml-company">High Level Marketing</h1><a class="ml-cta" href="https://wa.me/351934071660">Falar com nossa equipa</a></section>
 <div class="wrap">
 <header class="topbar">
 <div class="brand">
@@ -587,5 +619,67 @@
     applyLang('pt');
   </script>
 <script async="" src="https://www.instagram.com/embed.js"></script>
+
+<div aria-labelledby="ml-lang-title" aria-modal="true" class="ml-modal" hidden="" id="ml-lang-modal" role="dialog">
+<div class="ml-modal__backdrop" data-close=""></div>
+<div class="ml-modal__panel" role="document">
+<h2 id="ml-lang-title">Escolha seu idioma</h2>
+<p class="ml-modal__subtitle">Selecione um idioma para continuar:</p>
+<div class="ml-lang-grid">
+<button data-lang="pt" type="button">Português</button>
+<button data-lang="en" type="button">English</button>
+<button data-lang="es" type="button">Español</button>
+<button data-lang="fr" type="button">Français</button>
+<button data-lang="it" type="button">Italiano</button>
+<button data-lang="de" type="button">Deutsch</button>
+</div>
+<button class="ml-close" data-close="" type="button">Continuar</button>
+</div>
+</div>
+<button aria-label="Mudar idioma" class="ml-lang-fab" title="Mudar idioma">🌐</button>
+
+<script>
+(function(){
+  var modal = document.getElementById('ml-lang-modal');
+  var fab = document.querySelector('.ml-lang-fab');
+  var open = function(){ if(modal) modal.hidden = false; };
+  var close = function(){ if(modal) modal.hidden = true; };
+
+  function setQueryParam(key, value){
+    try{
+      var url = new URL(window.location.href);
+      if(value == null){ url.searchParams.delete(key); } else { url.searchParams.set(key, value); }
+      window.history.replaceState({}, '', url.toString());
+    }catch(e){}
+  }
+
+  // Language selection
+  function chooseLang(code){
+    try{ localStorage.setItem('mlLang', code); localStorage.setItem('mlLangChosen','1'); }catch(e){}
+    setQueryParam('lang', code);
+    close();
+  }
+
+  // Wire buttons
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if(t.closest('[data-close]')){ close(); }
+    if(t.closest('[data-lang]')){ chooseLang(t.getAttribute('data-lang')); }
+    if(t.closest('.ml-lang-fab')){ open(); }
+  }, false);
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ close(); }
+  });
+
+  // Auto open on first visit (mobile only)
+  var firstTime = false;
+  try{ firstTime = !localStorage.getItem('mlLangChosen'); }catch(e){}
+  var isMobile = window.matchMedia('(max-width: 768px)').matches;
+  if(firstTime && isMobile){
+    setTimeout(open, 300);
+  }
+})();
+</script>
 </body>
 </html>
