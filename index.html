@@ -632,7 +632,6 @@
   }
 }
 </style>
-
 <style>
 @media (max-width: 768px){
   /* remove qualquer elemento estético que crie "borrão" no topo */
@@ -651,6 +650,48 @@
     margin-left: auto !important;
     margin-right: auto !important;
   }
+}
+</style>
+
+<style>
+/* 1) Limpeza total do topo e hero centralizado */
+@media (max-width: 768px){
+  .hl-top-ribbon, header, .site-header, .top-shadow, .hero.hero-stage::before{ display:none !important; }
+  body, html, main{ margin-top:0 !important; padding-top:0 !important; }
+  .hero, .hero-compact-wrap{
+    background: transparent !important; border:0 !important; box-shadow:none !important;
+    display:flex !important; flex-direction:column; align-items:center !important; justify-content:center !important;
+    margin-top:0 !important; padding: 8px 0 12px !important;
+  }
+  .hero-compact-panel{
+    background: transparent !important; border:0 !important; box-shadow:none !important;
+    width:100% !important; max-width:760px !important; margin:0 auto !important; padding:0 16px !important;
+    text-align:center !important;
+  }
+  .hero-compact-panel > *{ margin-left:auto !important; margin-right:auto !important; text-align:center !important; }
+  /* badge/tag do hero centralizado */
+  .hero-compact-panel [class*="badge" i],
+  .hero-compact-panel [class*="pill" i],
+  .hero-compact-panel [class*="tag" i]{ display:inline-block !important; margin-left:auto !important; margin-right:auto !important; }
+}
+
+/* 2) Centralização robusta do menu de chips (Pacotes / Portfólio / ...) */
+.chips-center{ display:flex !important; justify-content:center !important; align-items:center !important; flex-wrap:wrap !important; gap:12px !important; text-align:center !important; }
+
+/* 3) Slider de Pacotes — sem "folga" antes do primeiro slide */
+.pkg-slider{ position:relative; overflow:hidden; }
+.pkg-track{ display:flex; gap:0; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; padding:0 !important; margin:0 !important; }
+.pkg-slide{ min-width:100%; scroll-snap-align:start; padding: 0 !important; box-sizing:border-box; }
+.pkg-nav{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:8px; }
+.pkg-prev, .pkg-next{ width:36px; height:36px; border-radius:12px; padding:0; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:#fff; display:inline-flex; align-items:center; justify-content:center; }
+.pkg-dots{ display:flex; gap:6px; align-items:center; justify-content:center; }
+.pkg-dot{ width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.15); }
+.pkg-dot[aria-selected="true"]{ background:#ff8a3c; border-color:#ff8a3c; }
+
+@media (min-width: 1025px){
+  .pkg-track{ overflow:visible; display:grid; grid-template-columns: repeat(3, minmax(280px,1fr)); gap:16px; }
+  .pkg-slide{ min-width:0; }
+  .pkg-nav{ display:none; }
 }
 </style>
 </head>
@@ -1502,7 +1543,6 @@
   window.addEventListener('resize', function(){ go(index); });
 })();
 </script>
-
 <script>
 (function(){
   var slider = document.querySelector('.pkg-slider');
@@ -1568,6 +1608,97 @@
       ticking=false;
     });
     ticking=true;
+  });
+
+  window.addEventListener('resize', function(){ go(index); });
+})();
+</script>
+
+<script>
+(function(){
+  // 1) Centraliza o grupo de chips (menu âncoras)
+  var labels = ['Pacotes','Portfólio','Como funciona','Diferenciais','FAQ','Contactos','Contato','Contactos'];
+  var anchors = Array.from(document.querySelectorAll('a,button')).filter(function(el){
+    var t = (el.textContent || '').trim();
+    return labels.indexOf(t) !== -1;
+  });
+  if(anchors.length){
+    var container = anchors[0].closest('nav, .anchors, .nav, .navbar, .chips, .menu, div');
+    if(container) container.classList.add('chips-center');
+  }
+
+  // 2) Slider de pacotes — remove slides vazios e ativa looping
+  var slider = document.querySelector('.pkg-slider');
+  if(!slider) return;
+  var track = slider.querySelector('.pkg-track');
+  var dotsWrap = slider.querySelector('.pkg-dots');
+  var prev = slider.querySelector('.pkg-prev');
+  var next = slider.querySelector('.pkg-next');
+
+  function getSlides(){
+    return Array.from(track.querySelectorAll('.pkg-slide'));
+  }
+
+  // Remover slides "vazios" — considera vazio quando não há títulos/listas/conteúdo significativo
+  getSlides().forEach(function(s){
+    if(!s.querySelector('.pkg-card, .pricing-card, .pacote, .package, h3, h4, ul, ol, p')){
+      s.remove();
+    }
+  });
+
+  // garante que começamos no primeiro
+  track.scrollLeft = 0;
+
+  var index = 0;
+  function updateDots(i){
+    if(!dotsWrap) return;
+    var dots = dotsWrap.querySelectorAll('.pkg-dot');
+    dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
+  }
+  function rebuildDots(){
+    if(!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    getSlides().forEach(function(_, i){
+      var dot = document.createElement('button');
+      dot.className = 'pkg-dot'; dot.type = 'button';
+      dot.setAttribute('role','tab'); dot.setAttribute('aria-label','Ir para pacote ' + (i+1));
+      dot.addEventListener('click', function(){ go(i); });
+      dotsWrap.appendChild(dot);
+    });
+    updateDots(0);
+  }
+  function go(i){
+    var slides = getSlides();
+    var total = slides.length;
+    if(total === 0) return;
+    if(i < 0) i = total - 1;  // looping
+    if(i >= total) i = 0;
+    index = i;
+    var x = slider.clientWidth * index;
+    track.scrollTo({left: x, behavior: 'smooth'});
+    updateDots(index);
+  }
+
+  rebuildDots();
+  if(prev) prev.addEventListener('click', function(){ go(index-1); });
+  if(next) next.addEventListener('click', function(){ go(index+1); });
+
+  // sincroniza pelo scroll (snap) e corrige “meio slide”
+  var ticking = false;
+  track.addEventListener('scroll', function(){
+    if(ticking) return;
+    window.requestAnimationFrame(function(){
+      var w = slider.clientWidth || 1;
+      var i = Math.round(track.scrollLeft / w);
+      var slides = getSlides();
+      if(slides.length){
+        if(i < 0) i = 0;
+        if(i >= slides.length) i = slides.length - 1;
+        if(i !== index){ index = i; updateDots(i); }
+      }
+      ticking = false;
+    });
+    ticking = true;
   });
 
   window.addEventListener('resize', function(){ go(index); });
