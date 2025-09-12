@@ -476,7 +476,6 @@
   .ml-hide-mobile{ display: none !important; }
 }
 </style>
-
 <style>
 @media (max-width: 768px){
   .hero, .hero-compact-wrap{ background: transparent !important; border: 0 !important; box-shadow: none !important; }
@@ -485,8 +484,53 @@
   .hero, .hero-compact-wrap{ display:flex !important; flex-direction:column; align-items:center !important; justify-content:center !important; padding:8px 0 12px; }
 }
 </style>
+
+<style>
+@media (max-width: 768px){
+  .ml-mobile-header{ display: none !important; }
+  header .logo, .navbar-brand{ display: none !important; } /* evita logo de tema no topo no mobile */
+}
+</style>
+
+<style>
+/* Top ambient ribbon — sutil e elegante */
+.hl-top-ribbon{
+  position: sticky;
+  top: 0;
+  height: 56px;
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(40% 60% at 15% 50%, rgba(255,154,60,.18), transparent 60%),
+    radial-gradient(40% 60% at 85% 50%, rgba(255,106,0,.12), transparent 60%);
+  filter: blur(10px);
+  opacity: .55;
+}
+@media (min-width: 1025px){
+  .hl-top-ribbon{ height: 72px; opacity: .45; }
+}
+</style>
+
+<style>
+.hl-footer{
+  margin: 40px auto 28px;
+  padding: 16px 12px 8px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.08);
+  max-width: 1200px;
+}
+.hl-footer-logo{
+  width: 96px; height: 96px; object-fit: contain; margin: 4px auto 6px; display: block;
+  background: transparent;
+}
+.hl-copy{ opacity: .8; font-size: 14px; margin: 0; }
+@media (max-width: 768px){
+  .hl-footer-logo{ width: 88px; height: 88px; }
+}
+</style>
 </head>
-<body>
+<body><div aria-hidden="true" class="hl-top-ribbon"></div>
 <div class="wrap">
 <header class="topbar">
 <div class="brand">
@@ -1262,7 +1306,6 @@
   }
 })();
 </script>
-
 <script>
         (function(){
           var slider = document.querySelector('.testi-slider');
@@ -1296,5 +1339,5 @@
           }
         })();
         </script>
-</body>
+<footer class="hl-footer"><img alt="Logo High Level Marketing" class="hl-footer-logo" src="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true"/><p class="hl-copy">© High Level Marketing</p></footer></body>
 </html>
