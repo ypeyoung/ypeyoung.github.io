@@ -413,7 +413,6 @@
   .ml-lang-fab{ bottom: 18px; right: 14px; }
 }
 </style>
-
 <style>
 @media (max-width: 768px){
   .ml-mobile-logo{
@@ -421,6 +420,61 @@
     height: 104px !important;
     margin-top: 4px;
   }
+}
+</style>
+<style>
+/* Slides com 4 depoimentos (2 colunas x 2 linhas) */
+.testi-slider{ position:relative; overflow:hidden; }
+.testi-track{ display:flex; gap:0; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; }
+.testi-slide{ min-width:100%; scroll-snap-align:start; padding:8px 2px; }
+.testi-2x2{ display:grid; gap:12px; }
+@media (max-width: 767px){ .testi-2x2{ grid-template-columns: 1fr; } } /* mobile empilhado para leitura */
+@media (min-width: 768px){ .testi-2x2{ grid-template-columns: repeat(2,1fr); } }
+
+/* Nav */
+.testi-nav{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:10px; }
+.testi-prev, .testi-next{ width:36px; height:36px; border-radius:12px; padding:0; display:inline-flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:#fff; }
+.testi-dots{ display:flex; gap:6px; align-items:center; justify-content:center; }
+.testi-dot{ width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.15); }
+.testi-dot[aria-selected="true"]{ background:#ff8a3c; border-color:#ff8a3c; }
+</style>
+
+<style>
+/* Center hero container across phones & tablets, widen slightly if needed */
+@media (max-width: 1024px){
+  .hero, .hero-compact-wrap{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding-left: 16px; padding-right: 16px;
+  }
+  .hero-compact-panel{
+    width: 100% !important;
+    max-width: 780px; /* ligeiro aumento para tablets/telefones grandes */
+    margin: 0 auto !important;
+    text-align: center !important;
+    align-self: center !important;
+  }
+  /* kill floats/margins que puxem para o lado */
+  .hero-compact-wrap *[style*="float"],
+  .hero *[style*="float"]{ float: none !important; }
+}
+
+/* Aumentar um pouco a logo do topo no mobile */
+@media (max-width: 768px){
+  .ml-mobile-logo, header .logo img, .navbar-brand img{
+    width: 112px !important;
+    height: 112px !important;
+    object-fit: contain;
+  }
+}
+/* Esconder no mobile apenas o CTA que fica ANTES do hero (o duplicado de topo) */
+@media (max-width: 768px){
+  .ml-hide-mobile{ display: none !important; }
 }
 </style>
 </head>
@@ -875,7 +929,7 @@
 <section aria-label="Feedback de clientes" class="testimonials-section" id="depoimentos">
 <div class="testi-wrap">
 <h2 class="testi-title">O que dizem nossos clientes</h2>
-<div aria-label="O que dizem nossos clientes" class="testi-slider" role="region"><div class="testi-track"><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
+<div aria-label="O que dizem nossos clientes" class="testi-slider" role="region"><div class="testi-track"><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2x2"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">LC</div>
 <div class="who"><strong>Lúcia Canelas</strong><span>Proprietária — Imobiliária Canelas</span></div>
@@ -889,7 +943,7 @@
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Depois da filmagem + tráfego pago, as <strong>reservas de mesas</strong> aumentaram de forma constante. O salão passou a lotar nos fins‑de‑semana.”</p>
-</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">AM</div>
 <div class="who"><strong>Arthur</strong><span>Gestor — Mais Laser Cabo Frio</span></div>
@@ -903,7 +957,7 @@
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Os vídeos das coleções e as campanhas trouxeram mais visitas e compras — ficamos com lançamentos esgotados.”</p>
-</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
+</article></div></div><div class="testi-slide"><div class="testi-2x2"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">DW</div>
 <div class="who"><strong>Dr. Wellisson</strong><span>Dermatologista</span></div>
@@ -917,7 +971,7 @@
 <div aria-label="4.9 de 5" class="stars">★★★★☆</div>
 </header>
 <p class="t-quote">“A estratégia trouxe inscrições com <strong>CPL competitivo</strong> e lotamos duas turmas extras no trimestre.”</p>
-</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">DA</div>
 <div class="who"><strong>Dr. Anderson</strong><span>Clínica Veterinária Palmeiras</span></div>
@@ -931,7 +985,7 @@
 <div aria-label="5 de 5" class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Reels com qualidade e anúncios bem posicionados trouxeram <strong>pacientes de alto valor</strong> e agenda cheia.”</p>
-</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
+</article></div></div><div class="testi-slide"><div class="testi-2x2"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">GV</div>
 <div class="who"><strong>Genaria</strong><span>Fundadora — Instituto Genaria Viana</span></div>
@@ -945,7 +999,7 @@
 <div aria-label="4.8 de 5" class="stars">★★★★☆</div>
 </header>
 <p class="t-quote">“Com vídeos e anúncios, ampliamos o alcance e fechamos <strong>novas parcerias</strong> educacionais.”</p>
-</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">FA</div>
 <div class="who"><strong>Filipe Almeida</strong><span>Diretor — Escola Almeida Santos</span></div>
@@ -959,7 +1013,7 @@
 <div class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Faz pinturas e reparos; após começar, o faturamento aumentou de forma <strong>brusca</strong>.”</p>
-</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
+</article></div></div><div class="testi-slide"><div class="testi-2x2"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">RC</div>
 <div class="who"><strong>Romero</strong><span>Gestor — Pousada das Conchas</span></div>
@@ -973,14 +1027,14 @@
 <div class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“As campanhas trouxeram <strong>matrículas constantes</strong> e agenda cheia para aulas práticas.”</p>
-</article></div></div><div class="testi-slide"><div class="testi-2col"><article class="testi-card">
+</article><article class="testi-card">
 <header class="t-head">
 <div class="avatar">LQ</div>
 <div class="who"><strong>Leandro Dmennor</strong><span>Proprietário — Quintal do Zeca Pagodinho</span></div>
 <div class="stars">★★★★★</div>
 </header>
 <p class="t-quote">“Os criativos deram vida aos eventos; aumentou o <strong>fluxo de reservas</strong> e consumo.”</p>
-</article></div></div></div><div class="testi-nav"><button aria-label="Anterior" class="testi-prev" type="button"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div aria-label="Páginas de depoimentos" class="testi-dots" role="tablist"></div><button aria-label="Próximo" class="testi-next" type="button"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div>
+</article></div></div></div><div class="testi-nav"><button aria-label="Anterior" class="testi-prev" type="button"></button><div aria-label="Páginas de depoimentos" class="testi-dots" role="tablist"></div><button aria-label="Próximo" class="testi-next" type="button"></button></div></div>
 </div>
 </section>
 <div aria-label="Selecionar idioma" aria-modal="true" class="ml-lang-modal" hidden="" id="ml-lang-modal" role="dialog">
@@ -1110,6 +1164,94 @@
     document.addEventListener('DOMContentLoaded', tagCTAs);
   }else{
     tagCTAs();
+  }
+})();
+</script>
+<script>
+(function(){
+  var slider = document.querySelector('.testi-slider');
+  if(!slider) return;
+  var track = slider.querySelector('.testi-track');
+  var slides = Array.from(slider.querySelectorAll('.testi-slide'));
+  var dotsWrap = slider.querySelector('.testi-dots');
+  var prev = slider.querySelector('.testi-prev');
+  var next = slider.querySelector('.testi-next');
+  var index = 0;
+
+  function ensureIcon(btn, left){
+    if(!btn || btn.querySelector('svg')) return;
+    var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 24 24'); svg.setAttribute('class','icon');
+    var path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('fill','none'); path.setAttribute('stroke','currentColor');
+    path.setAttribute('stroke-width','2'); path.setAttribute('stroke-linecap','round'); path.setAttribute('stroke-linejoin','round');
+    path.setAttribute('d', left ? 'M15 6l-6 6 6 6' : 'M9 6l6 6-6 6');
+    svg.appendChild(path); btn.appendChild(svg);
+  }
+  ensureIcon(prev, true); ensureIcon(next, false);
+
+  function updateDots(i){
+    var dots = dotsWrap.querySelectorAll('.testi-dot');
+    dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
+  }
+  function go(i){
+    index = Math.max(0, Math.min(i, slides.length-1));
+    var x = slider.clientWidth * index;
+    track.scrollTo({left: x, behavior: 'smooth'});
+    updateDots(index);
+  }
+
+  // Dots
+  dotsWrap.innerHTML = '';
+  slides.forEach(function(_, i){
+    var dot = document.createElement('button');
+    dot.className = 'testi-dot';
+    dot.type = 'button';
+    dot.setAttribute('role','tab');
+    dot.setAttribute('aria-label','Ir para página ' + (i+1));
+    dot.addEventListener('click', function(){ go(i); });
+    dotsWrap.appendChild(dot);
+  });
+  updateDots(0);
+
+  if(prev) prev.addEventListener('click', function(){ go(index-1); });
+  if(next) next.addEventListener('click', function(){ go(index+1); });
+
+  track.addEventListener('scroll', function(){
+    var w = slider.clientWidth || 1;
+    var i = Math.round(track.scrollLeft / w);
+    if(i !== index){ index = i; updateDots(i); }
+  });
+  window.addEventListener('resize', function(){ go(index); });
+})();
+</script>
+
+<script>
+(function(){
+  function markTopCTA(){
+    var hero = document.querySelector('.hero-compact-panel');
+    // pegue todos os CTA com o texto alvo
+    var all = Array.from(document.querySelectorAll('a,button')).filter(function(el){
+      return /falar com a nossa equipa/i.test((el.textContent||'').trim());
+    });
+    if(!all.length) return;
+    // encontre o primeiro CTA que aparece ANTES do hero; esse é o duplicado do topo
+    var topCTA = null;
+    if(hero){
+      all.forEach(function(el){
+        var rel = el.compareDocumentPosition(hero);
+        var isBefore = !!(rel & Node.DOCUMENT_POSITION_FOLLOWING); // el vem antes do hero
+        if(isBefore && !topCTA) topCTA = el;
+      });
+    }
+    // se não achou via relação, simplesmente marca o primeiro da página
+    if(!topCTA) topCTA = all[0];
+    if(topCTA) topCTA.classList.add('ml-hide-mobile');
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', markTopCTA);
+  }else{
+    markTopCTA();
   }
 })();
 </script>
