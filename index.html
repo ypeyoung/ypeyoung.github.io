@@ -526,7 +526,6 @@
   .hl-footer-logo{ width: 88px; height: 88px; }
 }
 </style>
-
 <style>
 @media (max-width: 768px){
   .hero-compact-panel img[alt*="logo" i],
@@ -536,12 +535,113 @@
   }
 }
 </style>
+
+<style>
+/* Garantir que qualquer ribbon/header estético antigo não apareça no mobile */
+@media (max-width: 768px){
+  .hl-top-ribbon{ display:none !important; }
+}
+</style>
+
+<style>
+@media (max-width: 768px){
+  .hero, .hero-compact-wrap{
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    display:flex !important;
+    flex-direction:column;
+    align-items:center !important;
+    justify-content:center !important;
+    padding: 8px 0 12px;
+  }
+  .hero-compact-panel{
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 760px !important;
+    padding: 0 16px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  .hero-compact-panel > *{
+    margin-left:auto !important; margin-right:auto !important;
+    text-align:center !important; display:block;
+  }
+}
+</style>
+
+<style>
+@media (max-width: 768px){
+  nav:has(a[href*="pacot" i]),
+  .anchors:has(a[href*="pacot" i]),
+  .nav:has(a[href*="pacot" i]),
+  .navbar:has(a[href*="pacot" i]){
+    display:flex !important; justify-content:center !important;
+    align-items:center !important; flex-wrap:wrap; gap:12px; text-align:center !important;
+  }
+}
+</style>
+
+<style>
+/* ===== Pacotes Slider ===== */
+.pkg-slider{ position: relative; overflow: hidden; margin-top: 8px; }
+.pkg-track{
+  display: flex; gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.pkg-slide{ min-width: 100%; scroll-snap-align: start; padding: 10px 4px; }
+.pkg-nav{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:8px; }
+.pkg-prev, .pkg-next{
+  width: 36px; height: 36px; border-radius: 12px; padding:0;
+  background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+}
+.pkg-dots{ display:flex; gap:6px; align-items:center; justify-content:center; }
+.pkg-dot{ width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.15); }
+.pkg-dot[aria-selected="true"]{ background:#ff8a3c; border-color:#ff8a3c; }
+
+/* Desktop: vira grid (sem nav) para visão geral */
+@media (min-width: 1025px){
+  .pkg-track{ overflow: visible; display: grid; grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 16px; }
+  .pkg-slide{ min-width: 0; padding: 0; }
+  .pkg-nav{ display:none; }
+}
+</style>
+
+<style>
+/* Shine sutil no CTA */
+@media (prefers-reduced-motion: no-preference){
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .cta, .button, a[href*="contact"]{
+    position: relative; overflow: hidden;
+  }
+  .cta::after, .button::after, a[href*="contact"]::after{
+    content:""; position:absolute; top:-50%; left:-120%;
+    width: 120%; height: 200%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.35) 50%, rgba(255,255,255,0) 100%);
+    transform: rotate(18deg);
+    animation: shineSweep 4.2s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes shineSweep{
+    0% { left:-120%; }
+    60% { left:120%; }
+    100% { left:120%; }
+  }
+}
+</style>
 </head>
-<body><div aria-hidden="true" class="hl-top-ribbon"></div>
+<body>
 <div class="wrap">
 <header class="topbar">
 <div class="brand">
-
 <div>High Level Marketing</div>
 </div>
 <div class="controls">
@@ -571,8 +671,12 @@
 </nav>
 <section id="pacotes">
 <h2 id="packages_title">Pacotes</h2>
-<div class="grid">
-<div class="plan">
+
+<div aria-label="Pacotes" class="pkg-slider" role="region"><div class="pkg-track"><div class="pkg-slide"><div class="grid">
+
+
+
+</div></div><div class="pkg-slide"><div class="plan">
 <h3>Start <span class="price"><s>€300</s> €250</span></h3>
 <ul id="start_ul">
 <li>Drone 4K + 12–16 fotos</li>
@@ -580,8 +684,7 @@
 <li>Configuramos <strong>1 canal de anúncios</strong> (Google <em>ou</em> Meta)</li>
 <li><strong>Sem página do site</strong> neste plano</li>
 </ul>
-</div>
-<div class="plan">
+</div></div><div class="pkg-slide"><div class="plan">
 <h3>Prime <span class="price"><s>€700</s> €550</span></h3>
 <ul id="prime_ul">
 <li><strong>Página simples do site</strong> (formulário + WhatsApp)</li>
@@ -589,8 +692,7 @@
 <li>+ Tour 360° e 3 vídeos/mês</li>
 <li>Gestão de anúncios Google <strong>e</strong> Meta</li>
 </ul>
-</div>
-<div class="plan">
+</div></div><div class="pkg-slide"><div class="plan">
 <h3>Signature <span class="price"><s>€1000</s> €850</span></h3>
 <ul id="signature_ul">
 <li><strong>Página do site</strong> + medição avançada</li>
@@ -600,9 +702,7 @@
 <li>Pack social (cortes verticais)</li>
 <li>Painel com resultados em tempo real</li>
 </ul>
-</div>
-</div>
-</section>
+</div></div></div><div class="pkg-nav"><button aria-label="Anterior" class="pkg-prev" type="button"><svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div aria-label="Páginas Pacotes" class="pkg-dots" role="tablist"></div><button aria-label="Próximo" class="pkg-next" type="button"><svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div></section>
 <section id="portfolio">
 <h2 id="portfolio_title">Portfólio</h2>
 <p class="muted" id="portfolio_blurb"><strong>Conteúdo que vende:</strong> vídeos curtos abrem com gancho, destacam localização e diferenciais e fecham com um CTA para WhatsApp.</p>
@@ -1346,5 +1446,49 @@
           }
         })();
         </script>
-<footer class="hl-footer"><img alt="Logo High Level Marketing" class="hl-footer-logo" src="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true"/><p class="hl-copy">© High Level Marketing</p></footer></body>
+<footer class="hl-footer"><img alt="Logo High Level Marketing" class="hl-footer-logo" src="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true"/><p class="hl-copy">© High Level Marketing</p></footer>
+<script>
+(function(){
+  var slider = document.querySelector('.pkg-slider');
+  if(!slider) return;
+  var track = slider.querySelector('.pkg-track');
+  var slides = Array.from(slider.querySelectorAll('.pkg-slide'));
+  var dotsWrap = slider.querySelector('.pkg-dots');
+  var prev = slider.querySelector('.pkg-prev');
+  var next = slider.querySelector('.pkg-next');
+  var index = 0;
+
+  function updateDots(i){
+    var dots = dotsWrap.querySelectorAll('.pkg-dot');
+    dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
+  }
+  function go(i){
+    index = Math.max(0, Math.min(i, slides.length-1));
+    var x = slider.clientWidth * index;
+    track.scrollTo({left: x, behavior: 'smooth'});
+    updateDots(index);
+  }
+  // build dots
+  dotsWrap.innerHTML = '';
+  slides.forEach(function(_, i){
+    var dot = document.createElement('button');
+    dot.className = 'pkg-dot'; dot.type='button';
+    dot.setAttribute('role','tab'); dot.setAttribute('aria-label','Ir para pacote ' + (i+1));
+    dot.addEventListener('click', function(){ go(i); });
+    dotsWrap.appendChild(dot);
+  });
+  updateDots(0);
+
+  if(prev) prev.addEventListener('click', function(){ go(index-1); });
+  if(next) next.addEventListener('click', function(){ go(index+1); });
+
+  track.addEventListener('scroll', function(){
+    var w = slider.clientWidth || 1;
+    var i = Math.round(track.scrollLeft / w);
+    if(!isNaN(i) && i !== index){ index = i; updateDots(i); }
+  });
+  window.addEventListener('resize', function(){ go(index); });
+})();
+</script>
+</body>
 </html>
