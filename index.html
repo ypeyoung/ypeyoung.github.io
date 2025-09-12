@@ -53,68 +53,89 @@
     .contact a{color:var(--accent) !important;text-decoration:underline;font-weight:700}
     .contact a:hover{opacity:.9}
   </style>
-<style>
-/* === Ajuste suave da logo (sem alterar tamanho visual) === */
-.brand, .header-logo, .site-logo{
-  overflow: hidden; /* garante que o recorte não "vaze" */
-}
-.brand img, .header-logo img, .site-logo img{
-  width: 92px !important;   /* tamanho original citado */
-  height: 92px !important;
-  object-fit: contain !important; /* preserva o jeito anterior */
-  background: transparent !important; /* evita fundo branco artificial */
-  /* Recorta só uma bordinha (2.5%) para matar as margens brancas embutidas na arte */
-  clip-path: inset(2.5% 2.5%);
-  border-radius: 12px;
-  transform: none !important; /* remove qualquer zoom agressivo */
-}
-</style>
-<link href="https://raw.githubusercontent.com/ypeyoung/hlm-assets/main/hlm-logo.png.jpeg" rel="icon" type="image/png"/><link href="https://raw.githubusercontent.com/ypeyoung/hlm-assets/main/hlm-logo.png.jpeg" rel="apple-touch-icon" sizes="180x180"/>
-<style>
-/* === Logo arredondada e um pouco menor === */
-.brand img, .header-logo img, .site-logo img{
-  width: 84px !important;   /* antes ~92px */
-  height: 84px !important;
-  border-radius: 50% !important;        /* torna circular */
-  object-fit: contain !important;       /* mantém proporção sem cortes */
-  background: transparent !important;
-  /* recorte sutil para evitar margens brancas da própria arte, mantendo o formato arredondado */
-  clip-path: inset(1.5% 1.5% round 9999px);
-}
-@media (max-width: 640px){
-  .brand img, .header-logo img, .site-logo img{
-    width: 76px !important;
-    height: 76px !important;
-  }
-}
-</style>
 
 <style>
-/* === Logo quadrada com cantos arredondados (suave) === */
-.brand, .header-logo, .site-logo{
-  overflow: hidden !important;
+/* ======= Mobile-first header layout (<=768px) ======= */
+.mobile-header{
+  display:none;
 }
-.brand img, .header-logo img, .site-logo img{
-  width: 84px !important;   /* levemente menor que ~92px */
-  height: 84px !important;
-  border-radius: 14px !important;      /* cantos arredondados, NÃO círculo */
-  object-fit: contain !important;      /* mantém proporção sem cortes */
-  background: transparent !important;
-  /* recorte sutil para evitar margens brancas da arte original */
-  clip-path: inset(1.5% 1.5% round 14px);
-  transform: none !important;
-}
-@media (max-width: 640px){
-  .brand img, .header-logo img, .site-logo img{
-    width: 76px !important;
-    height: 76px !important;
-    border-radius: 12px !important;
-    clip-path: inset(1.5% 1.5% round 12px);
+@media (max-width: 768px){
+  /* Hide busy desktop bars if present */
+  .topbar, .navbar, header .row, .desktop-only{ display:none !important; }
+  .mobile-header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:10px;
+    padding:12px 14px;
+  }
+  .mobile-header .lang-select{
+    width: 100%;
+    max-width: 320px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.04);
+    color: inherit;
+  }
+  .mobile-header .mobile-logo{
+    width: 56px;
+    height: 56px;
+    border-radius: 12px; /* quadrado com bordas arredondadas */
+    object-fit: contain;
+  }
+  .mobile-header .mobile-company-name{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2;
+    opacity: .95;
+  }
+  .mobile-header .mobile-cta{
+    display:inline-block;
+    padding: 10px 16px;
+    border-radius: 9999px;
+    text-decoration:none;
+    font-weight:600;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.06);
+    color: inherit;
+  }
+
+  /* ======= Videos / galeria centrados no mobile ======= */
+  .videos, .reels, .portfolio, .gallery, .cards, .grid, section[id*="video" i]{
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+  .videos > *, .reels > *, .portfolio > *, .gallery > *, .cards > *, .grid > *{
+    width: 100%;
+    max-width: 480px;
+  }
+  iframe, video{
+    display:block;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+  }
+
+  /* Headings e parágrafos principais centralizados */
+  h1, h2, h3, .title, .heading, .lead, .subtitle{
+    text-align:center;
   }
 }
 </style>
 </head>
-<body>
+<body><div class="mobile-header"><select aria-label="Language" class="lang-select">
+<option value="pt">Português</option>
+<option value="en">English</option>
+<option value="fr">Français</option>
+<option value="it">Italiano</option>
+<option value="es">Español</option>
+<option value="de">Deutsch</option>
+</select><img alt="Logo" class="mobile-logo" src="https://raw.githubusercontent.com/ypeyoung/hlm-assets/main/hlm-logo.png.jpeg"/><div class="mobile-company-name">Vídeos que chamam atenção e anúncios que geram contactos</div><a class="mobile-cta" href="https://wa.me/351934071660">Falar com nossa equipa</a></div>
 <div class="wrap">
 <header class="topbar">
 <div class="brand">
@@ -566,131 +587,5 @@
     applyLang('pt');
   </script>
 <script async="" src="https://www.instagram.com/embed.js"></script>
-
-
-<script>
-(function(){
-  // Create a rounded-rect path
-  function roundRect(ctx, x, y, w, h, r){
-    var min = Math.min(w, h) / 2;
-    if (typeof r === "number") r = {tl:r, tr:r, br:r, bl:r};
-    r = {
-      tl: Math.min(r.tl||0, min),
-      tr: Math.min(r.tr||0, min),
-      br: Math.min(r.br||0, min),
-      bl: Math.min(r.bl||0, min)
-    };
-    ctx.beginPath();
-    ctx.moveTo(x + r.tl, y);
-    ctx.lineTo(x + w - r.tr, y);
-    ctx.quadraticCurveTo(x + w, y, x + w, y + r.tr);
-    ctx.lineTo(x + w, y + h - r.br);
-    ctx.quadraticCurveTo(x + w, y + h, x + w - r.br, y + h);
-    ctx.lineTo(x + r.bl, y + h);
-    ctx.quadraticCurveTo(x, y + h, x, y + h - r.bl);
-    ctx.lineTo(x, y + r.tl);
-    ctx.quadraticCurveTo(x, y, x + r.tl, y);
-    ctx.closePath();
-  }
-
-  // Finds white borders and crops them out, then renders to a square with rounded corners
-  function generateRoundedTrimmedFavicon(src, radiusPx){
-    return new Promise(function(resolve, reject){
-      try{
-        var img = new Image();
-        img.crossOrigin = "anonymous";
-        img.onload = function(){
-          try{
-            var w = img.naturalWidth, h = img.naturalHeight;
-            if(!w || !h){ return reject(new Error("Invalid image size")); }
-            var canvas = document.createElement("canvas");
-            canvas.width = w; canvas.height = h;
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0);
-            var data;
-            try{ data = ctx.getImageData(0,0,w,h).data; }
-            catch(e){ return reject(new Error("Canvas tainted (CORS)")); }
-
-            var TH = 250; // threshold for white
-            var top=0, bottom=h-1, left=0, right=w-1;
-
-            // find top
-            outerTop: for(var y=0;y<h;y++){
-              for(var x=0;x<w;x++){
-                var i=(y*w+x)*4, r=data[i], g=data[i+1], b=data[i+2], a=data[i+3];
-                if(a>10 && (r<TH || g<TH || b<TH)){ top=y; break outerTop; }
-              }
-            }
-            // find bottom
-            outerBottom: for(var y=h-1;y>=0;y--){
-              for(var x=0;x<w;x++){
-                var i=(y*w+x)*4, r=data[i], g=data[i+1], b=data[i+2], a=data[i+3];
-                if(a>10 && (r<TH || g<TH || b<TH)){ bottom=y; break outerBottom; }
-              }
-            }
-            // find left
-            outerLeft: for(var x=0;x<w;x++){
-              for(var y2=0;y2<h;y2++){
-                var i=(y2*w+x)*4, r=data[i], g=data[i+1], b=data[i+2], a=data[i+3];
-                if(a>10 && (r<TH || g<TH || b<TH)){ left=x; break outerLeft; }
-              }
-            }
-            // find right
-            outerRight: for(var x=w-1;x>=0;x--){
-              for(var y2=0;y2<h;y2++){
-                var i=(y2*w+x)*4, r=data[i], g=data[i+1], b=data[i+2], a=data[i+3];
-                if(a>10 && (r<TH || g<TH || b<TH)){ right=x; break outerRight; }
-              }
-            }
-
-            var cropW = Math.max(1, right-left+1);
-            var cropH = Math.max(1, bottom-top+1);
-
-            var size = 64; // output favicon canvas size
-            var out = document.createElement("canvas");
-            out.width = size; out.height = size;
-            var octx = out.getContext("2d");
-            octx.clearRect(0,0,size,size);
-
-            // Rounded clipping mask
-            var rpx = radiusPx||10;
-            roundRect(octx, 0, 0, size, size, rpx);
-            octx.clip();
-
-            // Fit the cropped content into the rounded square
-            var scale = Math.min(size/cropW, size/cropH);
-            var dx = (size - cropW*scale)/2;
-            var dy = (size - cropH*scale)/2;
-            octx.imageSmoothingEnabled = true;
-            octx.drawImage(canvas, left, top, cropW, cropH, dx, dy, cropW*scale, cropH*scale);
-
-            resolve(out.toDataURL("image/png"));
-          }catch(err){ reject(err); }
-        };
-        img.onerror = function(){ reject(new Error("Failed to load image")); };
-        img.src = src;
-      }catch(e){ reject(e); }
-    });
-  }
-
-  function setFavicon(dataURL){
-    document.querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"]').forEach(function(n){ n.parentNode.removeChild(n); });
-    var link = document.createElement("link");
-    link.rel = "icon"; link.type = "image/png"; link.href = dataURL; link.sizes = "32x32";
-    document.head.appendChild(link);
-    var apple = document.createElement("link");
-    apple.rel = "apple-touch-icon"; apple.href = dataURL; apple.sizes = "180x180";
-    document.head.appendChild(apple);
-  }
-
-  var brandImg = document.querySelector(".brand img, .header-logo img, .site-logo img");
-  if(brandImg && brandImg.src){
-    // Use 12px corner radius for favicon rounding (looks similar to header logo)
-    generateRoundedTrimmedFavicon(brandImg.src, 12).then(setFavicon).catch(function(){
-      // fallback to existing link if generation fails
-    });
-  }
-})();
-</script>
 </body>
 </html>
