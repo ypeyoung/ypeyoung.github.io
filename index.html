@@ -1,1708 +1,558 @@
 <!DOCTYPE html>
-
 <html lang="pt">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>High Level Marketing — Drone + Anúncios</title>
-<meta content="Vídeo com drone + anúncios (Google e Instagram/Facebook) para gerar contactos. Pacotes Start, Prime e Signature." name="description"/>
-<style>
-    :root{
-      --bg:#0b0b10; --text:#e6e7ec; --muted:#9aa1b2; --card:#141625; --accent:#ff6a00; --accent-2:#ffd1b3; --btn:#ff6a00; --btn-text:#0b0b10;
-      --border:rgba(255,255,255,.10);
-    }
-    html,body{margin:0;padding:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
-    .brand img{width:92px;height:92px;border-radius:12px;object-fit:contain;background:#fff}
-    .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .lang-select{border:1px solid var(--border);background:var(--card);color:var(--text);padding:10px 12px;border-radius:12px;font-weight:800}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:24px;border-radius:20px;background:linear-gradient(135deg,var(--accent),transparent 60%);border:1px solid var(--border)}
-    .hero h1{margin:0 0 8px;font-size:34px;line-height:1.1}
-    .pill{display:inline-block;background:rgba(255,255,255,.14);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
-    .cta{display:inline-block;background:var(--btn);color:var(--btn-text);text-decoration:none;padding:12px 18px;border-radius:12px;font-weight:800}
-    .nav{display:flex;gap:10px;margin:18px 0 6px;flex-wrap:wrap}
-    .nav a{color:var(--text);text-decoration:none;padding:8px 12px;border-radius:10px;border:1px solid var(--border)}
-    section{margin:26px 0;background:var(--card);padding:20px;border-radius:16px;border:1px solid var(--border)}
-    h2{margin:0 0 10px}
-    .muted{color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-    .plan{border:1px solid var(--border);border-radius:14px;padding:14px}
-    .plan h3{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 6px}
-    .price s{opacity:.7;margin-right:6px}
-    ul{margin:10px 0 0;padding-left:18px}
-    li{margin:6px 0}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    /* Slider + Instagram preview */
-    .slider-wrap{position:relative}
-    .nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:var(--accent);color:var(--btn-text);border:none;font-size:18px;font-weight:900;line-height:1;border-radius:10px;padding:10px 12px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25)}
-    .nav-btn.prev{left:-6px}
-    .nav-btn.next{right:-6px}
-    .portfolio-slider{--gap:12px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2*var(--gap))/3);gap:var(--gap);overflow-x:auto;padding:6px;scroll-snap-type:x mandatory;scrollbar-color:var(--accent) transparent}
-    .portfolio-slider::-webkit-scrollbar{height:8px}
-    .portfolio-slider::-webkit-scrollbar-thumb{background:var(--accent);border-radius:999px}
-    .slide{scroll-snap-align:start;display:flex;align-items:stretch}
-    .ig-embed{display:flex}
-    .ig-embed blockquote{margin:0 !important}
-    @media (max-width:900px){.portfolio-slider{grid-auto-columns:calc((100% - var(--gap))/2)}}
-    @media (max-width:600px){.portfolio-slider{grid-auto-columns:100%}}
+  <title>High level Marketing — Criação de Vídeos (Drone) em Portugal | Tráfego Pago & Social Media</title>
 
-    /* High-contrast contact links */
-    .contact a{color:var(--accent) !important;text-decoration:underline;font-weight:700}
-    .contact a:hover{opacity:.9}
+  <!-- Segurança -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://*; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.instagram.com; frame-src https://www.instagram.com https://*.cdninstagram.com; connect-src 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- SEO -->
+  <meta name="description" content="High level Marketing — agência de marketing e publicidade em Portugal. Criação de vídeos com drone, tráfego pago (Google/Meta/TikTok), social media e landing pages de alta conversão.">
+  <meta name="keywords" content="High level Marketing, criação de vídeos drone em Portugal, vídeos com drone Portugal, tráfego pago em Portugal, agência de marketing Portugal, publicidade, social media, reels, vídeos, landing page, growth, Lisboa, Porto, Algarve">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.highlevelmkt.com/">
+  <link rel="alternate" hreflang="pt-pt" href="https://www.highlevelmkt.com/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:title" content="High level Marketing — Vídeos (Drone), Tráfego Pago & Social Media em Portugal">
+  <meta property="og:description" content="Produzimos vídeos com drone e campanhas de tráfego pago que geram crescimento real para negócios em Portugal.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.highlevelmkt.com/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/ypeyoung/ypeyoung.github.io/main/logo-hl.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="High level Marketing — Vídeos (Drone), Tráfego Pago & Social Media em Portugal">
+  <meta name="twitter:description" content="Vídeos com drone, tráfego pago e social media. Foco em performance.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/ypeyoung/ypeyoung.github.io/main/logo-hl.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ypeyoung/ypeyoung.github.io/main/logo-hl.png">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/ypeyoung/ypeyoung.github.io/main/logo-hl.png">
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://www.instagram.com">
+  <link rel="preconnect" href="https://scontent.cdninstagram.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+/* Reset + tokens */
+*{box-sizing:border-box}
+:root{
+  --bg:#0b0d10;--panel:#0e1217;--panel-2:#0c1014;--glass:rgba(255,255,255,.06);
+  --text:#e9eef7;--muted:#a9b5c8;--brand:#7c3aed;--brand-2:#22d3ee;
+  --accent:#10b981;--border:rgba(255,255,255,.10);
+  --radius:1.25rem;--shadow:0 10px 30px rgba(0,0,0,.45);
+}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6}
+html{scroll-behavior:smooth}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1150px;margin:0 auto;padding:0 22px}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:80;background:rgba(10,12,16,.6);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.logo-wrap{height:64px;width:260px;display:flex;align-items:center;overflow:hidden;border-radius:14px}
+.logo{width:100%;height:100%;object-fit:contain;background:transparent}
+.nav-list{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+.nav-list a{padding:8px 10px;border-radius:10px;color:var(--muted)}
+.nav-list a.active{color:#fff;background:var(--glass)}
+.nav-list a:hover{background:var(--glass);color:var(--text)}
+.hamburger{display:none;background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:10px}
+
+/* Hero */
+.hero{position:relative;padding:72px 0;background:
+  radial-gradient(900px 500px at 0% 0%, rgba(124,58,237,.18), transparent 60%),
+  radial-gradient(900px 500px at 100% 0%, rgba(34,211,238,.18), transparent 60%);}
+.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.kicker{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--glass);font-weight:700;letter-spacing:.3px}
+.title{font-size:46px;line-height:1.1;margin:10px 0 8px;font-weight:900;background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;color:transparent}
+.subtitle{color:var(--muted);font-size:18px}
+.cta-wrap{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.btn-primary,.btn-secondary{display:inline-block;padding:12px 18px;border-radius:12px;border:1px solid var(--border)}
+.btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#0a0c0f;font-weight:800}
+.btn-secondary{background:var(--panel);color:#fff}
+.video-frame{background:var(--panel-2);border:1px solid var(--border);border-radius:var(--radius);padding:8px;box-shadow:var(--shadow);max-width:420px;margin-inline:auto;overflow:hidden}
+.ig-crop{position:relative;overflow:hidden;border-radius:12px}
+
+/* Sections */
+.section{padding:72px 0;scroll-margin-top:96px}
+.section.alt{background:var(--panel-2)}
+.section-title{font-size:32px;margin:0 0 8px}
+.section-lead{color:var(--muted);margin:0 0 22px}
+
+/* Packages */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.plan .badge{position:absolute;top:12px;right:12px;background:var(--accent);color:#081015;padding:6px 10px;border-radius:999px;font-weight:800}
+.plan h3{margin:0 0 6px}
+.plan .desc{color:var(--muted);margin:0 0 12px}
+.plan .price{font-size:28px;margin:8px 0 14px}
+.plan .features{padding-left:18px;margin:0;color:var(--muted)}
+.addons{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.addon{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px}
+.addon .tag{opacity:.8;font-size:14px}
+
+/* Slider */
+.slider{position:relative}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;background:var(--panel);border:1px solid var(--border);color:#fff;padding:8px 12px;border-radius:10px;cursor:pointer}
+.arrow.left{left:-10px}
+.arrow.right{right:-10px}
+.slides{display:flex;overflow:hidden;scroll-behavior:smooth;border:1px solid var(--border);border-radius:var(--radius);background:var(--panel)}
+.slide{min-width:100%;padding:8px}
+.slide .ig-fallback{display:inline-block;margin-top:8px;text-decoration:underline;color:#cfe8ff}
+.microcopy{color:var(--muted);margin-top:8px}
+
+/* Timeline */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{position:relative;padding:18px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--border)}
+.step .num{width:34px;height:34px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#081015;font-weight:900;margin-bottom:8px}
+.step h4{margin:4px 0}
+.step p{color:var(--muted);margin:6px 0 0}
+
+/* Differentials — icon cards */
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.diff-card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--border);border-radius:16px;padding:18px;display:flex;gap:12px;align-items:flex-start}
+.diff-ico{flex:0 0 40px;width:40px;height:40px;border-radius:12px;background:linear-gradient(90deg,var(--brand),var(--brand-2));display:flex;align-items:center;justify-content:center}
+.diff-ico svg{width:22px;height:22px;fill:#081015}
+.diff-card h4{margin:0 0 6px}
+.diff-card p{margin:0;color:var(--muted)}
+.diff-list{margin-top:14px;padding-left:18px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.kpi{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center}
+.kpi strong{font-size:22px}
+
+/* Testimonials */
+.testi{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.quote{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--border);border-radius:16px;padding:18px;position:relative}
+.stars{color:#ffd166;margin-bottom:8px}
+.q-meta{display:flex;align-items:center;gap:10px;margin-top:10px;color:var(--muted)}
+.ava{width:36px;height:36px;border-radius:999px;background:#222;overflow:hidden}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.faq-grid details{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:12px}
+
+/* Footer */
+.site-footer{border-top:1px solid var(--border);padding:24px 0;background:var(--panel-2)}
+.foot-inner{display:flex;align-items:center;justify-content:space-between}
+.to-top{background:var(--panel);border:1px solid var(--border);padding:8px 12px;border-radius:10px}
+
+/* Responsive */
+@media (max-width: 1020px){.hero-inner{grid-template-columns:1fr}}
+@media (max-width: 900px){
+  .pricing-grid{grid-template-columns:1fr}
+  .addons{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr}
+  .diff-grid{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr}
+  .testi{grid-template-columns:1fr}
+  .faq-grid{grid-template-columns:1fr}
+  .nav-list{display:none;position:absolute;right:20px;top:68px;background:var(--panel);padding:12px;border-radius:12px;flex-direction:column;gap:8px;border:1px solid var(--border)}
+  .hamburger{display:inline-block}
+  .arrow.left{left:6px}
+  .arrow.right{right:6px}
+}
   </style>
-<style>
-@media (min-width: 992px){
-  nav:has(a[href*="pacot" i]), .anchors:has(a[href*="pacot" i]), .nav:has(a[href*="pacot" i]), .navbar:has(a[href*="pacot" i]){
-    display:flex !important; justify-content:center !important; align-items:center !important; text-align:center !important; gap:10px;
-  }
-  nav:has(a[href*="pacot" i]) a{ margin:0 4px; }
-}
-</style>
-<link href="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true" rel="icon" sizes="32x32" type="image/png"/><link href="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true" rel="apple-touch-icon" sizes="180x180"/>
-<style>
-/* Logo sem fundo (transparente) — override */
-.brand, .site-logo, .header-logo, header .logo, #logo, .navbar-brand{
-  background: transparent !important;
-  box-shadow: none !important;
-}
-.brand img, .site-logo img, .header-logo img, header .logo img, #logo img, .navbar-brand img, img[alt*="logo" i]{
-  background: transparent !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-</style>
-<style>
-.testimonials-section{ margin: 40px auto; padding: 0 16px; }
-.testi-wrap{ max-width: 1200px; margin: 0 auto; }
-.testi-title{ font-size: 24px; font-weight: 900; margin: 0 0 12px; }
-.testi-grid{ display: grid; gap: 12px; }
-@media (min-width: 720px){ .testi-grid{ grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1100px){ .testi-grid{ grid-template-columns: repeat(3, 1fr); } }
-.testi-card{
-  border-radius: 16px; padding: 12px; background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,255,255,.08); box-shadow: 0 8px 28px rgba(0,0,0,.22);
-  backdrop-filter: saturate(140%) blur(6px);
-}
-.t-head{ display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; margin-bottom: 6px; }
-.avatar{ width: 36px; height: 36px; border-radius: 10px; display:flex; align-items:center; justify-content:center;
-  font-weight: 800; background: linear-gradient(135deg, #ff9a3c, #ff6a00); color: #111; }
-.who span{ display:block; font-size: 12px; opacity: .85; }
-.stars{ font-size: 14px; letter-spacing: .6px; }
-.t-quote{ margin: 6px 0 2px; font-size: 14px; line-height: 1.5; }
-</style>
-<style>
-@media (min-width: 992px){
-  .cta-portfolio-center{
-    display: inline-block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  .cta-portfolio-center { text-align: center; }
-}
-</style>
-<style>
-@media (min-width: 992px){
-  .hero-center{ text-align:center !important; }
-  .hero-center .badge,
-  .hero-center .hero-title,
-  .hero-center .hero-sub,
-  .hero-center .ml-hero-title,
-  .hero-center p,
-  .hero-center .ml-cta,
-  .hero-center a.btn,
-  .hero-center a.button,
-  .hero-center .cta{
-    margin-left:auto !important; margin-right:auto !important; display:block;
-  }
-}
-</style>
-<style>
-.contacts-center{ text-align:center !important; }
-.contacts-center *{ margin-left:auto; margin-right:auto; }
-</style>
-<style>
-.brand, .site-logo, .header-logo, header .logo, #logo, .navbar-brand{ background: transparent !important; box-shadow:none !important; }
-.brand img, .site-logo img, .header-logo img, header .logo img, #logo img, .navbar-brand img, img[alt*="logo" i]{ background: transparent !important; box-shadow:none !important; filter:none !important; }
-</style>
-<style>
-      html{ scroll-behavior: smooth; }
-    </style>
-<style>
-/* Kill full-width hero background and keep a compact rounded card around the text */
-.hero-compact-wrap{
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  position: relative;
-}
-/* Centered card with the same rounded/gradient vibe */
-.hero-compact-panel{
-  display: block;
-  margin: 0 auto;
-  padding: 18px 20px;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,.06);
-  background: linear-gradient(120deg, rgba(255,154,60,.18), rgba(255,106,0,.10) 60%), #0f1014;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
-  max-width: 980px;
-}
-/* Ensure inner pieces are centered on desktop (without affecting mobile behavior) */
-@media (min-width: 992px){
-  .hero-compact-panel .badge,
-  .hero-compact-panel .hero-title,
-  .hero-compact-panel .hero-sub,
-  .hero-compact-panel p,
-  .hero-compact-panel .cta,
-  .hero-compact-panel a.btn,
-  .hero-compact-panel a.button{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    text-align: center;
-  }
-}
-</style>
-<style>
-/* Remove qualquer gradiente/círculo do fundo do hero */
-.hero-compact-wrap{ background: transparent !important; background-image: none !important; }
-.hero-compact-wrap::before, .hero-compact-wrap::after{ content: none !important; display: none !important; background: none !important; box-shadow:none !important; }
-.hero-compact-panel{
-  background: #0f1014 !important; /* sólido, sem gradiente */
-  background-image: none !important;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
-}
 
-/* Centralizar TUDO do hero (desktop e mobile) */
-.hero-compact-panel{ text-align: center !important; }
-.hero-compact-panel .badge,
-.hero-compact-panel .hero-title,
-.hero-compact-panel .hero-sub,
-.hero-compact-panel p{
-  margin-left: auto !important;
-  margin-right: auto !important;
-  display: block;
-}
-.hero-compact-panel .cta,
-.hero-compact-panel a.btn,
-.hero-compact-panel a.button{
-  display: inline-block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-</style>
-<style>
-/* Remover totalmente o fundo/gradiente/bordas do contêiner pai (.hero) */
-.hero{
-  background: transparent !important;
-  background-image: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
-.hero::before,
-.hero::after{
-  content: none !important;
-  display: none !important;
-  background: none !important;
-  box-shadow: none !important;
-  border: 0 !important;
-}
-</style>
-<style>
-/* Centraliza o container do hero (o cartão) no centro da seção */
-.hero, .hero-compact-wrap{
-  display: flex !important;
-  flex-direction: column;
-  justify-content: center;  /* centro vertical */
-  align-items: center;      /* centro horizontal */
-  padding: 18px 16px;
-}
-.hero-compact-panel{
-  width: min(980px, 100%);
-  margin: 0 auto !important;   /* centro horizontal garantido */
-  text-align: center;
-}
-</style>
-<style>
-/* Ambient backdrop behind the hero content (soft, premium, not boxed) */
-.hero.hero-stage{
-  position: relative;
-  overflow: visible;
-}
-.hero.hero-stage::before{
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 1600px;
-  height: 900px;
-  transform: translateX(-50%);
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(900px 480px at 20% 20%, rgba(255,154,60,.18), transparent 60%),
-    radial-gradient(700px 420px at 80% 10%, rgba(255,106,0,.10), transparent 65%);
-  filter: blur(6px);
-  opacity: .9;
-  animation: heroHalo 22s ease-in-out infinite;
-}
-@keyframes heroHalo{
-  0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: .9; }
-  50%  { transform: translateX(-50%) translateY(-2%) scale(1.02); opacity: 1; }
-  100% { transform: translateX(-50%) translateY(0) scale(1); opacity: .9; }
-}
-@media (prefers-reduced-motion: reduce){
-  .hero.hero-stage::before{ animation: none; }
-}
-/* Ensure the compact panel stays above the backdrop */
-.hero-compact-panel{ position: relative; z-index: 1; }
-</style>
-<style>
-@media (max-width: 768px){
-  /* esconder só o nome da empresa no topo (mobile) */
-  .topbar .brand > :not(img){ display: none !important; }
-  .topbar .brand{ width: 100%; justify-content: center; }
-  .topbar{ justify-content: center; gap: 10px; }
-  /* manter a logo pequena como já está; apenas garantir centralização */
-  .brand img{ display: block; margin: 0 auto; }
+  <script async src="https://www.instagram.com/embed.js" referrerpolicy="origin"></script>
 
-  /* esconder o seletor de idioma do header no mobile (vamos usar FAB) */
-  .controls .lang-select{ display: none !important; }
-}
-</style>
-<style>
-/* FAB e modal de idioma (aparece em todas as telas, mas o select some no mobile) */
-.ml-lang-fab{
-  position: fixed; right: 16px; bottom: 16px; width: 44px; height: 44px;
-  display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 12px; border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.08); color: #fff; cursor: pointer;
-  backdrop-filter: saturate(140%) blur(6px); z-index: 9999;
-}
-.ml-lang-modal[hidden]{ display:none !important; }
-.ml-lang-modal{ position: fixed; inset: 0; z-index: 9998; }
-.ml-lang-backdrop{ position:absolute; inset:0; background: rgba(0,0,0,.5); }
-.ml-lang-sheet{
-  position:absolute; left:0; right:0; bottom:0; margin:0 auto; max-width:560px;
-  background:#111; color:#f4f4f4; border-top-left-radius: 16px; border-top-right-radius:16px;
-  padding: 14px; border:1px solid rgba(255,255,255,.14);
-}
-.ml-sheet-handle{ width:44px; height:4px; border-radius:999px; background:rgba(255,255,255,.25); margin:6px auto 10px; }
-.ml-lang-title{ margin:0 0 8px; font-size: 16px; text-align:center; }
-.ml-lang-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; }
-.ml-lang-grid button, .ml-lang-close{
-  padding:10px 12px; border-radius: 12px; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.08);
-  color:#fff; font-weight:700;
-}
-.ml-lang-close{ width:100%; margin-top: 8px; }
-@media (min-width: 769px){
-  /* no desktop, tanto faz manter o select e o FAB; se quiser, poderíamos esconder o FAB aqui */
-}
-</style>
-<style>
-/* ===== Testimonials Slider ===== */
-.testimonials-section{ margin: 40px auto; padding: 0 16px; }
-.testi-wrap{ max-width: 1200px; margin: 0 auto; }
-.testi-title{ font-size: 24px; font-weight: 900; margin: 0 0 12px; }
-
-.testi-slider{ position: relative; overflow: hidden; }
-.testi-track{
-  display: flex; gap: 0;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-}
-.testi-slide{ min-width: 100%; scroll-snap-align: start; padding: 6px 2px; }
-.testi-2col{ display: grid; gap: 12px; }
-@media (min-width: 768px){
-  .testi-2col{ grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 767px){
-  .testi-2col{ grid-template-columns: 1fr; }
-}
-
-/* Cards (reaproveita o estilo existente, mas fica mais discreto) */
-.testi-card{
-  border-radius: 16px; padding: 12px; background: rgba(0,0,0,.32);
-  border: 1px solid rgba(255,255,255,.08); box-shadow: 0 8px 24px rgba(0,0,0,.18);
-  backdrop-filter: saturate(140%) blur(6px);
-}
-.t-head{ display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; margin-bottom: 6px; }
-.avatar{ width: 36px; height: 36px; border-radius: 10px; display:flex; align-items:center; justify-content:center;
-  font-weight: 800; background: linear-gradient(135deg, #ff9a3c, #ff6a00); color: #111; }
-.who span{ display:block; font-size: 12px; opacity: .85; }
-.stars{ font-size: 14px; letter-spacing: .6px; }
-.t-quote{ margin: 6px 0 2px; font-size: 14px; line-height: 1.5; }
-
-/* Navigation */
-.testi-nav{
-  display:flex; align-items:center; justify-content:center; gap: 8px;
-  margin-top: 10px;
-}
-.testi-prev, .testi-next{
-  width: 38px; height: 34px; border-radius: 10px; font-size: 20px; line-height: 1;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.08); color: #fff;
-  display:inline-flex; align-items:center; justify-content:center;
-}
-.testi-dots{ display:flex; gap:6px; align-items:center; justify-content:center; }
-.testi-dot{
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(255,255,255,.25);
-  border: 1px solid rgba(255,255,255,.15);
-}
-.testi-dot[aria-selected="true"]{ background: #ff8a3c; border-color: #ff8a3c; }
-</style>
-<style>
-.testi-prev, .testi-next{
-  width: 36px; height: 36px; border-radius: 12px; padding: 0;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  color: #fff;
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
-}
-.testi-prev:hover, .testi-next:hover{
-  background: rgba(255,255,255,.12);
-  border-color: rgba(255,255,255,.2);
-  transform: translateY(-1px);
-}
-.testi-prev:active, .testi-next:active{ transform: translateY(0); }
-.testi-prev .icon, .testi-next .icon{ width: 16px; height: 16px; display: block; }
-.testi-prev:focus-visible, .testi-next:focus-visible{
-  outline: 2px solid #ff8a3c; outline-offset: 2px;
-}
-</style>
-<style>
-@media (max-width: 768px){
-  /* 1) Centraliza QUALQUER CTA "Falar com a nossa equipa" que esteja fora do hero */
-  .mobile-cta-center,
-  a[href*="#contact" i],
-  a[href*="#contat" i],
-  a[href*="#contactos" i],
-  a[href*="#contatos" i],
-  a.cta, .cta {
-    display: inline-block;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"High level Marketing",
+    "url":"https://www.highlevelmkt.com/",
+    "logo":"https://raw.githubusercontent.com/ypeyoung/ypeyoung.github.io/main/logo-hl.png",
+    "sameAs":[],
+    "contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"vinicius.highlevelmkt@gmail.com","telephone":"+351 934 071 660","areaServed":"PT"}]
   }
-  /* 2) Garante que o hero-card fique centralizado e com largura amigável */
-  .hero, .hero-compact-wrap {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "url":"https://www.highlevelmkt.com/",
+    "name":"High level Marketing",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://www.google.com/search?q=site:highlevelmkt.com+{search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
   }
-  .hero-compact-panel { text-align: center !important; width: 100%; max-width: 700px; }
-
-  /* 3) Centraliza a barra de chips do menu */
-  nav:has(a[href*="pacot" i]), .anchors:has(a[href*="pacot" i]), .nav:has(a[href*="pacot" i]), .navbar:has(a[href*="pacot" i]){
-    display:flex !important; justify-content:center !important; align-items:center !important; flex-wrap:wrap; gap:10px;
-    text-align:center !important;
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"High level Marketing",
+    "image":"https://raw.githubusercontent.com/ypeyoung/ypeyoung.github.io/main/logo-hl.png",
+    "url":"https://www.highlevelmkt.com/",
+    "email":"vinicius.highlevelmkt@gmail.com",
+    "telephone":"+351 934 071 660",
+    "areaServed":"Portugal",
+    "serviceType":["Criação de vídeos com drone","Tráfego pago","Social media","Landing pages","Produção de conteúdo"]
   }
-
-  /* 4) Margens consistentes para o CTA do topo */
-  .mobile-cta-center{ margin-top: 10px; margin-bottom: 6px; }
-
-  /* 5) Ajusta o botão FAB de idioma para não sobrepor conteúdo */
-  .ml-lang-fab{ bottom: 18px; right: 14px; }
-}
-</style>
-<style>
-@media (max-width: 768px){
-  .ml-mobile-logo{
-    width: 104px !important;
-    height: 104px !important;
-    margin-top: 4px;
-  }
-}
-</style>
-<style>
-/* Slides com 4 depoimentos (2 colunas x 2 linhas) */
-.testi-slider{ position:relative; overflow:hidden; }
-.testi-track{ display:flex; gap:0; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; }
-.testi-slide{ min-width:100%; scroll-snap-align:start; padding:8px 2px; }
-.testi-2x2{ display:grid; gap:12px; }
-@media (max-width: 767px){ .testi-2x2{ grid-template-columns: 1fr; } } /* mobile empilhado para leitura */
-@media (min-width: 768px){ .testi-2x2{ grid-template-columns: repeat(2,1fr); } }
-
-/* Nav */
-.testi-nav{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:10px; }
-.testi-prev, .testi-next{ width:36px; height:36px; border-radius:12px; padding:0; display:inline-flex; align-items:center; justify-content:center;
-  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:#fff; }
-.testi-dots{ display:flex; gap:6px; align-items:center; justify-content:center; }
-.testi-dot{ width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.15); }
-.testi-dot[aria-selected="true"]{ background:#ff8a3c; border-color:#ff8a3c; }
-</style>
-<style>
-/* Center hero container across phones & tablets, widen slightly if needed */
-@media (max-width: 1024px){
-  .hero, .hero-compact-wrap{
-    display: flex !important;
-    flex-direction: column;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    margin: 0 auto !important;
-    padding-left: 16px; padding-right: 16px;
-  }
-  .hero-compact-panel{
-    width: 100% !important;
-    max-width: 780px; /* ligeiro aumento para tablets/telefones grandes */
-    margin: 0 auto !important;
-    text-align: center !important;
-    align-self: center !important;
-  }
-  /* kill floats/margins que puxem para o lado */
-  .hero-compact-wrap *[style*="float"],
-  .hero *[style*="float"]{ float: none !important; }
-}
-
-/* Aumentar um pouco a logo do topo no mobile */
-@media (max-width: 768px){
-  .ml-mobile-logo, header .logo img, .navbar-brand img{
-    width: 112px !important;
-    height: 112px !important;
-    object-fit: contain;
-  }
-}
-/* Esconder no mobile apenas o CTA que fica ANTES do hero (o duplicado de topo) */
-@media (max-width: 768px){
-  .ml-hide-mobile{ display: none !important; }
-}
-</style>
-<style>
-@media (max-width: 768px){
-  .hero, .hero-compact-wrap{ background: transparent !important; border: 0 !important; box-shadow: none !important; }
-  .hero-compact-panel{ background: transparent !important; border:0 !important; box-shadow:none !important; width:100% !important; max-width:760px !important; padding:0 16px !important; margin:0 auto !important; text-align:center !important; }
-  .hero-compact-panel > *{ margin-left:auto !important; margin-right:auto !important; text-align:center !important; display:block; }
-  .hero, .hero-compact-wrap{ display:flex !important; flex-direction:column; align-items:center !important; justify-content:center !important; padding:8px 0 12px; }
-}
-</style>
-<style>
-@media (max-width: 768px){
-  .ml-mobile-header{ display: none !important; }
-  header .logo, .navbar-brand{ display: none !important; } /* evita logo de tema no topo no mobile */
-}
-</style>
-<style>
-/* Top ambient ribbon — sutil e elegante */
-.hl-top-ribbon{
-  position: sticky;
-  top: 0;
-  height: 56px;
-  width: 100%;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(40% 60% at 15% 50%, rgba(255,154,60,.18), transparent 60%),
-    radial-gradient(40% 60% at 85% 50%, rgba(255,106,0,.12), transparent 60%);
-  filter: blur(10px);
-  opacity: .55;
-}
-@media (min-width: 1025px){
-  .hl-top-ribbon{ height: 72px; opacity: .45; }
-}
-</style>
-<style>
-.hl-footer{
-  margin: 40px auto 28px;
-  padding: 16px 12px 8px;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,.08);
-  max-width: 1200px;
-}
-.hl-footer-logo{
-  width: 96px; height: 96px; object-fit: contain; margin: 4px auto 6px; display: block;
-  background: transparent;
-}
-.hl-copy{ opacity: .8; font-size: 14px; margin: 0; }
-@media (max-width: 768px){
-  .hl-footer-logo{ width: 88px; height: 88px; }
-}
-</style>
-<style>
-@media (max-width: 768px){
-  .hero-compact-panel img[alt*="logo" i],
-  .hero-compact-panel img[alt*="high level" i],
-  img[src*="logo-hl"][src$="raw=true"]:not(.hl-footer-logo){
-    display: none !important;
-  }
-}
-</style>
-<style>
-/* Garantir que qualquer ribbon/header estético antigo não apareça no mobile */
-@media (max-width: 768px){
-  .hl-top-ribbon{ display:none !important; }
-}
-</style>
-<style>
-@media (max-width: 768px){
-  .hero, .hero-compact-wrap{
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    display:flex !important;
-    flex-direction:column;
-    align-items:center !important;
-    justify-content:center !important;
-    padding: 8px 0 12px;
-  }
-  .hero-compact-panel{
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    width: 100% !important;
-    max-width: 760px !important;
-    padding: 0 16px !important;
-    margin: 0 auto !important;
-    text-align: center !important;
-  }
-  .hero-compact-panel > *{
-    margin-left:auto !important; margin-right:auto !important;
-    text-align:center !important; display:block;
-  }
-}
-</style>
-<style>
-@media (max-width: 768px){
-  nav:has(a[href*="pacot" i]),
-  .anchors:has(a[href*="pacot" i]),
-  .nav:has(a[href*="pacot" i]),
-  .navbar:has(a[href*="pacot" i]){
-    display:flex !important; justify-content:center !important;
-    align-items:center !important; flex-wrap:wrap; gap:12px; text-align:center !important;
-  }
-}
-</style>
-<style>
-/* ===== Pacotes Slider ===== */
-.pkg-slider{ position: relative; overflow: hidden; margin-top: 8px; }
-.pkg-track{
-  display: flex; gap: 0;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-}
-.pkg-slide{ min-width: 100%; scroll-snap-align: start; padding: 10px 4px; }
-.pkg-nav{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:8px; }
-.pkg-prev, .pkg-next{
-  width: 36px; height: 36px; border-radius: 12px; padding:0;
-  background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:#fff;
-  display:inline-flex; align-items:center; justify-content:center;
-}
-.pkg-dots{ display:flex; gap:6px; align-items:center; justify-content:center; }
-.pkg-dot{ width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.15); }
-.pkg-dot[aria-selected="true"]{ background:#ff8a3c; border-color:#ff8a3c; }
-
-/* Desktop: vira grid (sem nav) para visão geral */
-@media (min-width: 1025px){
-  .pkg-track{ overflow: visible; display: grid; grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 16px; }
-  .pkg-slide{ min-width: 0; padding: 0; }
-  .pkg-nav{ display:none; }
-}
-</style>
-<style>
-/* Shine sutil no CTA */
-@media (prefers-reduced-motion: no-preference){
-  a, button {
-    -webkit-tap-highlight-color: transparent;
-  }
-  .cta, .button, a[href*="contact"]{
-    position: relative; overflow: hidden;
-  }
-  .cta::after, .button::after, a[href*="contact"]::after{
-    content:""; position:absolute; top:-50%; left:-120%;
-    width: 120%; height: 200%;
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.35) 50%, rgba(255,255,255,0) 100%);
-    transform: rotate(18deg);
-    animation: shineSweep 4.2s linear infinite;
-    pointer-events: none;
-  }
-  @keyframes shineSweep{
-    0% { left:-120%; }
-    60% { left:120%; }
-    100% { left:120%; }
-  }
-}
-</style>
-<style>
-@media (max-width: 768px){
-  /* remove qualquer elemento estético que crie "borrão" no topo */
-  .hl-top-ribbon, .hero.hero-stage::before { display: none !important; }
-  body, html, main, .page, .content, header { padding-top: 0 !important; margin-top: 0 !important; }
-  /* hero encostado e centralizado */
-  .hero, .hero-compact-wrap{ margin-top: 0 !important; }
-  .hero-compact-panel{ margin-top: 0 !important; }
-  /* título/chip sem margem extra */
-  .hero-compact-panel > :first-child{ margin-top: 0 !important; }
-  /* centralizar o chip "Drone + Anúncios" ou similares */
-  .hero-compact-panel [class*="badge" i],
-  .hero-compact-panel [class*="pill" i],
-  .hero-compact-panel [class*="tag" i]{
-    display: inline-block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-</style>
-
-<style>
-/* 1) Limpeza total do topo e hero centralizado */
-@media (max-width: 768px){
-  .hl-top-ribbon, header, .site-header, .top-shadow, .hero.hero-stage::before{ display:none !important; }
-  body, html, main{ margin-top:0 !important; padding-top:0 !important; }
-  .hero, .hero-compact-wrap{
-    background: transparent !important; border:0 !important; box-shadow:none !important;
-    display:flex !important; flex-direction:column; align-items:center !important; justify-content:center !important;
-    margin-top:0 !important; padding: 8px 0 12px !important;
-  }
-  .hero-compact-panel{
-    background: transparent !important; border:0 !important; box-shadow:none !important;
-    width:100% !important; max-width:760px !important; margin:0 auto !important; padding:0 16px !important;
-    text-align:center !important;
-  }
-  .hero-compact-panel > *{ margin-left:auto !important; margin-right:auto !important; text-align:center !important; }
-  /* badge/tag do hero centralizado */
-  .hero-compact-panel [class*="badge" i],
-  .hero-compact-panel [class*="pill" i],
-  .hero-compact-panel [class*="tag" i]{ display:inline-block !important; margin-left:auto !important; margin-right:auto !important; }
-}
-
-/* 2) Centralização robusta do menu de chips (Pacotes / Portfólio / ...) */
-.chips-center{ display:flex !important; justify-content:center !important; align-items:center !important; flex-wrap:wrap !important; gap:12px !important; text-align:center !important; }
-
-/* 3) Slider de Pacotes — sem "folga" antes do primeiro slide */
-.pkg-slider{ position:relative; overflow:hidden; }
-.pkg-track{ display:flex; gap:0; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; padding:0 !important; margin:0 !important; }
-.pkg-slide{ min-width:100%; scroll-snap-align:start; padding: 0 !important; box-sizing:border-box; }
-.pkg-nav{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:8px; }
-.pkg-prev, .pkg-next{ width:36px; height:36px; border-radius:12px; padding:0; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:#fff; display:inline-flex; align-items:center; justify-content:center; }
-.pkg-dots{ display:flex; gap:6px; align-items:center; justify-content:center; }
-.pkg-dot{ width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.15); }
-.pkg-dot[aria-selected="true"]{ background:#ff8a3c; border-color:#ff8a3c; }
-
-@media (min-width: 1025px){
-  .pkg-track{ overflow:visible; display:grid; grid-template-columns: repeat(3, minmax(280px,1fr)); gap:16px; }
-  .pkg-slide{ min-width:0; }
-  .pkg-nav{ display:none; }
-}
-</style>
+  </script>
 </head>
 <body>
-<div class="wrap">
-<header class="topbar">
-<div class="brand">
-<div>High Level Marketing</div>
-</div>
-<div class="controls">
-<select aria-label="Language" class="lang-select" id="lang">
-<option value="pt">Português</option>
-<option value="en">English</option>
-<option value="fr">Français</option>
-<option value="it">Italiano</option>
-<option value="es">Español</option>
-<option value="de">Deutsch</option>
-</select>
-<a class="cta" href="https://wa.me/351934071660" id="cta_primary" rel="noopener" target="_blank">Falar com a nossa equipa</a>
-</div>
-</header>
-<div class="hero hero-stage">
-<div class="hero-center hero-compact-wrap"><div class="hero-compact-panel"><span class="pill" id="hero_pill">Drone + Anúncios</span><h1 id="hero_h1">Vídeos que chamam atenção e anúncios que geram contactos</h1><p class="muted" id="hero_sub">Filmamos com drone e gerimos anúncios no Google e Instagram/Facebook — simples e focado em resultados.</p><a class="cta" href="https://wa.me/351934071660" id="cta_secondary" rel="noopener" target="_blank">Falar com a nossa equipa</a></div>
-</div>
-<div></div>
-</div>
-<nav class="nav">
-<a href="#pacotes" id="nav_packages">Pacotes</a>
-<a href="#portfolio" id="nav_portfolio">Portfólio</a>
-<a href="#como-funciona" id="nav_how">Como funciona</a>
-<a href="#diferenciais" id="nav_benefits">Diferenciais</a>
-<a href="#faq" id="nav_faq">FAQ</a>
-<a href="#contactos" id="nav_contacts">Contactos</a>
-</nav>
-<section id="pacotes">
-<h2 id="packages_title">Pacotes</h2>
-<div aria-label="Pacotes" class="pkg-slider" role="region"><div class="pkg-track"><div class="pkg-slide"><div class="grid">
-</div></div><div class="pkg-slide"><div class="plan">
-<h3>Start <span class="price"><s>€300</s> €250</span></h3>
-<ul id="start_ul">
-<li>Drone 4K + 12–16 fotos</li>
-<li>1 vídeo 45–60s + 1 vertical</li>
-<li>Configuramos <strong>1 canal de anúncios</strong> (Google <em>ou</em> Meta)</li>
-<li><strong>Sem página do site</strong> neste plano</li>
-</ul>
-</div></div><div class="pkg-slide"><div class="plan">
-<h3>Prime <span class="price"><s>€700</s> €550</span></h3>
-<ul id="prime_ul">
-<li><strong>Página simples do site</strong> (formulário + WhatsApp)</li>
-<li>Medição básica: visitas e pedidos de contacto</li>
-<li>+ Tour 360° e 3 vídeos/mês</li>
-<li>Gestão de anúncios Google <strong>e</strong> Meta</li>
-</ul>
-</div></div><div class="pkg-slide"><div class="plan">
-<h3>Signature <span class="price"><s>€1000</s> €850</span></h3>
-<ul id="signature_ul">
-<li><strong>Página do site</strong> + medição avançada</li>
-<li>+ <strong>Tour 360°</strong> e <strong>5 vídeos/mês</strong></li>
-<li><strong>Gestão de anúncios</strong> Google e Meta</li>
-<li>Pré‑produção + captação interior/exterior (inclui drone)</li>
-<li>Pack social (cortes verticais)</li>
-<li>Painel com resultados em tempo real</li>
-</ul>
-</div></div></div><div class="pkg-nav"><button aria-label="Anterior" class="pkg-prev" type="button"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div aria-label="Páginas Pacotes" class="pkg-dots" role="tablist"></div><button aria-label="Próximo" class="pkg-next" type="button"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div></div></section>
-<section id="portfolio">
-<h2 id="portfolio_title">Portfólio</h2>
-<p class="muted" id="portfolio_blurb"><strong>Conteúdo que vende:</strong> vídeos curtos abrem com gancho, destacam localização e diferenciais e fecham com um CTA para WhatsApp.</p>
-<div class="slider-wrap">
-<button aria-label="Anterior" class="nav-btn prev">‹</button>
-<div class="portfolio-slider" id="slider">
-<div class="slide ig-embed">
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DJM8KryPIRE/?igsh=MWt0ZWFxaTlycmZp" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
-</div>
-<div class="slide ig-embed">
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKANrZOPSbC/?igsh=MWFneWg0cWR6dnh1eA%3D%3D" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
-</div>
-<div class="slide ig-embed">
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DN76RNPjpz9/?igsh=MTQxdG5yaXBzMmpodQ==" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
-</div>
-<div class="slide ig-embed">
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C7xwUu1s81S/?igsh=cDJoN2dveWVtejBk" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
-</div>
-<div class="slide ig-embed">
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C_1C3V_v0t9/?igsh=MXhkbTY0OHB1Y20wbA==" data-instgrm-version="14" style="min-width:280px;max-width:540px;width:100%;margin:0;background:#000;border-radius:12px;border:0;"></blockquote>
-</div>
-</div>
-<button aria-label="Próximo" class="nav-btn next">›</button>
-</div>
-<div style="margin-top:14px">
-<a class="cta" href="https://wa.me/351934071660" id="portfolio_cta" rel="noopener" target="_blank">Quero um vídeo assim para o meu imóvel</a>
-</div>
-<script async="" src="https://www.instagram.com/embed.js"></script>
-</section>
-<section id="como-funciona">
-<h2 id="how_title">Como funciona (passo a passo)</h2>
-<div class="grid">
-<div class="plan">
-<h3 id="how_1_title">1) Captação</h3>
-<ul id="how_1_ul">
-<li>Briefing rápido (10–15 min) para alinhar objetivo e público.</li>
-<li>Visita ao imóvel/hotel e filmagens: drone + interiores/exteriores.</li>
-<li>Check‑list de preparação (limpeza, luz, enquadramento) para valorizar.</li>
-</ul>
-</div>
-<div class="plan">
-<h3 id="how_2_title">2) Edição</h3>
-<ul id="how_2_ul">
-<li>Tratamento de cor, música licenciada e cortes para redes sociais.</li>
-<li>Página simples do site (quando incluída) com formulário e WhatsApp.</li>
-<li>Envio de pré‑via para ajustes rápidos (1 ronda incluída).</li>
-</ul>
-</div>
-<div class="plan">
-<h3 id="how_3_title">3) Anúncios &amp; Resultados</h3>
-<ul id="how_3_ul">
-<li>Configuramos e ligamos os anúncios (Google/Meta conforme plano).</li>
-<li>Monitorizamos contactos e visitas. Relatório simples do que funcionou.</li>
-<li>Otimizações quinzenais (Prime/Signature) para reduzir custo por lead.</li>
-</ul>
-</div>
-</div>
-<p class="muted" id="how_note" style="font-size:12px;margin-top:8px">*Autorização para voo de drone e condições meteorológicas podem alterar datas; avisamos com antecedência.</p>
-</section>
-<section id="diferenciais">
-<h2 id="benefits_title">Diferenciais &amp; Garantias</h2>
-<ul id="benefits_ul">
-<li><strong>Entrega rápida:</strong> 3–5 dias úteis após captação.</li>
-<li><strong>Otimização contínua:</strong> ajustes quinzenais nos anúncios (Prime/Signature).</li>
-<li><strong>Relatórios claros</strong> e acompanhamento por WhatsApp.</li>
-<li><strong>Você é dono do material:</strong> entregamos arquivos finais (e brutos se solicitado).</li>
-<li><strong>Bónus novos clientes:</strong> 1 criativo extra para teste A/B no 1.º mês.</li>
-</ul>
-</section>
-<section id="faq">
-<h2 id="faq_title">Perguntas frequentes</h2>
-<div class="grid">
-<div class="plan">
-<h3 id="faq1_q">Precisa de autorização para drone?</h3>
-<p class="muted" id="faq1_a">Avaliamos a zona antes do voo e, quando necessário, tratamos das autorizações. Clima desfavorável pode adiar captações com aviso prévio.</p>
-</div>
-<div class="plan">
-<h3 id="faq2_q">Como funciona o orçamento de mídia?</h3>
-<p class="muted" id="faq2_a">Sugerimos um valor mensal mínimo e otimizamos o investimento. A cobrança dos anúncios é feita diretamente por Google/Meta.</p>
-</div>
-<div class="plan">
-<h3 id="faq3_q">Qual plano inclui página do site?</h3>
-<p class="muted" id="faq3_a">A página simples está no <strong>Prime</strong>; no <strong>Signature</strong> incluímos também medição avançada e otimização do funil.</p>
-</div>
-</div>
-</section>
-<section class="contacts-center" id="contactos">
-<h2 id="contacts_title">Contactos</h2>
-<div class="contact">
-<p><strong>Vinicius Oliveira</strong> · High Level Marketing<br/>
-<a href="tel:+351934071660">+351 934 071 660</a> · 
-        <a href="mailto:vinicius.highlevelmkt@gmail.com">vinicius.highlevelmkt@gmail.com</a> · 
-        <a href="https://www.instagram.com/mkthighlevel" target="_blank">Instagram</a> · 
-        <a href="https://www.linkedin.com/in/vinicius--oliveira" target="_blank">LinkedIn</a></p>
-</div>
-<a class="cta" href="https://wa.me/351934071660" id="cta_footer" rel="noopener" target="_blank">Falar com a nossa equipa</a>
-</section>
-<footer>
-<span class="muted">© High Level Marketing</span>
-</footer>
-</div>
-<script>
-    // Slider controls
-    const slider=document.getElementById('slider');
-    const step=()=>{const card=slider.querySelector('.slide'); if(!card) return 320; const styles=getComputedStyle(slider); const gap=parseInt(styles.getPropertyValue('--gap'))||12; return card.getBoundingClientRect().width + gap; };
-    document.querySelector('.nav-btn.prev')?.addEventListener('click',()=> slider.scrollBy({left:-step(),behavior:'smooth'}));
-    document.querySelector('.nav-btn.next')?.addEventListener('click',()=> slider.scrollBy({left: step(),behavior:'smooth'}));
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo-wrap" href="#home" aria-label="Ir para o topo">
+        <img class="logo" src="https://raw.githubusercontent.com/ypeyoung/ypeyoung.github.io/main/logo-hl.png" alt="Logotipo High level Marketing" loading="lazy">
+      </a>
 
-    // i18n dictionary
-    const i18n = {
-      pt: {
-        hero_pill: "Drone + Anúncios",
-        hero_h1: "Vídeos que chamam atenção e anúncios que geram contactos",
-        hero_sub: "Filmamos com drone e gerimos anúncios no Google e Instagram/Facebook — simples e focado em resultados.",
-        cta: "Falar com a nossa equipa",
-        nav_packages: "Pacotes",
-        nav_portfolio: "Portfólio",
-        nav_how: "Como funciona",
-        nav_benefits: "Diferenciais",
-        nav_faq: "FAQ",
-        nav_contacts: "Contactos",
-        packages_title: "Pacotes",
-        start_ul: ["Drone 4K + 12–16 fotos","1 vídeo 45–60s + 1 vertical","Configuramos 1 canal de anúncios (Google ou Meta)","Sem página do site neste plano"],
-        prime_ul: ["Página simples do site (formulário + WhatsApp)","Medição básica: visitas e pedidos de contacto","+ Tour 360° e 3 vídeos/mês","Gestão de anúncios Google e Meta"],
-        signature_ul: ["Página do site + medição avançada","+ Tour 360° e 5 vídeos/mês","Gestão de anúncios Google e Meta","Pré‑produção + captação interior/exterior (inclui drone)","Pack social (cortes verticais)","Painel com resultados em tempo real"],
-        portfolio_title: "Portfólio",
-        portfolio_blurb: "<strong>Conteúdo que vende:</strong> vídeos curtos abrem com gancho, destacam localização e diferenciais e fecham com um CTA para WhatsApp.",
-        portfolio_cta: "Quero um vídeo assim para o meu imóvel",
-        how_title: "Como funciona (passo a passo)",
-        how_1_title: "1) Captação",
-        how_1_ul: ["Briefing rápido (10–15 min) para alinhar objetivo e público.","Visita ao imóvel/hotel e filmagens: drone + interiores/exteriores.","Check‑list de preparação (limpeza, luz, enquadramento) para valorizar."],
-        how_2_title: "2) Edição",
-        how_2_ul: ["Tratamento de cor, música licenciada e cortes para redes sociais.","Página simples do site (quando incluída) com formulário e WhatsApp.","Envio de pré‑via para ajustes rápidos (1 ronda incluída)."],
-        how_3_title: "3) Anúncios & Resultados",
-        how_3_ul: ["Configuramos e ligamos os anúncios (Google/Meta conforme plano).","Monitorizamos contactos e visitas. Relatório simples do que funcionou.","Otimizações quinzenais (Prime/Signature) para reduzir custo por lead."],
-        how_note: "*Autorização para voo de drone e condições meteorológicas podem alterar datas; avisamos com antecedência.",
-        benefits_title: "Diferenciais & Garantias",
-        benefits_ul: ["<strong>Entrega rápida:</strong> 3–5 dias úteis após captação.","<strong>Otimização contínua:</strong> ajustes quinzenais nos anúncios (Prime/Signature).","<strong>Relatórios claros</strong> e acompanhamento por WhatsApp.","<strong>Você é dono do material:</strong> entregamos arquivos finais (e brutos se solicitado).","<strong>Bónus novos clientes:</strong> 1 criativo extra para teste A/B no 1.º mês."],
-        faq_title: "Perguntas frequentes",
-        faq1_q: "Precisa de autorização para drone?",
-        faq1_a: "Avaliamos a zona antes do voo e, quando necessário, tratamos das autorizações. Clima desfavorável pode adiar captações com aviso prévio.",
-        faq2_q: "Como funciona o orçamento de mídia?",
-        faq2_a: "Sugerimos um valor mensal mínimo e otimizamos o investimento. A cobrança dos anúncios é feita diretamente por Google/Meta.",
-        faq3_q: "Qual plano inclui página do site?",
-        faq3_a: "A página simples está no Prime; no Signature incluímos também medição avançada e otimização do funil.",
-        contacts_title: "Contactos"
-      },
-      en: {
-        hero_pill: "Drone + Ads",
-        hero_h1: "Videos that grab attention and ads that generate leads",
-        hero_sub: "We film with drones and run Google & Instagram/Facebook ads — simple and results‑driven.",
-        cta: "Talk to our team",
-        nav_packages: "Packages",
-        nav_portfolio: "Portfolio",
-        nav_how: "How it works",
-        nav_benefits: "Benefits",
-        nav_faq: "FAQ",
-        nav_contacts: "Contacts",
-        packages_title: "Packages",
-        start_ul: ["4K drone + 12–16 photos","1 video 45–60s + 1 vertical","We set up 1 ads channel (Google or Meta)","No website page in this plan"],
-        prime_ul: ["Simple website page (form + WhatsApp)","Basic tracking: visits and contact requests","+ 360° tour and 3 videos/month","Google and Meta ads management"],
-        signature_ul: ["Website page + advanced tracking","+ 360° tour and 5 videos/month","Google and Meta ads management","Pre‑production + indoor/outdoor shooting (incl. drone)","Social pack (vertical cuts)","Realtime results dashboard"],
-        portfolio_title: "Portfolio",
-        portfolio_blurb: "<strong>Content that sells:</strong> short videos open with a hook, highlight location & USPs, and close with a WhatsApp CTA.",
-        portfolio_cta: "I want a video like this for my property",
-        how_title: "How it works (step by step)",
-        how_1_title: "1) Shooting",
-        how_1_ul: ["Quick briefing (10–15 min) to align goal and audience.","On‑site filming: drone + interiors/exteriors.","Preparation checklist (tidy up, lighting, framing) to add value."],
-        how_2_title: "2) Editing",
-        how_2_ul: ["Color, licensed music, and social‑ready cuts.","Simple website page (when included) with form and WhatsApp.","Preview delivered for quick tweaks (1 round included)."],
-        how_3_title: "3) Ads & Results",
-        how_3_ul: ["We configure and launch ads (Google/Meta per plan).","We track visits and leads. Clear report of what worked.","Bi‑weekly optimizations (Prime/Signature) to lower CPL."],
-        how_note: "*Drone permissions and weather may affect dates; we'll inform in advance.",
-        benefits_title: "Benefits & Guarantees",
-        benefits_ul: ["<strong>Fast delivery:</strong> 3–5 business days after shooting.","<strong>Continuous optimization:</strong> bi‑weekly ad tuning (Prime/Signature).","<strong>Clear reports</strong> and WhatsApp follow‑up.","<strong>You own the footage:</strong> we deliver finals (and raw upon request).","<strong>New client bonus:</strong> 1 extra creative for A/B test in month 1."],
-        faq_title: "Frequently asked questions",
-        faq1_q: "Do you need drone permission?",
-        faq1_a: "We check the area beforehand and handle permits when required. Bad weather may postpone with notice.",
-        faq2_q: "How does the ad budget work?",
-        faq2_a: "We suggest a monthly minimum and optimize spend. Ad charges are billed directly by Google/Meta.",
-        faq3_q: "Which plan includes a website page?",
-        faq3_a: "The simple page is in Prime; Signature adds advanced tracking and funnel optimization.",
-        contacts_title: "Contacts"
-      },
-      fr: {
-        hero_pill: "Drone + Publicité",
-        hero_h1: "Vidéos qui attirent l’œil et publicités qui génèrent des leads",
-        hero_sub: "Nous filmons au drone et gérons les campagnes Google & Instagram/Facebook — simple et orienté résultats.",
-        cta: "Parler à notre équipe",
-        nav_packages: "Offres",
-        nav_portfolio: "Portfolio",
-        nav_how: "Comment ça marche",
-        nav_benefits: "Avantages",
-        nav_faq: "FAQ",
-        nav_contacts: "Contacts",
-        packages_title: "Offres",
-        start_ul: ["Drone 4K + 12–16 photos","1 vidéo 45–60s + 1 verticale","Configuration d’un canal pub (Google ou Meta)","Pas de page web dans cette offre"],
-        prime_ul: ["Page web simple (formulaire + WhatsApp)","Suivi de base : visites et demandes de contact","+ visite 360° et 3 vidéos/mois","Gestion Google et Meta Ads"],
-        signature_ul: ["Page web + suivi avancé","+ visite 360° et 5 vidéos/mois","Gestion Google et Meta Ads","Pré‑production + tournage intérieur/extérieur (drone inclus)","Pack social (formats verticaux)","Tableau de bord en temps réel"],
-        portfolio_title: "Portfolio",
-        portfolio_blurb: "<strong>Contenu qui vend :</strong> vidéos courtes avec accroche, mise en avant de la localisation & des atouts, et un CTA WhatsApp.",
-        portfolio_cta: "Je veux une vidéo comme celle‑ci pour mon bien",
-        how_title: "Comment ça marche (étapes)",
-        how_1_title: "1) Tournage",
-        how_1_ul: ["Brief rapide (10–15 min) pour aligner objectif et audience.","Tournage sur site : drone + intérieurs/extérieurs.","Checklist de préparation (rangement, lumière, cadrage) pour valoriser."],
-        how_2_title: "2) Montage",
-        how_2_ul: ["Colorimétrie, musique sous licence et découpes pour les réseaux.","Page web simple (si incluse) avec formulaire et WhatsApp.","Envoi d’un pré‑montage pour retouches rapides (1 aller‑retour inclus)."],
-        how_3_title: "3) Publicités & Résultats",
-        how_3_ul: ["Mise en place et lancement des pubs (Google/Meta selon l’offre).","Suivi des visites et leads. Rapport clair de ce qui fonctionne.","Optimisations bi‑hebdomadaires (Prime/Signature) pour réduire le CPL."],
-        how_note: "*Les autorisations drone et la météo peuvent impacter les dates ; on prévient en amont.",
-        benefits_title: "Avantages & Garanties",
-        benefits_ul: ["<strong>Livraison rapide :</strong> 3–5 jours ouvrés après le tournage.","<strong>Optimisation continue :</strong> ajustements bi‑hebdomadaires (Prime/Signature).","<strong>Rapports clairs</strong> et suivi WhatsApp.","<strong>Vous êtes propriétaire des médias :</strong> livrables finaux (et bruts sur demande).","<strong>Bonus nouveaux clients :</strong> 1 créa supplémentaire pour A/B au 1er mois."],
-        faq_title: "Questions fréquentes",
-        faq1_q: "Faut‑il une autorisation drone ?",
-        faq1_a: "Nous vérifions la zone et gérons les autorisations si besoin. Mauvais temps = report avec préavis.",
-        faq2_q: "Comment fonctionne le budget pub ?",
-        faq2_a: "Nous suggérons un minimum mensuel et optimisons la dépense. Facturation pub directe par Google/Meta.",
-        faq3_q: "Quelle offre inclut une page web ?",
-        faq3_a: "La page simple est dans Prime ; Signature ajoute le suivi avancé et l’optimisation du tunnel.",
-        contacts_title: "Contacts"
-      },
-      it: {
-        hero_pill: "Drone + Ads",
-        hero_h1: "Video che attirano l’attenzione e annunci che generano contatti",
-        hero_sub: "Giriamo con droni e gestiamo campagne Google e Instagram/Facebook — semplice e orientato ai risultati.",
-        cta: "Parla con il nostro team",
-        nav_packages: "Pacchetti",
-        nav_portfolio: "Portfolio",
-        nav_how: "Come funziona",
-        nav_benefits: "Vantaggi",
-        nav_faq: "FAQ",
-        nav_contacts: "Contatti",
-        packages_title: "Pacchetti",
-        start_ul: ["Drone 4K + 12–16 foto","1 video 45–60s + 1 verticale","Configuriamo 1 canale ads (Google o Meta)","Nessuna pagina web in questo piano"],
-        prime_ul: ["Pagina web semplice (form + WhatsApp)","Tracciamento base: visite e richieste","+ Tour 360° e 3 video/mese","Gestione annunci Google e Meta"],
-        signature_ul: ["Pagina web + tracciamento avanzato","+ Tour 360° e 5 video/mese","Gestione annunci Google e Meta","Pre‑produzione + riprese interne/esterne (drone incluso)","Pacchetto social (tagli verticali)","Dashboard in tempo reale"],
-        portfolio_title: "Portfolio",
-        portfolio_blurb: "<strong>Contenuti che vendono:</strong> video brevi con gancio iniziale, focus su location e plus, chiusura con CTA WhatsApp.",
-        portfolio_cta: "Voglio un video così per il mio immobile",
-        how_title: "Come funziona (step by step)",
-        how_1_title: "1) Riprese",
-        how_1_ul: ["Brief rapido (10–15 min) su obiettivo e target.","Riprese in loco: drone + interni/esterni.","Checklist preparazione (ordine, luce, inquadratura) per valorizzare."],
-        how_2_title: "2) Montaggio",
-        how_2_ul: ["Color, musica con licenza e tagli per social.","Pagina web semplice (se inclusa) con form e WhatsApp.","Anteprima per modifiche rapide (1 round incluso)."],
-        how_3_title: "3) Ads & Risultati",
-        how_3_ul: ["Configuriamo e lanciamo le campagne (Google/Meta secondo piano).","Monitoriamo visite e lead. Report chiaro di ciò che funziona.","Ottimizzazioni quindicinali (Prime/Signature) per abbassare il CPL."],
-        how_note: "*Permessi drone e meteo possono influire sulle date; avvisiamo in anticipo.",
-        benefits_title: "Vantaggi & Garanzie",
-        benefits_ul: ["<strong>Consegna rapida:</strong> 3–5 giorni lavorativi dopo le riprese.","<strong>Ottimizzazione continua:</strong> tuning quindicinale (Prime/Signature).","<strong>Report chiari</strong> e follow‑up su WhatsApp.","<strong>I file sono tuoi:</strong> consegniamo i finali (e i raw su richiesta).","<strong>Bonus nuovi clienti:</strong> 1 creativo extra per A/B nel 1º mese."],
-        faq_title: "Domande frequenti",
-        faq1_q: "Serve un’autorizzazione per il drone?",
-        faq1_a: "Verifichiamo l’area e gestiamo i permessi se necessari. Meteo avverso può rinviare con preavviso.",
-        faq2_q: "Come funziona il budget adv?",
-        faq2_a: "Suggeriamo un minimo mensile e ottimizziamo la spesa. Fatturazione diretta Google/Meta.",
-        faq3_q: "Quale piano include la pagina web?",
-        faq3_a: "La pagina semplice è nel Prime; nel Signature c’è anche tracciamento avanzato e ottimizzazione funnel.",
-        contacts_title: "Contatti"
-      },
-      es: {
-        hero_pill: "Dron + Anuncios",
-        hero_h1: "Videos que llaman la atención y anuncios que generan contactos",
-        hero_sub: "Grabamos con dron y gestionamos anuncios en Google e Instagram/Facebook — simple y orientado a resultados.",
-        cta: "Hablar con nuestro equipo",
-        nav_packages: "Paquetes",
-        nav_portfolio: "Portafolio",
-        nav_how: "Cómo funciona",
-        nav_benefits: "Beneficios",
-        nav_faq: "FAQ",
-        nav_contacts: "Contactos",
-        packages_title: "Paquetes",
-        start_ul: ["Dron 4K + 12–16 fotos","1 vídeo 45–60s + 1 vertical","Configuramos 1 canal de anuncios (Google o Meta)","Sin página web en este plan"],
-        prime_ul: ["Página web sencilla (formulario + WhatsApp)","Medición básica: visitas y solicitudes de contacto","+ Tour 360° y 3 vídeos/mes","Gestión de anuncios Google y Meta"],
-        signature_ul: ["Página web + medición avanzada","+ Tour 360° y 5 vídeos/mes","Gestión de anuncios Google y Meta","Preproducción + rodaje interior/exterior (incluye dron)","Paquete social (cortes verticales)","Panel en tiempo real"],
-        portfolio_title: "Portafolio",
-        portfolio_blurb: "<strong>Contenido que vende:</strong> vídeos cortos con gancho, destacan ubicación y diferenciales, y cierran con CTA a WhatsApp.",
-        portfolio_cta: "Quiero un vídeo así para mi inmueble",
-        how_title: "Cómo funciona (paso a paso)",
-        how_1_title: "1) Rodaje",
-        how_1_ul: ["Brief rápido (10–15 min) para alinear objetivo y público.","Grabación en el lugar: dron + interiores/exteriores.","Checklist de preparación (orden, luz, encuadre) para aportar valor."],
-        how_2_title: "2) Edición",
-        how_2_ul: ["Color, música con licencia y cortes para redes.","Página web sencilla (si se incluye) con formulario y WhatsApp.","Envío de previa para ajustes rápidos (1 ronda incluida)."],
-        how_3_title: "3) Anuncios y Resultados",
-        how_3_ul: ["Configuramos y activamos anuncios (Google/Meta según plan).","Seguimos visitas y contactos. Informe claro de resultados.","Optimizaciones quincenales (Prime/Signature) para bajar el CPL."],
-        how_note: "*Permisos de dron y clima pueden afectar fechas; avisamos con antelación.",
-        benefits_title: "Beneficios & Garantías",
-        benefits_ul: ["<strong>Entrega rápida:</strong> 3–5 días laborables tras el rodaje.","<strong>Optimización continua:</strong> ajustes quincenales (Prime/Signature).","<strong>Informes claros</strong> y seguimiento por WhatsApp.","<strong>Eres dueño del material:</strong> entregamos finales (y brutos si se solicita).","<strong>Bono nuevos clientes:</strong> 1 creativo extra para A/B el 1er mes."],
-        faq_title: "Preguntas frecuentes",
-        faq1_q: "¿Se necesita permiso para dron?",
-        faq1_a: "Revisamos la zona y gestionamos permisos si hace falta. Mal clima puede aplazar con aviso.",
-        faq2_q: "¿Cómo funciona el presupuesto de anuncios?",
-        faq2_a: "Sugerimos un mínimo mensual y optimizamos el gasto. Google/Meta facturan directamente.",
-        faq3_q: "¿Qué plan incluye página web?",
-        faq3_a: "La página sencilla está en Prime; Signature añade medición avanzada y optimización del embudo.",
-        contacts_title: "Contactos"
-      },
-      de: {
-        hero_pill: "Drohne + Ads",
-        hero_h1: "Videos, die auffallen, und Anzeigen, die Anfragen bringen",
-        hero_sub: "Wir filmen mit Drohnen und schalten Google‑ & Instagram/Facebook‑Anzeigen — einfach und ergebnisorientiert.",
-        cta: "Mit unserem Team sprechen",
-        nav_packages: "Pakete",
-        nav_portfolio: "Portfolio",
-        nav_how: "So funktioniert’s",
-        nav_benefits: "Vorteile",
-        nav_faq: "FAQ",
-        nav_contacts: "Kontakt",
-        packages_title: "Pakete",
-        start_ul: ["4K‑Drohne + 12–16 Fotos","1 Video 45–60s + 1 vertikal","Einrichtung 1 Anzeigenkanal (Google oder Meta)","Keine Website‑Seite in diesem Paket"],
-        prime_ul: ["Einfache Website‑Seite (Formular + WhatsApp)","Basis‑Tracking: Besuche und Anfragen","+ 360°‑Tour und 3 Videos/Monat","Verwaltung von Google‑ und Meta‑Ads"],
-        signature_ul: ["Website‑Seite + erweitertes Tracking","+ 360°‑Tour und 5 Videos/Monat","Verwaltung von Google‑ und Meta‑Ads","Pre‑Production + Innen/Außen‑Dreh (inkl. Drohne)","Social‑Pack (vertikale Schnitte)","Echtzeit‑Dashboard"],
-        portfolio_title: "Portfolio",
-        portfolio_blurb: "<strong>Verkaufsstark:</strong> Kurzvideos starten mit Hook, zeigen Lage & USPs und enden mit WhatsApp‑CTA.",
-        portfolio_cta: "Ich möchte so ein Video für meine Immobilie",
-        how_title: "So funktioniert’s (Schritt für Schritt)",
-        how_1_title: "1) Dreh",
-        how_1_ul: ["Kurzes Briefing (10–15 Min.) zu Ziel & Zielgruppe.","Dreh vor Ort: Drohne + Innen/Außen.","Vorbereitungs‑Checkliste (Ordnung, Licht, Bildausschnitt) für mehr Wert."],
-        how_2_title: "2) Schnitt",
-        how_2_ul: ["Farblook, lizenzierte Musik, Social‑Cuts.","Einfache Website‑Seite (falls enthalten) mit Formular & WhatsApp.","Vorab‑Version für schnelle Korrekturen (1 Runde inkl.)."],
-        how_3_title: "3) Ads & Ergebnisse",
-        how_3_ul: ["Einrichtung & Start der Kampagnen (Google/Meta je Paket).","Tracking von Besuchen & Leads. Klarer Ergebnisbericht.","Zweiwöchentliche Optimierung (Prime/Signature) für niedrigere CPL."],
-        how_note: "*Drohnen‑Genehmigungen und Wetter können Termine beeinflussen; wir informieren rechtzeitig.",
-        benefits_title: "Vorteile & Garantien",
-        benefits_ul: ["<strong>Schnelle Lieferung:</strong> 3–5 Werktage nach Dreh.","<strong>Kontinuierliche Optimierung:</strong> zweiwöchentliches Tuning (Prime/Signature).","<strong>Klare Reports</strong> und WhatsApp‑Betreuung.","<strong>Du besitzt das Material:</strong> Finals (Rohmaterial auf Wunsch).","<strong>Neukunden‑Bonus:</strong> 1 zusätzliches Creative für A/B im 1. Monat."],
-        faq_title: "Häufige Fragen",
-        faq1_q: "Braucht man eine Drohnen‑Genehmigung?",
-        faq1_a: "Wir prüfen die Zone und kümmern uns ggf. um Genehmigungen. Schlechtes Wetter kann mit Vorankündigung verschieben.",
-        faq2_q: "Wie funktioniert das Anzeigen‑Budget?",
-        faq2_a: "Wir empfehlen ein Monats‑Minimum und optimieren den Einsatz. Abrechnung direkt durch Google/Meta.",
-        faq3_q: "Welches Paket enthält eine Website‑Seite?",
-        faq3_a: "Die einfache Seite ist im Prime; im Signature auch erweitertes Tracking & Funnel‑Optimierung.",
-        contacts_title: "Kontakt"
+      <nav class="nav" id="nav">
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu">☰</button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#pacotes">Pacotes</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#depoimentos">O que dizem</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contactos">Contactos</a></li>
+          <!-- (sem link para /orcamentohotelaria no menu) -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="kicker">High level Marketing</span>
+          <h1 class="title">Marketing, Publicidade & Vídeos que geram resultados</h1>
+          <p class="subtitle">
+            Agência de marketing e publicidade focada em crescimento: tráfego pago, social media, criação de vídeos (incluindo drone), landing pages e 360° tours.
+          </p>
+          <div class="cta-wrap">
+            <a class="btn-primary" href="https://wa.me/351934071660?text=Oi%2C%20vim%20pelo%20website" target="_blank" rel="noopener noreferrer">Falar com a nossa equipa</a>
+            <a class="btn-secondary" href="#portfolio">Ver portfólio</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="video-frame">
+            <div class="ig-crop">
+              <!-- Vídeo destaque (Latina Grill) -->
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DN76RNPjpz9/" data-instgrm-version="14" data-instgrm-captioned="false"></blockquote>
+            </div>
+            <a class="ig-fallback" href="https://www.instagram.com/p/DN76RNPjpz9/" target="_blank" rel="noopener">Abrir no Instagram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACOTES -->
+    <section id="pacotes" class="section">
+      <div class="container">
+        <h2 class="section-title">Pacotes</h2>
+        <p class="section-lead">Soluções completas, pensadas para performance e crescimento previsível.</p>
+
+        <div class="pricing-grid">
+          <article class="plan">
+            <h3>Start</h3>
+            <p class="desc">Para começar com tráfego pago e presença nas redes.</p>
+            <p class="price">€350/mês</p>
+            <ul class="features">
+              <li>Gestão de tráfego (Google/Meta) até 2 campanhas</li>
+              <li>2 criativos/mês (Reels ou Shorts)</li>
+              <li>Calendário básico de social media</li>
+              <li>Landing page 1 seção (template)</li>
+              <li>Relatório mensal com principais métricas</li>
+            </ul>
+          </article>
+
+          <article class="plan">
+            <div class="badge">Mais escolhido</div>
+            <h3>Growth</h3>
+            <p class="desc">Aquisição e conteúdo com otimizações semanais.</p>
+            <p class="price">€750/mês</p>
+            <ul class="features">
+              <li>Gestão de tráfego (Google/Meta) até 6 campanhas</li>
+              <li>6 criativos/mês (Reels/Shorts + variações)</li>
+              <li>Planejamento editorial e copy das publicações</li>
+              <li>Landing page conversão (A/B de CTA)</li>
+              <li>Reunião quinzenal + dashboard em tempo real</li>
+            </ul>
+          </article>
+
+          <article class="plan">
+            <h3>Performance</h3>
+            <p class="desc">Escala de performance com conteúdo e CRO.</p>
+            <p class="price">€1200/mês</p>
+            <ul class="features">
+              <li>Gestão de tráfego full (Google/Meta/TikTok)</li>
+              <li>12 criativos/mês (inclui captura externa e drone)</li>
+              <li>Estratégia de funil + remarketing</li>
+              <li>Landing page sob medida (alta conversão)</li>
+              <li>Teste A/B contínuo e otimização semanal</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="addons">
+          <div class="addon"><strong>Extras (on-demand)</strong><div class="tag">Tour 360° de ambiente físico</div></div>
+          <div class="addon"><strong>+</strong><div class="tag">Sessão extra de captação (vídeo/foto)</div></div>
+          <div class="addon"><strong>+</strong><div class="tag">SEO técnico + conteúdo para blog</div></div>
+          <div class="addon"><strong>+</strong><div class="tag">Copywriting de alta conversão</div></div>
+          <div class="addon"><strong>+</strong><div class="tag">Edição longa (YouTube 5–10 min)</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Portfólio</h2>
+        <p class="section-lead">Alguns projetos recentes. Se o embed não carregar, use o link “Abrir no Instagram”.</p>
+
+        <div class="slider" id="slider">
+          <button class="arrow left" id="prev" aria-label="Anterior">‹</button>
+          <div class="slides" id="slides">
+            <div class="slide">
+              <div class="ig-crop">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKANrZOPSbC/?utm_source=ig_embed" data-instgrm-version="14" data-instgrm-captioned="false"></blockquote>
+              </div>
+              <a class="ig-fallback" href="https://www.instagram.com/reel/DKANrZOPSbC/?utm_source=ig_embed" target="_blank" rel="noopener">Abrir no Instagram</a>
+            </div>
+            <div class="slide">
+              <div class="ig-crop">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DN76RNPjpz9/?utm_source=ig_embed" data-instgrm-version="14" data-instgrm-captioned="false"></blockquote>
+              </div>
+              <a class="ig-fallback" href="https://www.instagram.com/reel/DN76RNPjpz9/?utm_source=ig_embed" target="_blank" rel="noopener">Abrir no Instagram</a>
+            </div>
+            <div class="slide">
+              <div class="ig-crop">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHHGHUUS7lW/" data-instgrm-version="14" data-instgrm-captioned="false"></blockquote>
+              </div>
+              <a class="ig-fallback" href="https://www.instagram.com/reel/DHHGHUUS7lW/" target="_blank" rel="noopener">Abrir no Instagram</a>
+            </div>
+            <div class="slide">
+              <div class="ig-crop">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DJM8KryPIRE/" data-instgrm-version="14" data-instgrm-captioned="false"></blockquote>
+              </div>
+              <a class="ig-fallback" href="https://www.instagram.com/reel/DJM8KryPIRE/" target="_blank" rel="noopener">Abrir no Instagram</a>
+            </div>
+            <div class="slide">
+              <div class="ig-crop">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DGMGn7mvRk6/" data-instgrm-version="14" data-instgrm-captioned="false"></blockquote>
+              </div>
+              <a class="ig-fallback" href="https://www.instagram.com/reel/DGMGn7mvRk6/" target="_blank" rel="noopener">Abrir no Instagram</a>
+            </div>
+            <div class="slide">
+              <div class="ig-crop">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DNTK8wGIy_u/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" data-instgrm-version="14" data-instgrm-captioned="false"></blockquote>
+              </div>
+              <a class="ig-fallback" href="https://www.instagram.com/reel/DNTK8wGIy_u/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener">Abrir no Instagram</a>
+            </div>
+          </div>
+          <button class="arrow right" id="next" aria-label="Seguinte">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS (SEO PT) -->
+    <section id="servicos" class="section">
+      <div class="container">
+        <h2 class="section-title">Serviços em Portugal</h2>
+        <p class="section-lead">Atuamos em todo o país (Lisboa, Porto, Algarve, Braga, Aveiro e região) com soluções orientadas a crescimento.</p>
+
+        <h3>Criação de vídeos com drone em Portugal</h3>
+        <p>Produção completa de vídeos com <strong>drone</strong> para negócios locais, turismo, restauração e imobiliário. Guiamos roteiro, captação e edição para <em>reels</em>, anúncios e landing pages, priorizando retenção e CTA.</p>
+
+        <h3>Tráfego pago em Portugal</h3>
+        <p>Gestão de <strong>tráfego pago</strong> em Google Ads, Meta Ads e TikTok Ads com foco em CPL/ROAS. Implementamos pixels, eventos, públicos de remarketing e testes A/B contínuos.</p>
+
+        <h3>Social media & conteúdo</h3>
+        <p>Planejamento editorial, copy e criativos nativos (Reels/Shorts) com calendário e dashboards. Integração com landing pages de alta conversão para fechar o ciclo.</p>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="section">
+      <div class="container">
+        <h2 class="section-title">Como funciona</h2>
+        <div class="timeline">
+          <div class="step"><div class="num">1</div><h4>Descoberta</h4><p>Entendimento rápido do objetivo, público e proposta de valor.</p></div>
+          <div class="step"><div class="num">2</div><h4>Planejamento</h4><p>Estratégia de aquisição, conteúdos e páginas focadas em conversão.</p></div>
+          <div class="step"><div class="num">3</div><h4>Captação & Produção</h4><p>Filmagens dinâmicas (incl. tomadas aéreas), edição e brand voice.</p></div>
+          <div class="step"><div class="num">4</div><h4>Lançamento</h4><p>Configuração de campanhas, pixels, eventos e integrações.</p></div>
+          <div class="step"><div class="num">5</div><h4>Otimização</h4><p>Testes A/B, criativos novos e ajustes semanais para escala.</p></div>
+          <div class="step"><div class="num">6</div><h4>Relatórios</h4><p>Dashboard com métricas-chave e reuniões de alinhamento.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section id="diferenciais" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Diferenciais</h2>
+        <p class="section-lead">Por que marcas locais confiam em nós para crescer com previsibilidade.</p>
+
+        <div class="diff-grid">
+          <div class="diff-card"><div class="diff-ico"><svg viewBox="0 0 24 24"><path d="M3 3h2v18H3V3zm4 10h2v8H7v-8zm4-6h2v14h-2V7zm4 4h2v10h-2V11zm4-8h2v18h-2V3z"/></svg></div><div><h4>Growth orientado a metas</h4><p>Planejamento de funil, metas de CPA/ROAS e roadmap quinzenal.</p><ul class="diff-list"><li>Estratégia por etapa do funil</li><li>Calendário de testes A/B</li><li>Relatórios com insights acionáveis</li></ul></div></div>
+          <div class="diff-card"><div class="diff-ico"><svg viewBox="0 0 24 24"><path d="M15 8l6-3v14l-6-3v2H3V6h12v2z"/></svg></div><div><h4>Conteúdo nativo de redes</h4><p>Reels/Shorts com narrativa clara e call-to-action forte.</p><ul class="diff-list"><li>Captação dinâmica (incl. aéreas)</li><li>Edição para retenção 3s/8s</li><li>Variações criativas para escala</li></ul></div></div>
+          <div class="diff-card"><div class="diff-ico"><svg viewBox="0 0 24 24"><path d="M3 4h18v16H3V4zm2 2v12h14V6H5zm2 2h10v2H7V8zm0 4h10v2H7v-2z"/></svg></div><div><h4>Landing pages que convertem</h4><p>Copy, prova social e UX focadas em conversão.</p><ul class="diff-list"><li>Componentes modulares</li><li>Testes de CTA e layout</li><li>Integração com pixels e CRM</li></ul></div></div>
+          <div class="diff-card"><div class="diff-ico"><svg viewBox="0 0 24 24"><path d="M3 13h2v8H3v-8zm4-4h2v12H7V9zm4-6h2v18h-2V3zm4 8h2v10h-2V11zm4-4h2v14h-2V7z"/></svg></div><div><h4>Mídia orientada por dados</h4><p>Google/Meta/TikTok com segmentações e criativos por audiência.</p><ul class="diff-list"><li>Remarketing por engajamento</li><li>Pacing e limites por campanha</li><li>Dashboard em tempo real</li></ul></div></div>
+          <div class="diff-card"><div class="diff-ico"><svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 8 8h-2a6 6 0 1 1-6-6V4zm1 7l5-5 1 1-5 5H13z"/></svg></div><div><h4>Execução rápida</h4><p>Kickoff ágil e primeiro lote de criativos em até 10 dias.</p><ul class="diff-list"><li>Sprints semanais</li><li>SLAs de entrega claros</li><li>Canal direto para aprovações</li></ul></div></div>
+          <div class="diff-card"><div class="diff-ico"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7v3a5 5 0 0 1-5 5h-1v3H9v-5h5a3 3 0 0 0 3-3V9a5 5 0 0 0-10 0v3H5V9a7 7 0 0 1 7-7z"/></svg></div><div><h4>Parceria transparente</h4><p>Comunicação clara, previsibilidade e foco em resultado.</p><ul class="diff-list"><li>Relatórios simplificados</li><li>Reuniões de alinhamento</li><li>Documentação compartilhada</li></ul></div></div>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi"><strong>+35%</strong><div>Taxa média de conversão em LPs</div></div>
+          <div class="kpi"><strong>-28%</strong><div>CPL após 60 dias de otimização</div></div>
+          <div class="kpi"><strong>3–5x</strong><div>ROAS em campanhas locais</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS (exatos; sem frase/link extra) -->
+    <section id="depoimentos" class="section">
+      <div class="container">
+        <h2 class="section-title">O que dizem nossos clientes</h2>
+        <p class="section-lead">Depoimentos coletados dos nossos projetos.</p>
+
+        <div class="testi">
+          <div class="quote"><div class="stars">★★★★★</div><p>“Os vídeos dos imóveis e os anúncios segmentados duplicaram as visitas em 30 dias. Fechámos 3 vendas no primeiro mês.”</p><div class="q-meta"><div class="ava"></div><div><strong>Lúcia Canelas</strong> · Proprietária — Imobiliária Canelas</div></div></div>
+          <div class="quote"><div class="stars">★★★★★</div><p>“Depois da filmagem + tráfego pago, as reservas de mesas aumentaram de forma constante. O salão passou a lotar nos fins-de-semana.”</p><div class="q-meta"><div class="ava"></div><div><strong>Steffan</strong> · Proprietário — Latina Grill</div></div></div>
+          <div class="quote"><div class="stars">★★★★☆</div><p>“Os criativos com drone deixaram a clínica moderna. Saímos de 8 para 22 procedimentos/semana em 6 semanas.”</p><div class="q-meta"><div class="ava"></div><div><strong>Arthur</strong> · Gestor — Mais Laser Cabo Frio</div></div></div>
+          <div class="quote"><div class="stars">★★★★★</div><p>“Os vídeos das coleções e as campanhas trouxeram mais visitas e compras — ficamos com lançamentos esgotados.”</p><div class="q-meta"><div class="ava"></div><div><strong>Fábio</strong> · Diretor — TX Multimarcas (moda)</div></div></div>
+          <div class="quote"><div class="stars">★★★★★</div><p>“Com captação profissional e anúncios, dobramos as consultas particulares. A marca ficou mais premium.”</p><div class="q-meta"><div class="ava"></div><div><strong>Dr. Wellisson</strong> · Dermatologista</div></div></div>
+          <div class="quote"><div class="stars">★★★★☆</div><p>“A estratégia trouxe inscrições com CPL competitivo e lotamos duas turmas extras no trimestre.”</p><div class="q-meta"><div class="ava"></div><div><strong>Gutemberg</strong> · CEO — Educar Treinamentos</div></div></div>
+          <div class="quote"><div class="stars">★★★★★</div><p>“Os vídeos de casos e a segmentação local multiplicaram os agendamentos. Crescemos forte em banho & tosa.”</p><div class="q-meta"><div class="ava"></div><div><strong>Dr. Anderson</strong> · Clínica Veterinária Palmeiras</div></div></div>
+          <div class="quote"><div class="stars">★★★★★</div><p>“Reels com qualidade e anúncios bem posicionados trouxeram pacientes de alto valor e agenda cheia.”</p><div class="q-meta"><div class="ava"></div><div><strong>Dra. Thayse</strong> · Dermatologista</div></div></div>
+          <div class="quote"><div class="stars">★★★★★</div><p>“Organizamos a comunicação e o tráfego; os cursos ganharam credibilidade e tivemos turmas completas.”</p><div class="q-meta"><div class="ava"></div><div><strong>Genaria</strong> · Fundadora — Instituto Genaria Viana</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-grid">
+          <details><summary>Qual o contrato mínimo?</summary><p>Trabalhamos mês a mês. Recomendamos 3 meses para maturar otimizações de campanha e criativos.</p></details>
+          <details><summary>Vocês produzem os vídeos e as fotos?</summary><p>Sim. Planejamos roteiro, fazemos a captação (incluindo tomadas aéreas quando necessário) e entregamos edição otimizada para redes.</p></details>
+          <details><summary>Quem escreve as copies e CTAs?</summary><p>Nossa equipe desenvolve copy de alto impacto e testa variações de CTA conforme a etapa de funil.</p></details>
+          <details><summary>Vocês criam e hospedam landing pages?</summary><p>Criamos LPs de alta conversão e entregamos hospedadas ou exportadas, conforme sua preferência.</p></details>
+          <details><summary>Como funcionam os relatórios?</summary><p>Dashboard em tempo real + resumo quinzenal com insights e próximos passos.</p></details>
+          <details><summary>Qual o prazo para começar?</summary><p>Kickoff imediato; primeira leva de criativos e LP em 7–14 dias, dependendo do escopo.</p></details>
+          <details><summary>Vocês gerem anúncios em quais plataformas?</summary><p>Google, Meta e TikTok. Selecionamos os canais com base no objetivo e público.</p></details>
+          <details><summary>O orçamento de mídia está incluso?</summary><p>Não. A gestão é o nosso serviço; o investimento em mídia é pago diretamente às plataformas.</p></details>
+        </div>
+    </section>
+
+    <!-- FAQPage JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Qual o contrato mínimo?","acceptedAnswer":{"@type":"Answer","text":"Trabalhamos mês a mês. Recomendamos 3 meses para maturar otimizações."}},
+        {"@type":"Question","name":"Vocês produzem os vídeos e as fotos?","acceptedAnswer":{"@type":"Answer","text":"Sim. Planejamento, captação (incluindo aéreas) e edição otimizada para redes."}},
+        {"@type":"Question","name":"O orçamento de mídia está incluso?","acceptedAnswer":{"@type":"Answer","text":"Não. Você paga a mídia direto às plataformas; nós gerimos e otimizamos."}},
+        {"@type":"Question","name":"Quais plataformas vocês usam?","acceptedAnswer":{"@type":"Answer","text":"Google, Meta e TikTok, conforme objetivo e público."}}
+      ]
+    }
+    </script>
+
+    <!-- CONTACTOS -->
+    <section id="contactos" class="section cta">
+      <div class="container">
+        <h2 class="section-title">Vamos falar?</h2>
+        <p class="section-lead">Diga “Oi” no WhatsApp ou envie um e-mail que respondemos hoje.</p>
+        <div class="contact-grid">
+          <a class="btn-primary" href="mailto:vinicius.highlevelmkt@gmail.com?subject=Or%C3%A7amento%20-%20High%20level%20Marketing">Enviar e-mail</a>
+          <a class="btn-secondary" href="https://wa.me/351934071660?text=Oi%2C%20vim%20pelo%20website" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
+        <p class="microcopy">E-mail: vinicius.highlevelmkt@gmail.com · WhatsApp: +351 934 071 660</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container foot-inner">
+      <span>© <span id="year"></span> High level marketing</span>
+      <a href="#home" class="to-top">Voltar ao topo</a>
+    </div>
+  </footer>
+
+  <script>
+/* Scrollspy + IG lazy processing + crop + slider */
+function scrollSpy(){
+  const links = [...document.querySelectorAll('.nav-list a')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  function onScroll(){
+    const y = window.scrollY + 140;
+    let active = null;
+    for(const s of sections){ if(s.offsetTop <= y) active = s; }
+    links.forEach(a => a.classList.toggle('active', active && a.getAttribute('href') === '#' + active.id));
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+}
+
+function cropInstagramEmbeds(){
+  document.querySelectorAll('.ig-crop iframe').forEach((iframe)=>{
+    iframe.style.width='120%';
+    iframe.style.height='820px';
+    iframe.style.transform='translate(-10%, -80px) scale(1.05)';
+    iframe.style.border='0';
+    iframe.setAttribute('loading','lazy');
+    iframe.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+  });
+}
+
+function lazyInstagram(){
+  const targets = document.querySelectorAll('.ig-crop');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        if(window.instgrm && window.instgrm.Embeds){ window.instgrm.Embeds.process(); setTimeout(cropInstagramEmbeds, 400); }
+        obs.unobserve(e.target);
       }
-    };
+    });
+  }, {rootMargin:'200px 0px'});
+  targets.forEach(t=>obs.observe(t));
+}
 
-    function setUL(el, items) {
-      el.innerHTML = items.map(x => `<li>${x}</li>`).join('');
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  // ano no rodapé
+  const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
 
-    function applyLang(lang) {
-      const t = i18n[lang] || i18n.pt;
-      document.documentElement.lang = lang;
-      document.getElementById('hero_pill').innerHTML = t.hero_pill;
-      document.getElementById('hero_h1').innerHTML = t.hero_h1;
-      document.getElementById('hero_sub').innerHTML = t.hero_sub;
-      ['cta_primary','cta_secondary','cta_footer','portfolio_cta'].forEach(id => document.getElementById(id).innerHTML = t.cta);
-      document.getElementById('nav_packages').innerHTML = t.nav_packages;
-      document.getElementById('nav_portfolio').innerHTML = t.nav_portfolio;
-      document.getElementById('nav_how').innerHTML = t.nav_how;
-      document.getElementById('nav_benefits').innerHTML = t.nav_benefits;
-      document.getElementById('nav_faq').innerHTML = t.nav_faq;
-      document.getElementById('nav_contacts').innerHTML = t.nav_contacts;
-      document.getElementById('packages_title').innerHTML = t.packages_title;
-      setUL(document.getElementById('start_ul'), t.start_ul);
-      setUL(document.getElementById('prime_ul'), t.prime_ul);
-      setUL(document.getElementById('signature_ul'), t.signature_ul);
-      document.getElementById('portfolio_title').innerHTML = t.portfolio_title;
-      document.getElementById('portfolio_blurb').innerHTML = t.portfolio_blurb;
-      document.getElementById('how_title').innerHTML = t.how_title;
-      document.getElementById('how_1_title').innerHTML = t.how_1_title;
-      setUL(document.getElementById('how_1_ul'), t.how_1_ul);
-      document.getElementById('how_2_title').innerHTML = t.how_2_title;
-      setUL(document.getElementById('how_2_ul'), t.how_2_ul);
-      document.getElementById('how_3_title').innerHTML = t.how_3_title;
-      setUL(document.getElementById('how_3_ul'), t.how_3_ul);
-      document.getElementById('how_note').innerHTML = t.how_note;
-      document.getElementById('benefits_title').innerHTML = t.benefits_title;
-      setUL(document.getElementById('benefits_ul'), t.benefits_ul);
-      document.getElementById('faq_title').innerHTML = t.faq_title;
-      document.getElementById('faq1_q').innerHTML = t.faq1_q;
-      document.getElementById('faq1_a').innerHTML = t.faq1_a;
-      document.getElementById('faq2_q').innerHTML = t.faq2_q;
-      document.getElementById('faq2_a').innerHTML = t.faq2_a;
-      document.getElementById('faq3_q').innerHTML = t.faq3_q;
-      document.getElementById('faq3_a').innerHTML = t.faq3_a;
-      document.getElementById('contacts_title').innerHTML = t.contacts_title;
-    }
+  // menu mobile
+  const ham=document.getElementById('hamburger'), nl=document.getElementById('nav-list');
+  if(ham && nl){ ham.addEventListener('click',()=>{ nl.style.display=(nl.style.display==='flex')?'none':'flex'; if(nl.style.display==='flex'){ nl.style.flexDirection='column'; } }); }
 
-    const select = document.getElementById('lang');
-    select.addEventListener('change', e => applyLang(select.value));
-    applyLang('pt');
+  // slider
+  const slidesEl=document.getElementById('slides'); let slideIndex=0, lock=false;
+  function showSlide(i){ if(!slidesEl) return; const t=slidesEl.children.length; slideIndex=(i+t)%t; const off=-slideIndex*slidesEl.clientWidth; slidesEl.style.transform=`translateX(${off}px)`; }
+  function next(){ if(lock) return; lock=true; showSlide(slideIndex+1); setTimeout(()=>lock=false,350); }
+  function prev(){ if(lock) return; lock=true; showSlide(slideIndex-1); setTimeout(()=>lock=false,350); }
+  const n=document.getElementById('next'), p=document.getElementById('prev');
+  if(n) n.addEventListener('click', next);
+  if(p) p.addEventListener('click', prev);
+  setInterval(next, 7000);
+  window.addEventListener('resize', ()=>showSlide(slideIndex));
+
+  // Scrollspy
+  scrollSpy();
+
+  // IG embed handling (lazy + crop)
+  function ensureIG(){ if(window.instgrm && window.instgrm.Embeds){ lazyInstagram(); } else { setTimeout(ensureIG, 400); } }
+  ensureIG();
+});
   </script>
-<script async="" src="https://www.instagram.com/embed.js"></script>
-<section aria-label="Feedback de clientes" class="testimonials-section" id="depoimentos">
-<div class="testi-wrap">
-<h2 class="testi-title">O que dizem nossos clientes</h2>
-<div aria-label="O que dizem nossos clientes" class="testi-slider" role="region"><div class="testi-track"><div class="testi-slide"><div class="testi-2x2"><article class="testi-card">
-<header class="t-head">
-<div class="avatar">LC</div>
-<div class="who"><strong>Lúcia Canelas</strong><span>Proprietária — Imobiliária Canelas</span></div>
-<div aria-label="5 de 5" class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“Os vídeos dos imóveis e os anúncios segmentados duplicaram as visitas em 30 dias. Fechámos <strong>3 vendas</strong> no primeiro mês.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">SL</div>
-<div class="who"><strong>Steffan</strong><span>Proprietário — Latina Grill</span></div>
-<div aria-label="5 de 5" class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“Depois da filmagem + tráfego pago, as <strong>reservas de mesas</strong> aumentaram de forma constante. O salão passou a lotar nos fins‑de‑semana.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">AM</div>
-<div class="who"><strong>Arthur</strong><span>Gestor — Mais Laser Cabo Frio</span></div>
-<div aria-label="4.9 de 5" class="stars">★★★★☆</div>
-</header>
-<p class="t-quote">“Os criativos com drone deixaram a clínica moderna. Saímos de 8 para <strong>22 procedimentos/semana</strong> em 6 semanas.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">FT</div>
-<div class="who"><strong>Fábio</strong><span>Diretor — TX Multimarcas (moda)</span></div>
-<div aria-label="5 de 5" class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“Os vídeos das coleções e as campanhas trouxeram mais visitas e compras — ficamos com lançamentos esgotados.”</p>
-</article></div></div><div class="testi-slide"><div class="testi-2x2"><article class="testi-card">
-<header class="t-head">
-<div class="avatar">DW</div>
-<div class="who"><strong>Dr. Wellisson</strong><span>Dermatologista</span></div>
-<div aria-label="5 de 5" class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“Com captação profissional e anúncios, dobramos as <strong>consultas particulares</strong>. A marca ficou mais premium.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">GE</div>
-<div class="who"><strong>Gutemberg</strong><span>CEO — Educar Treinamentos</span></div>
-<div aria-label="4.9 de 5" class="stars">★★★★☆</div>
-</header>
-<p class="t-quote">“A estratégia trouxe inscrições com <strong>CPL competitivo</strong> e lotamos duas turmas extras no trimestre.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">DA</div>
-<div class="who"><strong>Dr. Anderson</strong><span>Clínica Veterinária Palmeiras</span></div>
-<div aria-label="5 de 5" class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“Os vídeos de casos e a segmentação local multiplicaram os <strong>agendamentos</strong>. Crescemos forte em banho &amp; tosa.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">DT</div>
-<div class="who"><strong>Dra. Thayse</strong><span>Dermatologista</span></div>
-<div aria-label="5 de 5" class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“Reels com qualidade e anúncios bem posicionados trouxeram <strong>pacientes de alto valor</strong> e agenda cheia.”</p>
-</article></div></div><div class="testi-slide"><div class="testi-2x2"><article class="testi-card">
-<header class="t-head">
-<div class="avatar">GV</div>
-<div class="who"><strong>Genaria</strong><span>Fundadora — Instituto Genaria Viana</span></div>
-<div aria-label="5 de 5" class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“Organizamos a comunicação e o tráfego; os cursos ganharam <strong>credibilidade</strong> e tivemos turmas completas.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">IL</div>
-<div class="who"><strong>Ieda</strong><span>Diretora — Instituto Lessa Viana</span></div>
-<div aria-label="4.8 de 5" class="stars">★★★★☆</div>
-</header>
-<p class="t-quote">“Com vídeos e anúncios, ampliamos o alcance e fechamos <strong>novas parcerias</strong> educacionais.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">FA</div>
-<div class="who"><strong>Filipe Almeida</strong><span>Diretor — Escola Almeida Santos</span></div>
-<div aria-label="5 de 5" class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“A procura por matrículas cresceu de forma consistente. O tráfego trouxe <strong>famílias qualificadas</strong> para as visitas.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">LC</div>
-<div class="who"><strong>Leonardo</strong><span>Sócio — Constroi.pt</span></div>
-<div class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“Faz pinturas e reparos; após começar, o faturamento aumentou de forma <strong>brusca</strong>.”</p>
-</article></div></div><div class="testi-slide"><div class="testi-2x2"><article class="testi-card">
-<header class="t-head">
-<div class="avatar">RC</div>
-<div class="who"><strong>Romero</strong><span>Gestor — Pousada das Conchas</span></div>
-<div class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“Com vídeos aéreos e tráfego, elevamos a <strong>taxa de ocupação</strong> fora de época.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">BI</div>
-<div class="who"><strong>Bernardo</strong><span>Diretor — Auto Escola Iguaba</span></div>
-<div class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“As campanhas trouxeram <strong>matrículas constantes</strong> e agenda cheia para aulas práticas.”</p>
-</article><article class="testi-card">
-<header class="t-head">
-<div class="avatar">LQ</div>
-<div class="who"><strong>Leandro Dmennor</strong><span>Proprietário — Quintal do Zeca Pagodinho</span></div>
-<div class="stars">★★★★★</div>
-</header>
-<p class="t-quote">“Os criativos deram vida aos eventos; aumentou o <strong>fluxo de reservas</strong> e consumo.”</p>
-</article></div></div></div><div class="testi-nav"><button aria-label="Anterior" class="testi-prev" type="button"></button><div aria-label="Páginas de depoimentos" class="testi-dots" role="tablist"></div><button aria-label="Próximo" class="testi-next" type="button"></button></div></div>
-</div>
-</section>
-<div aria-label="Selecionar idioma" aria-modal="true" class="ml-lang-modal" hidden="" id="ml-lang-modal" role="dialog">
-<div class="ml-lang-backdrop" data-close=""></div>
-<div class="ml-lang-sheet">
-<div class="ml-sheet-handle"></div>
-<h3 class="ml-lang-title">Idioma</h3>
-<div class="ml-lang-grid">
-<button data-lang="pt" type="button">Português</button>
-<button data-lang="en" type="button">English</button>
-<button data-lang="es" type="button">Español</button>
-<button data-lang="fr" type="button">Français</button>
-<button data-lang="it" type="button">Italiano</button>
-<button data-lang="de" type="button">Deutsch</button>
-</div>
-<button class="ml-lang-close" data-close="" type="button">Continuar</button>
-</div>
-</div>
-<button aria-label="Mudar idioma" class="ml-lang-fab" title="Idioma">🌐</button>
-<script>
-(function(){
-  var modal = document.getElementById('ml-lang-modal');
-  var btn = document.querySelector('.ml-lang-fab');
-  var select = document.getElementById('lang'); // já existe no header e é usado pelo i18n
-
-  function open(){ if(modal) modal.hidden = false; }
-  function close(){ if(modal) modal.hidden = true; }
-
-  function choose(code){
-    if(!select) return;
-    select.value = code;
-    // dispara o mesmo fluxo já usado pelo site
-    var ev = new Event('change', {bubbles:true});
-    select.dispatchEvent(ev);
-    try{ localStorage.setItem('mlLang', code); }catch(e){}
-    close();
-  }
-
-  document.addEventListener('click', function(e){
-    if(e.target.closest('.ml-lang-fab')) open();
-    if(e.target.closest('[data-close]')) close();
-    var langBtn = e.target.closest('[data-lang]');
-    if(langBtn){ choose(langBtn.getAttribute('data-lang')); }
-  });
-
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
-
-  // aplica linguagem guardada, se houver
-  try{
-    var saved = localStorage.getItem('mlLang');
-    if(saved && select){
-      select.value = saved;
-      var ev2 = new Event('change', {bubbles:true});
-      select.dispatchEvent(ev2);
-    }
-  }catch(e){}
-})();
-</script>
-<script>
-(function(){
-  var slider = document.querySelector('.testi-slider');
-  if(!slider) return;
-  var track = slider.querySelector('.testi-track');
-  var slides = Array.from(slider.querySelectorAll('.testi-slide'));
-  var dotsWrap = slider.querySelector('.testi-dots');
-  var prev = slider.querySelector('.testi-prev');
-  var next = slider.querySelector('.testi-next');
-  var index = 0;
-
-  function updateDots(i){
-    var dots = dotsWrap.querySelectorAll('.testi-dot');
-    dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
-  }
-  function go(i){
-    index = Math.max(0, Math.min(i, slides.length-1));
-    var x = slider.clientWidth * index;
-    track.scrollTo({left: x, behavior: 'smooth'});
-    updateDots(index);
-  }
-
-  // build dots
-  slides.forEach(function(_, i){
-    var dot = document.createElement('button');
-    dot.className = 'testi-dot';
-    dot.type = 'button';
-    dot.setAttribute('role','tab');
-    dot.setAttribute('aria-label','Ir para página ' + (i+1));
-    dot.addEventListener('click', function(){ go(i); });
-    dotsWrap.appendChild(dot);
-  });
-  updateDots(0);
-
-  // arrows
-  if(prev) prev.addEventListener('click', function(){ go(index-1); });
-  if(next) next.addEventListener('click', function(){ go(index+1); });
-
-  // sync by scroll (snap)
-  var ticking = false;
-  track.addEventListener('scroll', function(){
-    if(ticking) return;
-    window.requestAnimationFrame(function(){
-      var w = slider.clientWidth || 1;
-      var i = Math.round(track.scrollLeft / w);
-      if(i !== index){ index = i; updateDots(i); }
-      ticking = false;
-    });
-    ticking = true;
-  });
-
-  // handle resize
-  window.addEventListener('resize', function(){ go(index); });
-})();
-</script>
-<script>
-(function(){
-  function tagCTAs(){
-    var nodes = document.querySelectorAll('a, button');
-    nodes.forEach(function(n){
-      var t = (n.textContent || '').trim().toLowerCase();
-      if(!t) return;
-      if(t.startsWith('falar com a nossa equipa')){
-        n.classList.add('mobile-cta-center');
-      }
-    });
-  }
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', tagCTAs);
-  }else{
-    tagCTAs();
-  }
-})();
-</script>
-<script>
-(function(){
-  var slider = document.querySelector('.testi-slider');
-  if(!slider) return;
-  var track = slider.querySelector('.testi-track');
-  var slides = Array.from(slider.querySelectorAll('.testi-slide'));
-  var dotsWrap = slider.querySelector('.testi-dots');
-  var prev = slider.querySelector('.testi-prev');
-  var next = slider.querySelector('.testi-next');
-  var index = 0;
-
-  function ensureIcon(btn, left){
-    if(!btn || btn.querySelector('svg')) return;
-    var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
-    svg.setAttribute('viewBox','0 0 24 24'); svg.setAttribute('class','icon');
-    var path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('fill','none'); path.setAttribute('stroke','currentColor');
-    path.setAttribute('stroke-width','2'); path.setAttribute('stroke-linecap','round'); path.setAttribute('stroke-linejoin','round');
-    path.setAttribute('d', left ? 'M15 6l-6 6 6 6' : 'M9 6l6 6-6 6');
-    svg.appendChild(path); btn.appendChild(svg);
-  }
-  ensureIcon(prev, true); ensureIcon(next, false);
-
-  function updateDots(i){
-    var dots = dotsWrap.querySelectorAll('.testi-dot');
-    dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
-  }
-  function go(i){
-    index = Math.max(0, Math.min(i, slides.length-1));
-    var x = slider.clientWidth * index;
-    track.scrollTo({left: x, behavior: 'smooth'});
-    updateDots(index);
-  }
-
-  // Dots
-  dotsWrap.innerHTML = '';
-  slides.forEach(function(_, i){
-    var dot = document.createElement('button');
-    dot.className = 'testi-dot';
-    dot.type = 'button';
-    dot.setAttribute('role','tab');
-    dot.setAttribute('aria-label','Ir para página ' + (i+1));
-    dot.addEventListener('click', function(){ go(i); });
-    dotsWrap.appendChild(dot);
-  });
-  updateDots(0);
-
-  if(prev) prev.addEventListener('click', function(){ go(index-1); });
-  if(next) next.addEventListener('click', function(){ go(index+1); });
-
-  track.addEventListener('scroll', function(){
-    var w = slider.clientWidth || 1;
-    var i = Math.round(track.scrollLeft / w);
-    if(i !== index){ index = i; updateDots(i); }
-  });
-  window.addEventListener('resize', function(){ go(index); });
-})();
-</script>
-<script>
-(function(){
-  function markTopCTA(){
-    var hero = document.querySelector('.hero-compact-panel');
-    // pegue todos os CTA com o texto alvo
-    var all = Array.from(document.querySelectorAll('a,button')).filter(function(el){
-      return /falar com a nossa equipa/i.test((el.textContent||'').trim());
-    });
-    if(!all.length) return;
-    // encontre o primeiro CTA que aparece ANTES do hero; esse é o duplicado do topo
-    var topCTA = null;
-    if(hero){
-      all.forEach(function(el){
-        var rel = el.compareDocumentPosition(hero);
-        var isBefore = !!(rel & Node.DOCUMENT_POSITION_FOLLOWING); // el vem antes do hero
-        if(isBefore && !topCTA) topCTA = el;
-      });
-    }
-    // se não achou via relação, simplesmente marca o primeiro da página
-    if(!topCTA) topCTA = all[0];
-    if(topCTA) topCTA.classList.add('ml-hide-mobile');
-  }
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', markTopCTA);
-  }else{
-    markTopCTA();
-  }
-})();
-</script>
-<script>
-        (function(){
-          var slider = document.querySelector('.testi-slider');
-          if(!slider) return;
-          var track = slider.querySelector('.testi-track');
-          var slides = Array.from(track.querySelectorAll('.testi-slide'));
-          // remove empty slides again (safety)
-          slides.forEach(function(s){ if(!s.querySelector('.testi-card')) s.remove(); });
-          slides = Array.from(track.querySelectorAll('.testi-slide'));
-          var dotsWrap = slider.querySelector('.testi-dots');
-          function updateDots(i){
-            var dots = dotsWrap.querySelectorAll('.testi-dot');
-            dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
-          }
-          function go(i){
-            i = Math.max(0, Math.min(i, slides.length-1));
-            var x = slider.clientWidth * i;
-            track.scrollTo({left: x, behavior:'smooth'});
-            updateDots(i);
-          }
-          if(dotsWrap){
-            dotsWrap.innerHTML = '';
-            slides.forEach(function(_, idx){
-              var dot = document.createElement('button');
-              dot.className = 'testi-dot'; dot.type='button'; dot.setAttribute('role','tab');
-              dot.setAttribute('aria-label','Ir para página '+(idx+1));
-              dot.addEventListener('click', function(){ go(idx); });
-              dotsWrap.appendChild(dot);
-            });
-            updateDots(0);
-          }
-        })();
-        </script>
-<footer class="hl-footer"><img alt="Logo High Level Marketing" class="hl-footer-logo" src="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true"/><p class="hl-copy">© High Level Marketing</p></footer>
-<script>
-(function(){
-  var slider = document.querySelector('.pkg-slider');
-  if(!slider) return;
-  var track = slider.querySelector('.pkg-track');
-  var slides = Array.from(slider.querySelectorAll('.pkg-slide'));
-  var dotsWrap = slider.querySelector('.pkg-dots');
-  var prev = slider.querySelector('.pkg-prev');
-  var next = slider.querySelector('.pkg-next');
-  var index = 0;
-
-  function updateDots(i){
-    var dots = dotsWrap.querySelectorAll('.pkg-dot');
-    dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
-  }
-  function go(i){
-    index = Math.max(0, Math.min(i, slides.length-1));
-    var x = slider.clientWidth * index;
-    track.scrollTo({left: x, behavior: 'smooth'});
-    updateDots(index);
-  }
-  // build dots
-  dotsWrap.innerHTML = '';
-  slides.forEach(function(_, i){
-    var dot = document.createElement('button');
-    dot.className = 'pkg-dot'; dot.type='button';
-    dot.setAttribute('role','tab'); dot.setAttribute('aria-label','Ir para pacote ' + (i+1));
-    dot.addEventListener('click', function(){ go(i); });
-    dotsWrap.appendChild(dot);
-  });
-  updateDots(0);
-
-  if(prev) prev.addEventListener('click', function(){ go(index-1); });
-  if(next) next.addEventListener('click', function(){ go(index+1); });
-
-  track.addEventListener('scroll', function(){
-    var w = slider.clientWidth || 1;
-    var i = Math.round(track.scrollLeft / w);
-    if(!isNaN(i) && i !== index){ index = i; updateDots(i); }
-  });
-  window.addEventListener('resize', function(){ go(index); });
-})();
-</script>
-<script>
-(function(){
-  var slider = document.querySelector('.pkg-slider');
-  if(!slider) return;
-  var track = slider.querySelector('.pkg-track');
-  var slides = Array.from(slider.querySelectorAll('.pkg-slide'));
-  var dotsWrap = slider.querySelector('.pkg-dots');
-  var prev = slider.querySelector('.pkg-prev');
-  var next = slider.querySelector('.pkg-next');
-  var index = 0;
-
-  // Remove slides vazios (às vezes o primeiro vinha sem conteúdo)
-  slides.forEach(function(s){ if(!s.querySelector('*:not(script):not(style)')) s.remove(); });
-  slides = Array.from(slider.querySelectorAll('.pkg-slide'));
-
-  function updateDots(i){
-    var dots = dotsWrap.querySelectorAll('.pkg-dot');
-    dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
-  }
-  function go(i){
-    var total = slides.length;
-    if(total === 0) return;
-    // looping
-    if(i < 0) i = total - 1;
-    if(i >= total) i = 0;
-    index = i;
-    var x = slider.clientWidth * index;
-    track.scrollTo({left: x, behavior: 'smooth'});
-    updateDots(index);
-  }
-
-  // rebuild dots
-  if(dotsWrap){
-    dotsWrap.innerHTML = '';
-    slides.forEach(function(_, i){
-      var dot = document.createElement('button');
-      dot.className = 'pkg-dot';
-      dot.type = 'button';
-      dot.setAttribute('role','tab');
-      dot.setAttribute('aria-label','Ir para pacote ' + (i+1));
-      dot.addEventListener('click', function(){ go(i); });
-      dotsWrap.appendChild(dot);
-    });
-  }
-  updateDots(0);
-
-  if(prev) prev.addEventListener('click', function(){ go(index-1); });
-  if(next) next.addEventListener('click', function(){ go(index+1); });
-
-  // sincronizar pelo scroll (snap)
-  var ticking=false;
-  track.addEventListener('scroll', function(){
-    if(ticking) return;
-    window.requestAnimationFrame(function(){
-      var w = slider.clientWidth || 1;
-      var i = Math.round(track.scrollLeft / w);
-      var total = slides.length;
-      if(total){
-        if(i < 0) i = total - 1;
-        if(i >= total) i = total - 1; // evita index inválido
-        if(i !== index){ index = i; updateDots(index); }
-      }
-      ticking=false;
-    });
-    ticking=true;
-  });
-
-  window.addEventListener('resize', function(){ go(index); });
-})();
-</script>
-
-<script>
-(function(){
-  // 1) Centraliza o grupo de chips (menu âncoras)
-  var labels = ['Pacotes','Portfólio','Como funciona','Diferenciais','FAQ','Contactos','Contato','Contactos'];
-  var anchors = Array.from(document.querySelectorAll('a,button')).filter(function(el){
-    var t = (el.textContent || '').trim();
-    return labels.indexOf(t) !== -1;
-  });
-  if(anchors.length){
-    var container = anchors[0].closest('nav, .anchors, .nav, .navbar, .chips, .menu, div');
-    if(container) container.classList.add('chips-center');
-  }
-
-  // 2) Slider de pacotes — remove slides vazios e ativa looping
-  var slider = document.querySelector('.pkg-slider');
-  if(!slider) return;
-  var track = slider.querySelector('.pkg-track');
-  var dotsWrap = slider.querySelector('.pkg-dots');
-  var prev = slider.querySelector('.pkg-prev');
-  var next = slider.querySelector('.pkg-next');
-
-  function getSlides(){
-    return Array.from(track.querySelectorAll('.pkg-slide'));
-  }
-
-  // Remover slides "vazios" — considera vazio quando não há títulos/listas/conteúdo significativo
-  getSlides().forEach(function(s){
-    if(!s.querySelector('.pkg-card, .pricing-card, .pacote, .package, h3, h4, ul, ol, p')){
-      s.remove();
-    }
-  });
-
-  // garante que começamos no primeiro
-  track.scrollLeft = 0;
-
-  var index = 0;
-  function updateDots(i){
-    if(!dotsWrap) return;
-    var dots = dotsWrap.querySelectorAll('.pkg-dot');
-    dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
-  }
-  function rebuildDots(){
-    if(!dotsWrap) return;
-    dotsWrap.innerHTML = '';
-    getSlides().forEach(function(_, i){
-      var dot = document.createElement('button');
-      dot.className = 'pkg-dot'; dot.type = 'button';
-      dot.setAttribute('role','tab'); dot.setAttribute('aria-label','Ir para pacote ' + (i+1));
-      dot.addEventListener('click', function(){ go(i); });
-      dotsWrap.appendChild(dot);
-    });
-    updateDots(0);
-  }
-  function go(i){
-    var slides = getSlides();
-    var total = slides.length;
-    if(total === 0) return;
-    if(i < 0) i = total - 1;  // looping
-    if(i >= total) i = 0;
-    index = i;
-    var x = slider.clientWidth * index;
-    track.scrollTo({left: x, behavior: 'smooth'});
-    updateDots(index);
-  }
-
-  rebuildDots();
-  if(prev) prev.addEventListener('click', function(){ go(index-1); });
-  if(next) next.addEventListener('click', function(){ go(index+1); });
-
-  // sincroniza pelo scroll (snap) e corrige “meio slide”
-  var ticking = false;
-  track.addEventListener('scroll', function(){
-    if(ticking) return;
-    window.requestAnimationFrame(function(){
-      var w = slider.clientWidth || 1;
-      var i = Math.round(track.scrollLeft / w);
-      var slides = getSlides();
-      if(slides.length){
-        if(i < 0) i = 0;
-        if(i >= slides.length) i = slides.length - 1;
-        if(i !== index){ index = i; updateDots(i); }
-      }
-      ticking = false;
-    });
-    ticking = true;
-  });
-
-  window.addEventListener('resize', function(){ go(index); });
-})();
-</script>
 </body>
 </html>
