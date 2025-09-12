@@ -439,7 +439,6 @@
 .testi-dot{ width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.15); }
 .testi-dot[aria-selected="true"]{ background:#ff8a3c; border-color:#ff8a3c; }
 </style>
-
 <style>
 /* Center hero container across phones & tablets, widen slightly if needed */
 @media (max-width: 1024px){
@@ -475,6 +474,15 @@
 /* Esconder no mobile apenas o CTA que fica ANTES do hero (o duplicado de topo) */
 @media (max-width: 768px){
   .ml-hide-mobile{ display: none !important; }
+}
+</style>
+
+<style>
+@media (max-width: 768px){
+  .hero, .hero-compact-wrap{ background: transparent !important; border: 0 !important; box-shadow: none !important; }
+  .hero-compact-panel{ background: transparent !important; border:0 !important; box-shadow:none !important; width:100% !important; max-width:760px !important; padding:0 16px !important; margin:0 auto !important; text-align:center !important; }
+  .hero-compact-panel > *{ margin-left:auto !important; margin-right:auto !important; text-align:center !important; display:block; }
+  .hero, .hero-compact-wrap{ display:flex !important; flex-direction:column; align-items:center !important; justify-content:center !important; padding:8px 0 12px; }
 }
 </style>
 </head>
@@ -929,7 +937,7 @@
 <section aria-label="Feedback de clientes" class="testimonials-section" id="depoimentos">
 <div class="testi-wrap">
 <h2 class="testi-title">O que dizem nossos clientes</h2>
-<div aria-label="O que dizem nossos clientes" class="testi-slider" role="region"><div class="testi-track"><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2col"></div></div><div class="testi-slide"><div class="testi-2x2"><article class="testi-card">
+<div aria-label="O que dizem nossos clientes" class="testi-slider" role="region"><div class="testi-track"><div class="testi-slide"><div class="testi-2x2"><article class="testi-card">
 <header class="t-head">
 <div class="avatar">LC</div>
 <div class="who"><strong>Lúcia Canelas</strong><span>Proprietária — Imobiliária Canelas</span></div>
@@ -1225,7 +1233,6 @@
   window.addEventListener('resize', function(){ go(index); });
 })();
 </script>
-
 <script>
 (function(){
   function markTopCTA(){
@@ -1255,5 +1262,39 @@
   }
 })();
 </script>
+
+<script>
+        (function(){
+          var slider = document.querySelector('.testi-slider');
+          if(!slider) return;
+          var track = slider.querySelector('.testi-track');
+          var slides = Array.from(track.querySelectorAll('.testi-slide'));
+          // remove empty slides again (safety)
+          slides.forEach(function(s){ if(!s.querySelector('.testi-card')) s.remove(); });
+          slides = Array.from(track.querySelectorAll('.testi-slide'));
+          var dotsWrap = slider.querySelector('.testi-dots');
+          function updateDots(i){
+            var dots = dotsWrap.querySelectorAll('.testi-dot');
+            dots.forEach(function(d, n){ d.setAttribute('aria-selected', n===i ? 'true' : 'false'); });
+          }
+          function go(i){
+            i = Math.max(0, Math.min(i, slides.length-1));
+            var x = slider.clientWidth * i;
+            track.scrollTo({left: x, behavior:'smooth'});
+            updateDots(i);
+          }
+          if(dotsWrap){
+            dotsWrap.innerHTML = '';
+            slides.forEach(function(_, idx){
+              var dot = document.createElement('button');
+              dot.className = 'testi-dot'; dot.type='button'; dot.setAttribute('role','tab');
+              dot.setAttribute('aria-label','Ir para página '+(idx+1));
+              dot.addEventListener('click', function(){ go(idx); });
+              dotsWrap.appendChild(dot);
+            });
+            updateDots(0);
+          }
+        })();
+        </script>
 </body>
 </html>
