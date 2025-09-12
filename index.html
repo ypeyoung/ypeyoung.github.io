@@ -484,14 +484,12 @@
   .hero, .hero-compact-wrap{ display:flex !important; flex-direction:column; align-items:center !important; justify-content:center !important; padding:8px 0 12px; }
 }
 </style>
-
 <style>
 @media (max-width: 768px){
   .ml-mobile-header{ display: none !important; }
   header .logo, .navbar-brand{ display: none !important; } /* evita logo de tema no topo no mobile */
 }
 </style>
-
 <style>
 /* Top ambient ribbon — sutil e elegante */
 .hl-top-ribbon{
@@ -511,7 +509,6 @@
   .hl-top-ribbon{ height: 72px; opacity: .45; }
 }
 </style>
-
 <style>
 .hl-footer{
   margin: 40px auto 28px;
@@ -529,12 +526,22 @@
   .hl-footer-logo{ width: 88px; height: 88px; }
 }
 </style>
+
+<style>
+@media (max-width: 768px){
+  .hero-compact-panel img[alt*="logo" i],
+  .hero-compact-panel img[alt*="high level" i],
+  img[src*="logo-hl"][src$="raw=true"]:not(.hl-footer-logo){
+    display: none !important;
+  }
+}
+</style>
 </head>
 <body><div aria-hidden="true" class="hl-top-ribbon"></div>
 <div class="wrap">
 <header class="topbar">
 <div class="brand">
-<img alt="High Level Marketing" src="https://github.com/ypeyoung/ypeyoung.github.io/blob/main/logo-hl.png?raw=true"/>
+
 <div>High Level Marketing</div>
 </div>
 <div class="controls">
